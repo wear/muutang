@@ -84,7 +84,7 @@ h2{
 ul li{list-style:none;}                 
 
 #container{
-	width:1004px;
+	width:986px;
 	margin:0 auto;
 }       
 
@@ -127,7 +127,7 @@ ul li{list-style:none;}
 
 #content{   
 	float:left;
-	width:720px;
+	width:700px;
 }      
 
 #bread{
@@ -309,7 +309,6 @@ input:focus, textarea:focus {
 	clear:both;
 	padding:10px;
 	height:65px;
-	width:100%;
 } 
 
 .g_left{ 
