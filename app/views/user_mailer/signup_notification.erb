@@ -1,0 +1,20 @@
+<p>你好<%=h @user.login %>:
+<br />
+<br />
+你的帐户已创建成功!
+<br />
+<br />
+  用户名: <%=h @user.login %><br />
+  密码: <%=h @user.password %>
+<br />
+<br />
+<p>请点击下面的链接激活你的帐户<br />
+  <%=link_to h(@url),@url %>
+</p>
+
+
+<p>
+------------------------------<br />
+访问亩塘
+<a href='http://www.muutang.com'>www.muutang.com</a>
+</p>

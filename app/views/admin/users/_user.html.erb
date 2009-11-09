@@ -1,0 +1,12 @@
+
+<dd>   
+<%= image_tag user.avatar.url(:thumb) %>  
+<%=link_to h(user.login),user %> <%=h user.name %>  <%= user.posts.count %>篇帖子 
+<%= user.comments.count %>次回复
+<p>
+<%=truncate(h(user.desc),120) %>
+</p> 
+<p>
+<%=long_pretty_button '设定角色',setting_role_admin_user_path(user),{},{:type => "button",:class => "btn"}%> <%=long_pretty_button '删除',admin_user_path(user),{:method => :delete,:confirm => "你确定嘛?"},{:type => "button",:class => "btn"}%>
+</p>
+</dd>

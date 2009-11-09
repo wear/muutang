@@ -1,0 +1,5 @@
+<% content_for :header do -%> 
+<%= include_tiny_mce_if_needed %> 
+<% end %>
+<%= f.text_field :title,:label => '标题',:class => 'title' %>
+<%= f.text_area :body,:label => '内容',:class => "mceEditor"%>

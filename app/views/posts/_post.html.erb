@@ -1,0 +1,4 @@
+<dd>    
+	<%=image_tag post.user.avatar.url(:thumb) %>
+	<%=link_to h(post.user.login),post.user %> <%=link_to h(post.title),post,:class => 'a6' %>  <span style='color:#999999'><%= time_ago_in_words_or_date(post.created_at) %> </span> <%=post.comments_count%>评论
+</dd>

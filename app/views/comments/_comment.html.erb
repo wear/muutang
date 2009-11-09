@@ -1,0 +1,9 @@
+
+	<tr>
+	<td valign="top" style='text-align:center'><%=image_tag comment.user.avatar.url(:medium) %><br /><b><%=h comment.user.login%></b></td>
+	<td><%= comment.comment %> <br /><span style='color:#999999'><%= time_ago_in_words_or_date(comment.created_at) %> </span>    
+	<% restrict_to "(editor | superuser)" do %> 
+		<%=link_to '删除',admin_comment_path(comment),:method => :delete %>
+	<% end %>
+	</td>
+	</tr>                                                               

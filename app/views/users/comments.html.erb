@@ -1,0 +1,11 @@
+<% content_for :bread do -%> 
+	<div id="bread">
+		<%=link_to '首页',root_path %> >> <%=link_to h(@user.login),@user%> >> 所有评论
+	</div>
+<% end %>
+
+<% @comments.each do |post,comments| -%>
+<dd>
+	<%=link_to h(post.title),post%> <%= comments.size %> 篇回复
+</dd>
+<% end -%>

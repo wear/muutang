@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title><%= 'site_name | ' + h(@page_title) %></title>
+	<%= javascript_include_tag :defaults %>  
+	<%= javascript_include_tag 'pretty-buttons' %>
+	<%= stylesheet_link_tag 'style','pretty-buttons','ui-theme' %>     
+	<%= yield :header %>                
+	
+</head>
+<body>
+	<div id="container">
+	   <div id="header">
+		<%= render :partial => 'shared/header' %>
+	   </div>                    
+	   <div id="body" class='ui-corner-all'> 
+		 <%= render :partial => '/shared/notice' %>
+		 <%= render :partial => '/shared/group_header' %>
+		 <div id="content"  >  
+		   <%= yield :bread %>   
+		   <%= yield %>
+		 </div>
+	   	 <div id="sidebar" class='ui-corner-all'>      
+		   	<% if logged_in? %>      
+		     <div class='box menu ui-corner-all'>
+		     	<%=link_to '我的帖子',posts_user_path(current_user) %>
+		     	<%=link_to '我的评论',comments_user_path(current_user) %> 
+				<div style="font: 0px/0px sans-serif;clear: both;display: block"> </div>
+		     </div>           
+		   	<% end %>
+		     <div class='box ui-corner-all'>
+		     	<%= Post.count %>个帖子,<%= Comment.count %>篇回复<br />
+		     	<%= User.count %>名用户
+	   	     </div>
+	   	 </div>   
+		  <div style="font: 0px/0px sans-serif;clear: both;display: block"> </div>   
+	   </div> 
+	   <%=render :partial => '/shared/footer' %>
+	</div>
+</body>
+</html>

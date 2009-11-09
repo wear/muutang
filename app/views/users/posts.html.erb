@@ -1,0 +1,7 @@
+<% content_for :bread do -%> 
+	<div id="bread">
+		<%=link_to '首页',root_path %> >> <%=link_to h(@user.login),@user%> >> 所有帖子
+	</div>
+<% end %>
+
+<%=render @posts%>

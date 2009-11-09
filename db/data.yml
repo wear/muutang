@@ -1,0 +1,76 @@
+
+--- 
+categories: 
+  columns: 
+  - id
+  - name
+  records: 
+  - - "1"
+    - !binary |
+      6Zeu562U
+
+
+--- 
+roles: 
+  columns: 
+  - id
+  - title
+  records: 
+  - - "3"
+    - superuser
+
+--- 
+roles_users: 
+  columns: 
+  - role_id
+  - user_id
+  records: 
+  - - "1"
+    - "3"
+  - - "1"
+    - "3"
+  - - "1"
+    - "3"
+  - - "3"
+    - "3"
+
+--- 
+users: 
+  columns: 
+  - id
+  - login
+  - name
+  - email
+  - crypted_password
+  - salt
+  - created_at
+  - updated_at
+  - remember_token
+  - remember_token_expires_at
+  - activation_code
+  - activated_at
+  - avatar_updated_at
+  - avatar_file_size
+  - avatar_file_name
+  - avatar_content_type
+  - desc
+  - prestige
+  records: 
+  - - "3"
+    - wear
+    - ""
+    - skung@sandsroad.com
+    - a8da3dc42db807702494693b931ea35908b18933
+    - 3a680c06cc6f54068e3558450ba1686a635c3979
+    - 2009-11-02 07:00:32
+    - 2009-11-09 10:36:10
+    - 
+    - 
+    - 
+    - 2009-11-02 07:01:55
+    - 2009-11-09 10:36:09
+    - "6451"
+    - 15.jpg
+    - image/jpeg
+    - sdfasdfa
+    - 

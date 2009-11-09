@@ -1,0 +1,10 @@
+<% content_for :bread do -%> 
+	<div id="bread">
+		<%=link_to '首页',root_path %> >> <%=link_to h(@user.login),@user%> >> 编辑
+	</div>
+<% end %>
+<h2>编辑用户</h2>
+<% form_for :user,:url => user_path(@user),:html => { :multipart => true,:method => :put,:id => 'form' } do |f| -%>    
+	<%=render :partial=> 'form', :locals => {:f => f} %>  
+	<%= f.submit '更新' %>
+<% end -%>

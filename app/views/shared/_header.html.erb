@@ -1,0 +1,21 @@
+<div class='logo'>
+   <%=image_tag('logo.png')%>  
+</div> 
+<div class='system_menu'>
+	<%=link_to '首页','/',:class => 'a14'%>
+</div>        
+
+<div class='user_menu'> 
+	<% if logged_in? -%>
+	<%=link_to current_user.login,current_user,:class => 'a14' %> 
+	<% restrict_to "superuser" do %>
+		<%=link_to '控制面板',admin_path,:class => 'a14' %>
+	<% end -%>   
+	<%=link_to '设置',edit_user_path(current_user),:class => 'a14' %>   
+
+	<%=link_to '注销',logout_path,:class => 'a14' %> 
+	<% else -%>
+	<%=link_to '登录',login_path,:class => 'a14' %> 
+	<%=link_to '注册',signup_path,:class => 'a14' %>
+	<% end %>
+</div>

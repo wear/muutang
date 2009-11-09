@@ -1,0 +1,17 @@
+<% content_for :bread do -%> 
+	<div id="bread">
+		<%=link_to '首页',root_path %> >> <%=link_to h(@user.login),@user%>
+	</div>
+<% end %>
+
+<%= image_tag @user.avatar.url(:medium) %>
+
+<br /> <%=h @user.login %> <br />
+
+<%=h @user.name %>
+<p>
+<%=h(@user.desc) %></p>
+
+<%= @user.posts.count %>篇帖子<br />
+<%= @user.comments.count %>次回复
+

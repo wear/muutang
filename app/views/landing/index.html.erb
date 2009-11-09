@@ -1,0 +1,7 @@
+<div class='opt'>
+<b>讨论区</b> 目前共有<%= Post.count %>个帖子 <%=link_to '>>所有帖子',posts_path %> <span style='float:right'><%=pretty_button('发帖', new_post_path,:class=>'btn')%></span>
+</div>   
+
+<dl>
+	<%= render @posts %>
+</dl>      

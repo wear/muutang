@@ -1,0 +1,44 @@
+# Logfile created on Mon Nov 02 15:07:05 +0800 2009WARNING: Can't mass-assign these protected attributes: mail
+WARNING: Can't mass-assign these protected attributes: mail
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'stephen') LIMIT 1[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" IS NULL) LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'stephen') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'skung@sandsroad.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "updated_at", "activated_at", "crypted_password", "remember_token_expires_at", "activation_code", "remember_token", "login", "email", "created_at") VALUES('', 'f184193e0097a93b76fef1b05518cc110a1e5811', '2009-11-02 07:55:04', NULL, '9b80c37d6b83d1bdb08a49f7ea63ec786859be59', NULL, 'bb5e159d7ee991182f9b45b64f366668279659fc', NULL, 'stephen', 'skung@sandsroad.com', '2009-11-02 07:55:04')[0m
+Sent mail to stephen <skung@sandsroad.com>
+
+Date: Mon, 2 Nov 2009 15:55:04 +0800
+From: ADMINEMAIL
+To: stephen <skung@sandsroad.com>
+Subject: [YOURSITE] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+
+  Username: stephen
+  Password: zzzzzz
+
+Visit this url to activate your account:
+
+  http://dev.mt/activate/bb5e159d7ee991182f9b45b64f366668279659fc
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."login" = 'stephen') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'skung@sandsroad.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("name", "salt", "updated_at", "activated_at", "crypted_password", "remember_token_expires_at", "activation_code", "remember_token", "login", "email", "created_at") VALUES('', '5a942c2fd3f6582b693f8b8eb3aee4c70cf1d8e0', '2009-11-02 08:14:08', NULL, 'c087fb07cab422cb3094863f76ec129b2f273819', NULL, 'ab612443606210c3ae85e839c2ad4a4e26265443', NULL, 'stephen', 'skung@sandsroad.com', '2009-11-02 08:14:08')[0m
+Sent mail to stephen <skung@sandsroad.com>
+
+Date: Mon, 2 Nov 2009 16:14:08 +0800
+From: ADMINEMAIL
+To: stephen <skung@sandsroad.com>
+Subject: [YOURSITE] Please activate your new account
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Your account has been created.
+
+  Username: stephen
+  Password: zzzzzz
+
+Visit this url to activate your account:
+
+  http://dev.mt/activate/ab612443606210c3ae85e839c2ad4a4e26265443

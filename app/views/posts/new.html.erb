@@ -1,0 +1,13 @@
+<% content_for :bread do -%> 
+	<div id="bread">
+		<%=link_to '首页',root_path %> >>  发新贴
+	</div>
+<% end %>
+
+<h1>发新贴</h1>
+
+<% form_for(@post,:html => {:id => 'longform'}) do |f| %>
+  <%= f.error_messages %>
+  <%=render :partial => 'form',:locals => {:f => f} %>
+  <%= f.submit '提交',:id => 'submit' %>
+<% end %>

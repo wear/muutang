@@ -1,0 +1,16 @@
+<% content_for :bread do -%> 
+	<div id="bread">
+		<%=link_to '首页',root_path %> >> <%=link_to h(@post.title),@post%> >> 编辑
+	</div>
+<% end %>
+
+<h1>编辑帖子</h1>
+
+<% form_for(@post,:html => {:id => 'longform'}) do |f| %>
+  <%= f.error_messages %>
+
+  <%=render :partial => 'form',:locals => {:f => f} %>
+  <p>
+    <%= f.submit '更新',:class => 'submit' %>
+  </p>
+<% end %>

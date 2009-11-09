@@ -1,0 +1,16 @@
+<h1>设定用户权限</h1>
+<div class='role'>
+	<span> <%=h @user.login%>  </span>
+	<ul>
+	   <% @user.roles.each do |role|%>
+			<li><%=role.title%><%=link_to '(删除)',destroy_role_admin_user_path(@user,:role => role.title),:class => 'small',:method => :delete,:confirm => '你确定嘛?' %></li>
+		<% end %>	                            
+		</ul>
+</div>
+
+<p>
+<% form_tag  update_role_admin_user_path(@user),:method => :put do |f| -%>
+  <%=select_tag :role,options_for_select(Role.find(:all).map(&:title))%>
+  <%= submit_tag "添加" %>   
+<% end -%>
+</p>

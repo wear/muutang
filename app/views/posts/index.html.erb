@@ -1,0 +1,12 @@
+<div class='opt'>
+ <span style='float:right'><%=pretty_button('发帖', new_post_path,:class=>'btn')%></span>
+</div>   
+ <%= will_paginate @posts,:previous_label => '<前页',:next_label => '后页>' %>    
+<dl>
+	<%= render @posts %>
+</dl>   
+ <%= will_paginate @posts,:previous_label => '<前页',:next_label => '后页>' %>               
+<div class='opt'>
+<span style='float:right'><%=pretty_button('发帖', new_post_path,:class=>'btn')%></span>
+</div>
+

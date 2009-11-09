@@ -1,0 +1,6 @@
+<h2>新建评论</h2>
+<% form_for(:comment,@comment,:url=> post_comments_path,:html => {:id => 'form'}) do |f| %>
+  <%= f.error_messages %>
+  <%=render :partial => 'form',:locals => {:f => f} %>
+  <%= f.submit 'Create' %>
+<% end %>
