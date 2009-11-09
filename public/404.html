@@ -5,26 +5,46 @@
 
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>你请求的页面不存在 (404)</title>
 	<style type="text/css">
-		body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-		div.dialog {
-			width: 25em;
-			padding: 0 4em;
-			margin: 4em auto 0 auto;
-			border: 1px solid #ccc;
-			border-right-color: #999;
-			border-bottom-color: #999;
+		body{         
+			FONT-SIZE: 12px;
+			COLOR: #222227;
+			LINE-HEIGHT: 150%;
+			FONT-FAMILY: Arial, Helvetica, sans-serif;
+			background-color: #efefef;
+			background-position: top;
+			margin:0;
+			background:#EFEDE4 none repeat scroll 0 0;
 		}
-		h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+		h1{  
+			padding-bottom:10px;
+			border-bottom:1px solid #eee;  
+		}     
+
+		h2{      
+			padding:5px;
+			margin:5px;
+			border-bottom:1px solid #eee;
+		}
+		#container{
+			width:500px;
+			margin:0 auto;
+		}
+		#body{
+			margin:10px 0px;
+			background:#FFFFFF;
+			padding:10px;
+		}
 	</style>
 </head>
 
-<body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
+<body>  
+  <div id="container">
+	<div id="body" class='ui-corner-all'>
+		<h1>你请求的页面不存在 -_-!</h1>
+	    <p>你请求的地址不存在或者可能被管理员移动位置了.<br />返回<a href='/'>首页</a></p>   
+	</div>
+  </div>  
 </body>
 </html>
