@@ -18,12 +18,11 @@
 	<td><span class='title'><%=h @post.title %></span> 
 		<p>
 		<% if @post.user == current_user %>
-			<%=long_pretty_button '编辑',edit_post_path(@post),{},{:type => "button",:class => "btn"} %>
+			<%=pretty_button '编辑',edit_post_path(@post),:class => "btn" %>
 		<% end %>  
 		<% restrict_to "(editor | superuser)" do %>
 	    	<%=mark_top_button(@post)%>
-			<%=long_pretty_button '删除',admin_post_path(@post),{:method => :delete,:confirm => "你确定嘛?"
-			},{:type => "button",:class => "btn"} %>
+			<%=pretty_button '删除',admin_post_path(@post),:method => :delete,:confirm => "你确定嘛?",:class => "btn" %>
 		<% end %>
 		</p>
 		<div style='overflow:hidden;width:600px;'><%= @post.body %></div><span style='color:#999999'><%= time_ago_in_words_or_date(@post.created_at) %> </span> <br />

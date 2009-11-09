@@ -2,12 +2,26 @@ class PostsController < ApplicationController
   before_filter :login_required,:except => [:index,:show]  
 
   uses_tiny_mce :only => [:new, :create, :edit, :update,:show],
-  :options => { :theme => 'advanced',:content_css => "/stylesheets/editor_content.css",
-  :plugins => %w{ syntaxhl },:theme_advanced_buttons1 => 
-    "bold,italic,underline,undo,redo,link,unlink,image,forecolor,styleselect,removeformat,cleanup,code, syntaxhl",
-    :theme_advanced_buttons2 => "", 
-    :theme_advanced_buttons3 => "", 
-    :remove_linebreaks => false,:extended_valid_elements => "textarea[cols|rows|disabled|name|readonly|class]"} 
+  :options => { :theme => 'advanced',:plugins => %w{ syntaxhl },:content_css => "/stylesheets/editor_content.css",
+  :browsers => %w{msie gecko safari},
+  :theme_advanced_layout_manager => "SimpleLayout",
+  :theme_advanced_statusbar_location => "bottom",
+  :theme_advanced_toolbar_location => "top",
+  :theme_advanced_toolbar_align => "left",
+  :theme_advanced_resizing => true,
+  :relative_urls => false,
+  :convert_urls => false,
+  :cleanup => true,
+  :cleanup_on_startup => true,  
+  :convert_fonts_to_spans => true,
+  :theme_advanced_resize_horizontal => false,
+  :theme_advanced_buttons1 => %w{bold italic underline separator justifyleft justifycenter justifyright indent outdent separator bullist numlist separator link unlink image media separator  undo redo syntaxhl code},
+  :theme_advanced_buttons2 => [],
+  :theme_advanced_buttons3 => [],
+  :editor_deselector => "mceNoEditor"
+  } 
+    
+    
   
   layout 'group'
   # GET /posts

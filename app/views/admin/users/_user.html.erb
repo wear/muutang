@@ -7,6 +7,6 @@
 <%=truncate(h(user.desc),120) %>
 </p> 
 <p>
-<%=long_pretty_button '设定角色',setting_role_admin_user_path(user),{},{:type => "button",:class => "btn"}%> <%=long_pretty_button '删除',admin_user_path(user),{:method => :delete,:confirm => "你确定嘛?"},{:type => "button",:class => "btn"}%>
+<%=pretty_button '设定角色',setting_role_admin_user_path(user),:class => "btn" %> <%=pretty_button '删除',admin_user_path(user),:method => :delete,:confirm => "你确定嘛?",:class => "btn" %>
 </p>
 </dd>

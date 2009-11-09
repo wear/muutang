@@ -6,7 +6,11 @@ module ApplicationHelper
   end
   
   def long_pretty_button(text,link,link_option = {},options = { })
-    content_tag(:button,content_tag(:span,content_tag(:span,link_to(text,link,link_option))),options)
+    content_tag(:button,
+      content_tag(:span,
+        content_tag(:span,
+          link_to(text,link,link_option))),
+    options)
   end
   
   def time_ago_in_words_or_date(date)
