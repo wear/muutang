@@ -7,7 +7,11 @@ body{
 	background-position: top;
 	margin:0;
 	background:#EFEDE4 none repeat scroll 0 0;
-}   
+}  
+
+img{
+	border:0px;
+} 
 
 a {
 	color: #6F1600;

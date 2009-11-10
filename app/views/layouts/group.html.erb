@@ -4,11 +4,7 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title><%= '亩塘 | ' + 'Shanghaionrails' %></title>
-	<%= javascript_include_tag :defaults %>  
-	<%= javascript_include_tag 'pretty-buttons' %>
-	<%= stylesheet_link_tag 'style','pretty-buttons','ui-theme' %>     
-	<%= yield :header %>                
-	
+    <%= render :partial => 'shared/scripts_and_tags' %>
 </head>
 <body>
 	<div id="container">
@@ -40,6 +36,6 @@
 		  <div style="font: 0px/0px sans-serif;clear: both;display: block"> </div>   
 	   </div> 
 	   <%=render :partial => '/shared/footer' %>
-	</div>
+	</div>  
 </body>
 </html>
