@@ -205,9 +205,8 @@ dd:hover { background-color: #eeeeee; }
 	width:200px;
 }
 
-.opt a{
-	font-size:14px;
-	padding:0px 20px;
+.opt a{   
+	padding:0px 5px;
 }
 
 .comment{   

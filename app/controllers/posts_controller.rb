@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   :cleanup_on_startup => true,  
   :convert_fonts_to_spans => true,
   :theme_advanced_resize_horizontal => false,
-  :theme_advanced_buttons1 => %w{bold italic underline separator justifyleft justifycenter justifyright indent outdent separator bullist numlist separator link unlink image media separator  undo redo syntaxhl code},
+  :theme_advanced_buttons1 => %w{bold italic underline separator justifyleft justifycenter justifyright indent outdent separator bullist numlist separator link unlink image media separator  undo redo syntaxhl},
   :theme_advanced_buttons2 => [],
   :theme_advanced_buttons3 => [],
   :editor_deselector => "mceNoEditor"
@@ -33,6 +33,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
+      format.rss
     end
   end
 

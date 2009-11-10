@@ -38,16 +38,17 @@
 </table>   
 <%= will_paginate @comments,:previous_label => '< 前页',:next_label => '后页 >' %>   
 <% end %>
-
-<% if logged_in? %>
+                
+<% if @post.can_comment -%>
+<% if logged_in? -%>
 	<h2>发表评论</h2>  
-	<% form_for(:comment,@comment,:url=> post_comments_path(@post),:html => {:id => 'form'}) do |f| %>
+	<% form_for(:comment,@comment,:url=> post_comments_path(@post),:html => {:id => 'form'}) do |f| -%>
   		<%= f.error_messages %>
   		<%= f.text_field :title,:value => "回复:#{h(@post.title)}",:label => '标题',:class => 'comment_title' %>	
   		<%= f.text_area :comment,:label => '内容',:class => "mceEditor" %>
   		<%= f.submit '提交' %>
-	<% end %> 
-	<% else %>  
+	<% end -%> 
+<% else -%>  
 	<h2>评论前请先登录</h2>
 	<% form_tag session_path,:id => 'form' do -%>
 	<p><%= label_tag '用户名' %><br />
@@ -58,4 +59,5 @@
 
 	<p><%= submit_tag '提交' %></p>
 	<% end -%>
-<% end %>
+<% end -%>
+<% end -%>

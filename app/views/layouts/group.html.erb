@@ -4,6 +4,7 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title><%= '亩塘 | ' + 'Shanghaionrails' %></title>
+	<%= auto_discovery_link_tag(:rss, posts_url(:format => 'rss')) %>
     <%= render :partial => 'shared/scripts_and_tags' %>
 </head>
 <body>

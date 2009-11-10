@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091106062139) do
+ActiveRecord::Schema.define(:version => 20091110092059) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20091106062139) do
     t.boolean  "visible",:default => true
     t.boolean  "top", :default => false
     t.integer  "comments_count", :default => 0
+    t.boolean  "can_comment",:default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end 
