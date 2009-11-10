@@ -54,6 +54,10 @@ a:visited {
 .a14:visited {
 	text-decoration: underline;
 	color: #FFFFFF;
+}
+
+.a2:link,.a2:visited {
+	color:#0000ff;;
 }            
 
 .a6 {
@@ -139,6 +143,7 @@ ul li{list-style:none;}
 
 /* sidebar */
 #sidebar{      
+	text-align:center;
 	float:right;
 	width:230px; 
 	padding:10px;
@@ -329,7 +334,7 @@ input:focus, textarea:focus {
 
 .title_m a{
    	line-height:56px;
-	font-size:32px; 
+	font-size:24px; 
 	font-weight:bold;
  	text-decoration: none;     
 }

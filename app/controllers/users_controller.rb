@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   
+  caches_page :show,:posts,:comments  
+  
   def show
     @user = User.find(params[:id])
   end  

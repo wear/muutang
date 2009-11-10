@@ -21,7 +21,8 @@ class PostsController < ApplicationController
   :editor_deselector => "mceNoEditor"
   } 
     
-    
+  caches_page :index,:show
+  cache_sweeper :post_sweeper,:only => [:create,:update,:destroy]
   
   layout 'group'
   # GET /posts
