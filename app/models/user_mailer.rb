@@ -18,6 +18,12 @@ class UserMailer < ActionMailer::Base
     @body[:pwd]  = pwd
   end
   
+  def new_password(user,pwd)
+    setup_email(user)
+    @subject    += 'shanghaionrails正式开通线上社区'
+    @body[:pwd]  = pwd
+  end
+  
   protected
     def setup_email(user)
       @recipients  = "#{user.login} <#{user.email}>"

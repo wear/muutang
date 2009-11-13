@@ -102,6 +102,23 @@ ActiveRecord::Schema.define(:version => 20091111091217) do
   create_table "roles_users", :id => false, :force => true do |t|
      t.integer "role_id"
      t.integer "user_id"
+   end 
+
+   create_table "members", :force => false do |t|  
+       t.string "email_address"
+       t.string "nickname"  
+       t.string "group_status"  
+       t.string "email_status"  
+       t.string "email_preference"  
+       t.string "posting_permissions"  
+       t.string "join_year"  
+       t.string "join_month"
+       t.string "join day"
+       t.string 'join_hour'
+       t.string 'join_minute'
+       t.string 'join_second' 
+       t.string 'initial_pwd' 
    end
+
 
 end

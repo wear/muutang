@@ -74,6 +74,14 @@ class User < ActiveRecord::Base
     charactars = ("a".."z").to_a + ("A".."Z").to_a + ("1".."9").to_a
     (0..length).inject([]) { |password, i| password << charactars[rand(charactars.size-1)] }.join
   end
+  
+  def reset_password
+    new_password = User.generate_new_password
+    self.password = new_password
+    self.password_confirmation = new_password
+    save(false)
+    return new_password
+  end
 
   protected
     

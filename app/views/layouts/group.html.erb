@@ -7,7 +7,7 @@
 	<%= auto_discovery_link_tag(:rss, posts_url(:format => 'rss')) %>
     <%= render :partial => 'shared/scripts_and_tags' %>
 </head>
-<body>
+<body onload="ResizeImages();">
 	<div id="container">
 	   <div id="header">
 		<%= render :partial => 'shared/header' %>

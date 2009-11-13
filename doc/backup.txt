@@ -1,0 +1,48 @@
+##import script
+
+#import group member
+
+Member.find(:all).each do |attendee|  
+  password = User.generate_new_password  
+  login = attendee.nickname.blank? ? attendee.email_address : attendee.nickname.gsub(/[\s]/,'_')
+  @user = User.new(:email => attendee.email_address,:login => login,:password => password,:password_confirmation => password )
+  if @user.save
+    attendee.update_attributes(:initial_pwd => password)
+  end
+
+end
+
+
+#import rubyconfchina attendees
+
+Attendee.find(:all).each do |attendee|  
+  password = User.generate_new_password
+  exist_user = User.find_by_email(attendee.email) || User.find_by_login(attendee.name.gsub(/[\s]/,'_'))
+  if exist_user
+    exist_user.profile.update_attributes(:name => attendee.name,:website => attendee.website,
+                                    :company => attendee.company,
+                                    :phone_number => attendee.phone_number,:city => attendee.city,
+                                    :state => attendee.state,:country =>  attendee.country,
+                                    :desc => attendee.description,
+                                    :company_category => attendee.company_category,
+                                    :industry => attendee.industry,
+                                    :company_size => attendee.company_size,:title => attendee.title,
+                                    :work_experience => attendee.work_experience,
+                                    :interesting => attendee.interesting)
+  else  
+   @user = User.new(:email => attendee.email,:login => attendee.name.gsub(/[\s]/,'_'),:password =>password,:password_confirmation => password )
+   attendee.update_attributes(:initial_pwd => password)
+   if @user.save
+   @user.profile.update_attributes(:name => attendee.name,:website => attendee.website,
+                                   :company => attendee.company,
+                                   :phone_number => attendee.phone_number,:city => attendee.city,
+                                   :state => attendee.state,:country =>  attendee.country,
+                                   :desc => attendee.description,
+                                   :company_category => attendee.company_category,
+                                   :industry => attendee.industry,
+                                   :company_size => attendee.company_size,:title => attendee.title,
+                                   :work_experience => attendee.work_experience,
+                                   :interesting => attendee.interesting) 
+                                 end
+  end                                
+end

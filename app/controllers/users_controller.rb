@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def change_password
     @user =  current_user
     respond_to do |wants|
-      wants.js {  }
+      wants.html {  }
     end
   end 
 
