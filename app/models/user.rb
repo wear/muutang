@@ -7,28 +7,30 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_and_belongs_to_many :roles
-
+  has_one :profile
+  has_many :skills 
+  
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login
   validates_format_of       :login,    :with => Authentication.login_regex, :message => Authentication.bad_login_message
-
-  validates_format_of       :name,     :with => Authentication.name_regex,  :message => Authentication.bad_name_message, :allow_nil => true
-  validates_length_of       :name,     :maximum => 100
 
   validates_presence_of     :email
   validates_length_of       :email,    :within => 6..100 #r@a.wk
   validates_uniqueness_of   :email
   validates_format_of       :email,    :with => Authentication.email_regex, :message => Authentication.bad_email_message
 
-  before_create :make_activation_code 
-
+  before_create :make_activation_code,:set_profile
+  
   # HACK HACK HACK -- how to do attr_accessible from here?
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :name, :password, :password_confirmation,:desc, :avatar
-  has_attached_file :avatar, :styles => { :medium => "75x75>", :thumb => "16x16>" }   
-        
+  attr_accessible :login, :email,:password, :password_confirmation 
+  
+  # Virtual attribute for the unencrypted password
+  attr_accessor :current_password  
+  
+  delegate :avatar, :to => :profile
   
   # Activates the user in the database.
   def activate!
@@ -54,9 +56,9 @@ class User < ActiveRecord::Base
   # We really need a Dispatch Chain here or something.
   # This will also let us return a human error message.
   #
-  def self.authenticate(login, password)
-    return nil if login.blank? || password.blank?
-    u = find :first, :conditions => ['login = ? and activated_at IS NOT NULL', login] # need to get the salt
+  def self.authenticate(email, password)
+    return nil if email.blank? || password.blank?
+    u = find :first, :conditions => ['email = ? and activated_at IS NOT NULL', email] # need to get the salt
     u && u.authenticated?(password) ? u : nil
   end
 
@@ -66,6 +68,11 @@ class User < ActiveRecord::Base
 
   def email=(value)
     write_attribute :email, (value ? value.downcase : nil)
+  end 
+  
+  def self.generate_new_password(length=6)
+    charactars = ("a".."z").to_a + ("A".."Z").to_a + ("1".."9").to_a
+    (0..length).inject([]) { |password, i| password << charactars[rand(charactars.size-1)] }.join
   end
 
   protected
@@ -73,6 +80,10 @@ class User < ActiveRecord::Base
     def make_activation_code
         self.activation_code = self.class.make_token
     end
-
+    
+    # before create filter
+    def set_profile
+      self.profile = Profile.new
+    end
 
 end

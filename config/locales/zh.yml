@@ -1,7 +1,41 @@
 # Chinese (China) translations for Ruby on Rails 
 # by tsechingho (http://github.com/tsechingho)
 
-zh:     
+zh:
+  email: '电子邮件 *'
+  name: '名称 *'
+  city: '城市 *' 
+  state: '省 *'
+  country: '国家 *' 
+  company: '公司 *'
+  title: '职位 *'
+  choose_title: '请选择你的职位'
+  CTO: 'CTO'
+  project_manager: '项目经理'
+  architect: '架构师'
+  senior_engineer: '高级工程师'
+  engineer: '工程师'
+  student: '学生'
+  company_category: '公司类型 *'
+  choose_company_category: '请选择您的公司类型'
+  foreign_company: '外企'
+  private_company: '私营企业'
+  state_owned_company: '国有企业'
+  company_size: '公司规模 *'
+  choose_company_size: '请选择您的公司规模'
+  industry: '行业 *'
+  choose_industry: '请选择您的行业'
+  work_experience: '工作经验 *'
+  choose_work_experience: '请选择您的工作经验'
+  web: '互联网'
+  profession_software: '传统行业软件'
+  erp: 'ERP'
+  game_development: '游戏开发'
+  media: '媒体'
+  e_commerce: '电子商务'
+  other: '其它'
+  experience_by_year: '经验*'
+  choose_ruby_experience: '请选择您的Ruby经验'     
   date:
     formats:
       default: "%Y-%m-%d"
@@ -108,8 +142,30 @@ zh:
       post: 帖子
       category: 帖子分类
       role: 角色
-      user: 用户
-    attributes: 
+      user: 用户 
+      skill: 技能
+    attributes:
+      skill:
+          experience_by_year: 经验
+          name: 名称
+          desc: 介绍
+      attendee:
+          name: '名称'
+          city: '城市' 
+          state: '省'
+          country: '国家' 
+          company: '公司'
+          description: '介绍'
+          website: 网站/博客
+          phone_number: 联系电话
+          submit: 提交
+          industry: 行业
+          company_category: 公司类型 
+          company_size: 公司规模 
+          work_experience: 工作经验
+          interesting: 兴趣爱好
+          title: 职位
+          number: 购买张数 
       user:
           password: 密码
           login: 用户名

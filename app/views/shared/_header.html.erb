@@ -11,8 +11,7 @@
 	<% restrict_to "superuser" do %>
 		<%=link_to '控制面板',admin_path,:class => 'a14' %>
 	<% end -%>   
-	<%=link_to '设置',edit_user_path(current_user),:class => 'a14' %>   
-
+	<%=link_to '设置',edit_user_profile_path(current_user),:class => 'a14' %>   
 	<%=link_to '注销',logout_path,:class => 'a14' %> 
 	<% else -%>
 	<%=link_to '登录',login_path,:class => 'a14' %> 

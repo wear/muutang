@@ -123,7 +123,9 @@ ul li{list-style:none;}
 .user_menu{
 	float:right;
 	padding:12px;
-}  
+}          
+
+
            
 
 /* body structure*/
@@ -251,13 +253,38 @@ dd a{
 
 
 
-/* --- form --- */
+/* --- form --- */    
+.submit{
+	width:113px;
+	height:28px;
+	border:none;
+}       
+
+.soinputbot {
+	font-family: Tahoma, Arial;
+	text-align:center;
+	font-size: 18px;
+	margin:20px;
+	line-height: 30px;
+	width: 80px;
+}
 .comment_title{ width:400px; } 
+
 #form { margin-left:50px;}
+
 #form textarea{
    	height:120px;   
 }  
           
+input[type="text"],input[type="password"]{
+	width:200px;          
+} 
+
+input[type='submit']{
+	margin:10px;
+	width:80px;
+	text-align:center;
+}        
 
 #longform .title{
 	width:400px;  

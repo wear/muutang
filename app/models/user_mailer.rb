@@ -10,6 +10,12 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     @subject    += '你的帐户已激活'
     @body[:url]  = "http://www.muutang.com/"
+  end  
+  
+  def forgot_password(user,pwd)
+    setup_email(user)
+    @subject    += '你的密码已重设'
+    @body[:pwd]  = pwd
   end
   
   protected

@@ -1,0 +1,7 @@
+<h1>技能</h1>     
+
+<%=h @user.login%>有<%=h @skill.experience_by_year %>年<%=h @skill.name%>经验<br />
+描述
+<p>
+	<%=simple_format(@skill.desc)%>
+</p>

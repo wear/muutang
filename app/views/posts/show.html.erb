@@ -17,7 +17,7 @@
 	<tr><td valign="top" width='80px' style='text-align:center'><%=image_tag @post.user.avatar.url(:medium) %><br /><b><%=h @post.user.login%></b></td>
 	<td><span class='title'><%=h @post.title %></span> 
 		<p>
-		<% if @post.user == current_user %>
+		<% if @post.user == current_user && @post.editable? %>
 			<%=pretty_button '编辑',edit_post_path(@post),:class => "btn" %>
 		<% end %>  
 		<% restrict_to "(editor | superuser)" do %>

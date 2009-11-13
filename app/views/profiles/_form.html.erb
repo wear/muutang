@@ -1,0 +1,18 @@
+  	<%=image_tag @user.avatar.url(:medium) %>
+	<%= f.file_field :avatar,:label => '头像' %>
+	<%= f.text_field :name,:label => '全名' %>
+	<%= f.text_field :phone_number,:label => '手机' %>
+	<%= f.select :work_experience, Profile::WORK_EXPERIENCES, {:include_blank => t(:choose_work_experience)},:label => '工作经验' %>          
+ 	<%= f.text_field :city,:label => '所在城市' %>
+	<%= f.text_field :state,:label => '所在省市' %>
+	<p><label for='country'>国家</label><br /><%= localized_country_select :profile,:country,"CN"%></p>
+	<%= f.text_field :website,:label => '个人网站' %>
+	<%= f.text_field :interesting,:label => '兴趣爱好' %>
+	<%= f.text_area :desc,:label => '个人描述' %>  
+	<%= f.text_field :company,:label => '公司' %>
+	<%= f.select :title, Profile::TITLES.map{|title| t(title)}, {:include_blank => t(:choose_title)},:label => '头衔' %>
+	<%= f.select :company_category, Profile::COMPANY_CATEGORIES.map{|c| t(c)}, {:include_blank => t(:choose_company_category)},:label => '公司类别' %>
+	<%= f.select :company_size, Profile::COMPANY_SIZES, {:include_blank => t(:choose_company_size)},:label => '公司规模' %>
+	<%= f.select :industry, Profile::INDUSTRIES.map{|i| t(i)}, {:include_blank => t(:choose_industry)},:label => '行业' %> 
+
+                                     

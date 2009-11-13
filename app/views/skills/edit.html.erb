@@ -1,0 +1,9 @@
+<h1>编辑技能</h1>
+  <%=error_messages_for :skill %>  
+<% form_for(:skill,@skill,:url => user_skill_path(@user,@skill),:html => { :id => 'form',:method => :put}) do |f| %> 
+
+   <%=render :partial=> 'form', :locals => {:f => f} %> 
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>

@@ -1,0 +1,26 @@
+<% content_for :bread do -%> 
+	<div id="bread">
+		<%=link_to '首页',root_path %> >> <%=link_to h(@user.login),@user%> >> 编辑
+	</div>
+<% end %>
+
+<h1>所有技能</h1>
+
+<table width='100%'>
+  <tr>
+  </tr>
+
+<% @skills.each do |skill| %> 
+  <tr>
+	<td width='10%'><%=h skill.name %></td>
+	<td width='10%'><%=h skill.experience_by_year %></td> 
+	<td width='50%'><%=h truncate(skill.desc,100) %></td> 
+    <td><%= link_to '修改', edit_user_skill_path(@user,skill) %></td>
+    <td><%= link_to '删除', user_skill_path(@user,skill), :confirm => '你确定嘛?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新技能', new_user_skill_path(@user) %>

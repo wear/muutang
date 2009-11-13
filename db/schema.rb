@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091110092059) do
+ActiveRecord::Schema.define(:version => 20091111091217) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20091110092059) do
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
-    t.string   "name",                      :limit => 100, :default => ""
     t.string   "email",                     :limit => 100
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
@@ -57,14 +56,45 @@ ActiveRecord::Schema.define(:version => 20091110092059) do
     t.datetime "remember_token_expires_at"
     t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
+
+  end            
+          
+  add_index "users", ["login"], :name => "index_users_on_login", :unique => true  
+  
+  create_table  "profiles", :force => true do |t|    
+    t.integer 'user_id'   
+    t.string   "name",                      :limit => 100, :default => ""  
+    t.string  'phone_number'
+    t.string  'website'
+    t.string  'city' 
+    t.string  'state'
+    t.string  'country'
+    t.string  'company'
+    t.string  'company_category'
+    t.string  'company_size'
+    t.string  'industry'
+    t.string  'title'
+    t.string  'work_experience'
+    t.string  'interesting' 
+    t.text     "desc"  
     t.datetime "avatar_updated_at"
     t.integer  "avatar_file_size"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
-    t.text     "desc"
-    t.integer  "prestige"
-  end   
+    t.integer  "prestige"   
+  end  
   
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+  
+  create_table  "skills", :force => true do |t|
+    t.integer 'user_id'
+    t.string  'name'
+    t.integer 'experience_by_year'
+    t.text    'desc'
+  end
+
+  add_index "skills", ["user_id"], :name => "index_skills_on_user_id" 
+    
   create_table "roles", :force => true do |t|
      t.string "title"
    end 
@@ -73,7 +103,5 @@ ActiveRecord::Schema.define(:version => 20091110092059) do
      t.integer "role_id"
      t.integer "user_id"
    end
-
-  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
 end

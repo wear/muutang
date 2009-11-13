@@ -90,7 +90,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.editable? && @post.update_attributes(params[:post])
         flash[:notice] = '帖子更新成功.'
         format.html { redirect_to(@post) }
         format.xml  { head :ok }

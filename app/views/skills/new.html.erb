@@ -1,0 +1,8 @@
+<h1>新技能</h1>
+  <%=error_messages_for :skill %>    
+<% form_for(:skill,@skill,:url => user_skills_path(@user),:html => { :id => 'form'}) do |f| %>
+  <%=render :partial=> 'form', :locals => {:f => f} %> 
+  <p>
+    <%= f.submit '新建' %>
+  </p>
+<% end %>

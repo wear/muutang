@@ -1,0 +1,8 @@
+<% content_for :sidebar do -%>
+	<%= render :partial => 'users/setting'%>
+<% end -%>
+<h1>编辑个人资料</h1>
+<% form_for :profile,:url => user_profile_path(@user),:html => { :multipart => true,:method => :put,:id => 'form' } do |f| -%>    
+	<%=render :partial=> 'form', :locals => {:f => f} %>  
+	<%= f.submit '更新',:class => 'soinputbot' %>
+<% end -%>

@@ -1,10 +1,70 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController 
   
-  caches_page :show,:posts,:comments  
+  caches_page :show
+  before_filter :login_required,:only => [:change_password,:update_password,:edit,:update]  
   
+  auto_complete_for :user,:email    
+    
   def show
     @user = User.find(params[:id])
+  end    
+  
+  def change_password
+    @user =  current_user
+    respond_to do |wants|
+      wants.js {  }
+    end
+  end 
+
+  def update_password
+    @user = current_user
+
+    respond_to do |format|
+      if User.authenticate(@user.email, params[:user][:current_password])
+        unless params[:user][:password].blank?
+          if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
+            flash[:notice] = "Password updated successfully"
+            format.html { redirect_to @user }
+          else
+            flash[:error] = "Error updating password"
+            format.html { render :action => 'change_password' }
+          end
+        else
+            flash[:error] = "New password should not be empty" 
+            format.html { render :action => 'change_password' } 
+        end
+      else
+        flash[:error] = 'Incorrect Password'
+        format.html { render :action => 'change_password' }
+      end
+    end
   end  
+  
+  def forgot_password
+    respond_to do |wants|
+      wants.html {  }
+    end
+  end
+  
+  def reset_password
+    @user = User.find_by_email(params[:email]) 
+    respond_to do |wants|
+    if @user  
+      new_password = User.generate_new_password
+      @user.password = new_password
+      @user.password_confirmation = new_password
+      @user.save
+      UserMailer.deliver_forgot_password(@user, new_password)
+      cookies.delete :auth_token
+      reset_session
+      flash[:notice] = "Sent new password to #{@user.email}"
+       wants.html {  redirect_to root_url }
+    else
+      flash.now[:error] = 'Email not found'
+      wants.html { render :action => "forgot_password" }
+    end
+    end  
+  end
   
   def edit
     @user = User.find(params[:id])
@@ -16,10 +76,10 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id]) 
     respond_to do |wants|
-      if @user.update_attributes(params[:user])
+      if @user.update_attributes(params[:user]) 
         wants.html { redirect_to @user }
       else
-        render :action => "edit"
+       wants.html { render :action => "edit" }
       end
     end
   end    
