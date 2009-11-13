@@ -23,18 +23,18 @@ class UsersController < ApplicationController
       if User.authenticate(@user.email, params[:user][:current_password])
         unless params[:user][:password].blank?
           if @user.update_attributes(:password => params[:user][:password], :password_confirmation => params[:user][:password_confirmation])
-            flash[:notice] = "Password updated successfully"
+            flash[:notice] = "密码修改成功!"
             format.html { redirect_to @user }
           else
-            flash[:error] = "Error updating password"
+            flash[:error] = "修改密码出错"
             format.html { render :action => 'change_password' }
           end
         else
-            flash[:error] = "New password should not be empty" 
+            flash[:error] = "新密码不能为空" 
             format.html { render :action => 'change_password' } 
         end
       else
-        flash[:error] = 'Incorrect Password'
+        flash[:error] = '密码错误!'
         format.html { render :action => 'change_password' }
       end
     end
@@ -57,10 +57,10 @@ class UsersController < ApplicationController
       UserMailer.deliver_forgot_password(@user, new_password)
       cookies.delete :auth_token
       reset_session
-      flash[:notice] = "Sent new password to #{@user.email}"
+      flash[:notice] = "新密码已发送到#{@user.email}"
        wants.html {  redirect_to root_url }
     else
-      flash.now[:error] = 'Email not found'
+      flash.now[:error] = '找不到匹配的数据'
       wants.html { render :action => "forgot_password" }
     end
     end  

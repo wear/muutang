@@ -1,11 +1,78 @@
-你好<%=h @user.login %>:
-<br />
-<br />你的帐户已激活!
-<br />
-<%=h @url %> 
+<html>
+<body leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0" bgcolor='#EFEDE4' >
 
+<STYLE>
+ .headerTop { background-color:#FFCC66; border-top:0px solid #000000; border-bottom:1px solid #FFFFFF; text-align:center; }
+ .adminText { font-size:10px; color:#996600; line-height:200%; font-family:verdana; text-decoration:none; }
+ .headerBar { background-color:#FFFFFF; border-top:0px solid #333333; border-bottom:10px solid #FFFFFF; }
+ .title { font-size:20px; font-weight:bold; color:#CC6600; font-family:arial; line-height:110%; }
+ .subTitle { font-size:11px; font-weight:normal; color:#666666; font-style:italic; font-family:arial; }
+ td { font-size:12px; color:#000000; line-height:150%; font-family:trebuchet ms; }
+ .sideColumn { background-color:#FFFFFF; border-left:1px dashed #CCCCCC; text-align:left; }
+ .sideColumnText { font-size:11px; font-weight:normal; color:#999999; font-family:arial; line-height:150%; }
+ .sideColumnTitle { font-size:15px; font-weight:bold; color:#333333; font-family:arial; line-height:150%; }
+ .footerRow { background-color:#FFFFCC; border-top:10px solid #FFFFFF; }
+ .footerText { font-size:10px; color:#996600; line-height:100%; font-family:verdana; }
+</STYLE>
+
+
+
+<table width="100%" cellpadding="10" cellspacing="0" bgcolor='#EFEDE4' >
+<tr>
+<td valign="top" align="center">
+
+<table width="600" cellpadding="0" cellspacing="0">
+<tr>
+<td style="background-color:#FFCC66;border-top:0px solid #000000;border-bottom:1px solid #FFFFFF;text-align:center;" align="center"><span style="font-size:10px;color:#996600;line-height:200%;font-family:verdana;text-decoration:none;">Email not displaying correctly? <a href="*|ARCHIVE|*" style="font-size:10px;color:#996600;line-height:200%;font-family:verdana;text-decoration:none;">View it in your browser.</a></span></td>
+
+</tr>
+
+
+</table>
+
+<table width="600" cellpadding="20" cellspacing="0" bgcolor="#FFFFFF">
+<tr>
+
+<td bgcolor="#FFFFFF" valign="top" width="400" style="font-size:12px;color:#000000;line-height:150%;font-family:trebuchet ms;">
+<h1>您好<%=h @user.login %>:</h1>
 <p>
-------------------------------<br />
-访问亩塘
-<a href='http://www.muutang.com'>www.muutang.com</a>
+你在亩堂的帐户已激活!
+<br />
+<br />
+<span style="font-size:14px;font-weight:bold;font-family:arial;line-height:110%;"><a href="http://muutang.com/login">马上点击登录</a></span>
 </p>
+</td>
+
+
+<td width="200" valign="top" style="background-color:#FFFFFF;border-left:1px dashed #CCCCCC;text-align:left;">
+<span style="font-size:11px;font-weight:normal;color:#999999;font-family:arial;line-height:150%;">
+
+<span style="font-size:15px;font-weight:bold;color:#333333;font-family:arial;line-height:150%;">关于shanghaionrails:</span><br>
+Shanghai Ruby&Rails 爱好者论坛是一个非营利的民间组织，它旨在为Ruby&Rails爱好者提供一个自由，开放的交流平台，论坛每季度举行一次大型会议，会议的所有费用由赞助商支付，来宾不需交纳任何费用。
+We push the china ruby&rails community forward!!
+
+<br>
+
+</td>
+
+
+</tr>
+
+
+<tr>
+<td style="background-color:#FFFFCC;border-top:10px solid #FFFFFF;" valign="top" colspan="2">
+<span style="font-size:10px;color:#996600;line-height:100%;font-family:verdana;">
+本邮件由亩塘自动发送,请勿回复此邮件!
+</span>
+</td>
+</tr>
+
+
+</table>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>

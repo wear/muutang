@@ -10,11 +10,11 @@ class LandingController < ApplicationController
     end
   end   
   
-  def intro
+  def intro      
     respond_to do |wants|
       wants.html {  }
     end
   end     
-  
+
   
 end

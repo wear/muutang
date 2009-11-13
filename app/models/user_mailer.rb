@@ -3,7 +3,6 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     @subject    += '请激活你的帐户'
     @body[:url]  = "http://www.muutang.com/activate/#{user.activation_code}"
-  
   end
   
   def activation(user)
