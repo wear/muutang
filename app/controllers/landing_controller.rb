@@ -16,4 +16,5 @@ class LandingController < ApplicationController
     end
   end     
   
+  
 end

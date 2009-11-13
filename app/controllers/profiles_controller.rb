@@ -1,4 +1,8 @@
-class ProfilesController < ApplicationController
+class ProfilesController < ApplicationController 
+  
+  before_filter :find_user 
+  before_filter :login_required
+  
   def edit
     @user = User.find(params[:user_id])
     @profile = @user.profile 
@@ -17,5 +21,12 @@ class ProfilesController < ApplicationController
         wants.html { render :action => "edit" } 
       end
     end
+  end  
+  
+  protected
+  
+  def find_user
+    @user = current_user
   end
+  
 end

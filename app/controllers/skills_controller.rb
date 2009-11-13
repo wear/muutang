@@ -2,7 +2,7 @@ class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.xml     
   before_filter :find_user 
-  before_filter :login_required,:except => [:index,:show] 
+  before_filter :login_required
   
   def index
     @skills = @user.skills
@@ -85,6 +85,7 @@ class SkillsController < ApplicationController
   protected
   
   def find_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
+  
 end
