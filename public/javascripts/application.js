@@ -1,5 +1,8 @@
 // Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults   
+// This file is automatically included by javascript_include_tag :defaults
+
+// Global setup jQuery.ajax request header
+jQuery.ajaxSetup({'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")} });   
 
 $(document).ready(function() { 
 	setTimeout(function () { $('#flash-message').fadeOut(); }, 4000); 

@@ -196,7 +196,7 @@ span.title{
 	font-weight:bold;
 }
 
-dd:hover { background-color: #eeeeee; } 
+
 
 .opt{     
 	width:100%;
@@ -229,28 +229,26 @@ dd:hover { background-color: #eeeeee; }
 .activity_user_avatar{
 	float:left;
 }       
+  
+#posts li:hover { background-color: #eeeeee; }  
 
-dt{
-	font-size:12px;
-}
-
-dd{          
+#posts li{          
   width:90%;
   padding:5px;  
   border-bottom:1px solid #eee;
 }
 
-dd img{    
+#posts li img{    
 	float:left;
 	margin:0px 5px;
 }                  
 
-dd p{
+#posts li p{
 	padding-left:20px;
 }
 
 
-dd a{
+#posts li a{
    text-decoration: underline;    
 }  
 
@@ -407,6 +405,6 @@ li .handle {
 /*---- load more ------*/   
 
 
-#load-more		  { color:#999; font-weight:bold; text-align:center; padding:10px; cursor:pointer; }
+#load-more		  { color:#999; font-weight:bold; text-align:right; padding:10px; cursor:pointer; }
 #load-more:hover  { color:#666; }
 a.post-more                 { color:#900; }

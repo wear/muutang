@@ -1,19 +1,17 @@
 <% content_for :header do -%>
 	<script type="text/javascript" charset="utf-8">       
 	 $(document).ready(function() {
-		$("#tabs").tabs({ ajaxOptions: { async: true } });
+		$("#tabs").tabs({spinner:'载入中...'});
 	 });    
-	</script>  
+	</script>               
 <% end -%>   
 
        
 
-<div style='text-align:right;'>
+<div style='text-align:right;' id='btn'>
 	<%=pretty_button '发帖',new_post_path %>
 </div>
-
-
-
+ 
 <div id="tabs" >
   <ul>  
 	   <li><%=link_to('全部',posts_path) %></li>  
@@ -22,16 +20,9 @@
 		<% end -%>
   </ul> 
 	 <div id="tabs-content">  
-		<% if false %>
-		<dt id='postss'> </dt>
-		<dt>
-			<dd id='load-more'>
-				<%=link_to '查看更多','/',:class => 'post-more'%>
-			</dd>
-		</dt>       
-		<% end %>
+    
 	</div>
-</div>             
+</div>   
 
 
 

@@ -26,6 +26,14 @@ module ApplicationHelper
   
   def state_type(type)
     (type == 'error') ? 'error' : 'highlight'
+  end  
+  
+  def cate(post)
+    post.category.nil? ? '未分类' : post.category.name
+  end  
+  
+  def current_category(cate)
+    cate.nil? ? 0 : cate.id
   end
 
 end

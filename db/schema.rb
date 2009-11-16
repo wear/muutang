@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20091111091217) do
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.integer  "category_id"
+    t.integer  "category_id",:default => 0
     t.boolean  "visible",:default => true
     t.boolean  "top", :default => false
     t.integer  "comments_count", :default => 0

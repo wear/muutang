@@ -1,6 +1,6 @@
 <dd>    
 	<%=image_tag post.user.avatar.url(:thumb) %>
-	<%=link_to h(post.user.login),post.user %> <%="[置顶]" if post.top %><%=link_to h(post.title),post,:class => 'a6' %> 分类: <%=post.category.name %> <span style='color:#999999'><%= time_ago_in_words_or_date(post.created_at) %> </span> <%=post.comments_count%>评论
+	<%=link_to h(post.user.login),post.user %> <%="[置顶]" if post.top %><%=link_to h(post.title),post,:class => 'a6' %> 分类: <%= cate(post) %> <span style='color:#999999'><%= time_ago_in_words_or_date(post.created_at) %> </span> <%=post.comments_count%>评论
 	<p><%=truncate(strip_tags(post.body),:length => 75)%></p> 
 	<%=pretty_button '编辑',edit_admin_post_path(post)%>
 </dd>

@@ -1,0 +1,8 @@
+<ul id="posts_<%= current_category(@category) %>"> 
+	<%=render @posts %>
+</ul>
+<dt>
+	<dd id='load-more'>     
+	  <%= will_paginate @posts,:class => current_category(@category), :renderer => FlowPagination::LinkRenderer%> 
+	</dd>
+</dt>
