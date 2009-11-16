@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   
   named_scope :recent_without_top,:limit => 10,:order => 'updated_at DESC',
               :conditions => ['top = ? and visible = ?',false,true],:include => :user
-  named_scope :recent,:order => 'updated_at DESC',
+  named_scope :recent,:order => 'updated_at ASC',
               :conditions => ['visible = ?',true],:include => :user
  
   named_scope :tops,:conditions => ['top = ?',true] 

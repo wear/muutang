@@ -230,25 +230,25 @@ span.title{
 	float:left;
 }       
   
-#posts li:hover { background-color: #eeeeee; }  
+.posts li:hover { background-color: #eeeeee; }  
 
-#posts li{          
+.posts li{          
   width:90%;
   padding:5px;  
   border-bottom:1px solid #eee;
 }
 
-#posts li img{    
+.posts li img{    
 	float:left;
 	margin:0px 5px;
 }                  
 
-#posts li p{
+.posts li p{
 	padding-left:20px;
 }
 
 
-#posts li a{
+.posts li a{
    text-decoration: underline;    
 }  
 
