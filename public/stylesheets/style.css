@@ -228,9 +228,11 @@ span.title{
 
 .activity_user_avatar{
 	float:left;
-}       
-  
-.posts li:hover { background-color: #eeeeee; }  
+}  
+
+ul.posts{
+	margin:0px;
+}     
 
 .posts li{          
   width:90%;
@@ -251,6 +253,11 @@ span.title{
 .posts li a{
    text-decoration: underline;    
 }  
+
+span.time{
+	color:#999999;
+	margin-right:10px;
+}
 
 
 
@@ -404,7 +411,8 @@ li .handle {
 
 /*---- load more ------*/   
 
-
-#load-more		  { color:#999; font-weight:bold; text-align:right; padding:10px; cursor:pointer; }
-#load-more:hover  { color:#666; }
-a.post-more                 { color:#900; }
+a.post-more                 { color:#900; }  
+p.post-content              { font-size:10px; line-height:17px; padding-bottom:0; }  
+#load-more                  { width:90%;  color:#999; font-weight:bold; text-align:right; margin-left:40px;padding:10px; cursor:pointer; }  
+#load-more:hover            { color:#666; }    
+.activate					{ text-align:right;width:100%;background:url(/images/indicator.gif) no-repeat;display:none; }

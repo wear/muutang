@@ -12,8 +12,12 @@ module FlowPagination
             @template.t('flow_pagination.button', :default => '更多'),  
             :url => { :controller => @template.controller_name,
             :action => @template.action_name,
-            :params => @template.params.merge!(:page => self.next_page)},        
-            :method => @template.request.request_method)
+            :params => @template.params.merge!(:page => self.next_page)}, 
+            :loading => "$('#flow_pagination_#{@options[:class]}').hide();$('.activate').show();",
+            :complete => "$('#flow_pagination_#{@options[:class]}').show();$('.activate').hide();; 
+            ",       
+            :method => @template.request.request_method,
+            :html => { :class  => "post-more" } )
       end
       
       #hardcoding, need improve

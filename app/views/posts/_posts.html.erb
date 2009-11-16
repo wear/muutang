@@ -1,8 +1,8 @@
-<ul id="posts_<%= current_category(@category) %>" class='posts'> 
+<ul id="posts_<%= current_category(@category) %>" class='posts'>
+	<%=render :partial=> @tops, :as => :post %>
 	<%=render @posts %>
 </ul>
-<dt>
-	<dd id='load-more'>     
-	  <%= will_paginate @posts,:class => current_category(@category), :renderer => FlowPagination::LinkRenderer%> 
-	</dd>
-</dt>
+<div id="load-more"> 
+	<div class='activate'>loading...</div>
+   <%= will_paginate @posts,:class => current_category(@category), :renderer => FlowPagination::LinkRenderer%> 
+</div>

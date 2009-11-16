@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   
   def show   
      @category = Category.find(params[:id])
-     @posts = @category.posts.recent.paginate(:page => params[:page], :order => 'top DESC') 
+     @posts = @category.posts.recent_without_top.paginate(:page => params[:page]) 
      respond_to do |wants|
       wants.html {  }       
       if params[:page].nil?

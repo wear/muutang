@@ -28,8 +28,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @tops = Post.tops
-    @posts = Post.recent.paginate(:page => params[:page], :order => 'top DESC')
+    @tops = Post.tops                                                          
+    if logged_in?
+      @posts = current_user.posts.paginate(:page => params[:page],:order => 'updated_at DESC') 
+    else
+      @posts = Post.recent_without_top.paginate(:page => params[:page])
+    end
     
     respond_to do |format|
       format.html { redirect_to '/' }      

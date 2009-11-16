@@ -19,3 +19,11 @@ $(document).ready(function() {
 			 $("input[type='submit']").removeClass("hover_btn");
 	  });
 });
+                   
+
+function scrollGo() {
+   var x = $(this).offset().top - 100; // 100 provides buffer in viewport
+   $('html,body').animate({scrollTop: x}, 500);
+}
+
+
