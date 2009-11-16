@@ -1,8 +1,9 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper      
   
-  def pretty_button(text,link,options) 
-    link_to content_tag(:span,content_tag(:span,text)),link,options
+  def pretty_button(text,link,options = {})  
+    deftault_options = options.reverse_merge!(:class=>'btn')
+    link_to content_tag(:span,content_tag(:span,text)),link,deftault_options
   end
   
   def long_pretty_button(text,link,link_option = {},options = { })

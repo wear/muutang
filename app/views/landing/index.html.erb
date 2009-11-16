@@ -1,6 +1,24 @@
-<div class='opt'>
-<span style='float:left;'><b>讨论区</b> 目前共有<%= Post.count %>个帖子 <%=link_to '>>所有帖子',posts_path %> </span><span style='float:right'><%=pretty_button('发帖', new_post_path,:class=>'btn')%></span>
-</div>   
-<dl>
-	<%= render @posts %>
-</dl>      
+<% content_for :header do -%>
+	<script type="text/javascript" charset="utf-8">       
+	 $(document).ready(function() {
+		$("#tabs").tabs({spinner: '<img src="/images/indicator.gif"/>',ajaxOptions: {success: function() {}}});
+	 });    
+	</script>
+<% end -%> 
+<div style='text-align:right;'>
+	<%=pretty_button '发帖',new_post_path %>
+</div>
+
+
+
+<div id="tabs" >
+  <ul>  
+		<li><%=link_to '全部', posts_path %></li>
+		<% Category.ordered.each do |cate| -%>
+      		<li><%=link_to cate.name, cate %></li>
+		<% end -%>
+  </ul> 
+	 <div id="tabs-content">
+	</div>
+</div>
+

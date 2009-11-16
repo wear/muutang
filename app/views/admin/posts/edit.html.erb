@@ -1,0 +1,10 @@
+<h1>编辑帖子</h1>
+
+<% form_for(:post,@post,:url => admin_post_path(@post),:html => {:id => 'longform',:method => :put}) do |f| %>
+  <%= f.error_messages %>
+
+  <%=render :partial => '/posts/form',:locals => {:f => f} %>
+  <p>
+    <%= f.submit '更新',:class => 'submit' %>
+  </p>
+<% end %>

@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   before_filter :find_role,:only => [:update_role,:destroy_role]
   
   def index
-     @users = User.find(:all)
+     @users = User.paginate :page => params[:page], :order => 'posts_count ASC'   
   end     
   
   def setting_role

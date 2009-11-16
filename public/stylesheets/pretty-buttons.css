@@ -4,7 +4,7 @@
   display:inline-block;
   background:none;
   margin:0;
-  padding:3px 0;
+  padding:5px 0;
   border-width:0;
   overflow:visible;
   font:100%/1.2 Arial,Sans-serif;
@@ -25,7 +25,7 @@ html:not([lang*=""]) button.btn {
 .btn span {
   background:#ddd url(/images/bg-button.gif) repeat-x 0 0;
   margin:0;
-  padding:3px 0;
+  padding:5px 0;
   border-left:1px solid #bbb;
   border-right:1px solid #aaa;
   }
@@ -34,7 +34,7 @@ html:not([lang*=""]) button.btn {
   }
 .btn span span {
   position:relative;
-  padding:3px .4em;
+  padding:5px 1.8em;
   border-width:0;
   border-top:1px solid #bbb;
   border-bottom:1px solid #aaa;

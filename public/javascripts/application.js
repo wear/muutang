@@ -8,3 +8,11 @@ $(document).ready(function() {
 $(document).ready(function() { 
    	$(".box").addClass("ui-corner-all");
 });
+
+$(document).ready(function() { 
+	$("input[type='submit']").mouseover(function(){
+	        $("input[type='submit']").addClass("hover_btn");
+	 }).mouseout(function(){
+			 $("input[type='submit']").removeClass("hover_btn");
+	  });
+});

@@ -14,7 +14,8 @@ ActionController::Routing::Routes.draw do |map|
     user.resources :skills
   end
   
-  map.resources :posts,:has_many => :comments
+  map.resources :posts,:has_many => :comments  
+  map.resources :categories
   
   map.admin '/admin', :controller => 'admin', :action => 'index'  
    
@@ -22,7 +23,7 @@ ActionController::Routing::Routes.draw do |map|
       # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
       admin.resources :posts,:member => {:marktop => :put,:set_visibility => :put} 
       admin.resources :comments
-      admin.resources :categories 
+      admin.resources :categories, :collection => { :sort => :post }
       admin.resources :roles
       admin.resources :users,:member => {:setting_role => :get,:update_role => :put,:destroy_role => :delete }
   end

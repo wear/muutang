@@ -4,7 +4,6 @@ class ProfilesController < ApplicationController
   before_filter :login_required
   
   def edit
-    @user = User.find(params[:user_id])
     @profile = @user.profile 
     respond_to do |wants|
       wants.html {  }
@@ -12,7 +11,6 @@ class ProfilesController < ApplicationController
   end  
   
   def update
-    @user = User.find(params[:user_id])
     @profile = @user.profile
     respond_to do |wants|
       if @profile.update_attributes(params[:profile])    

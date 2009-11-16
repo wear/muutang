@@ -3,8 +3,8 @@ class LandingController < ApplicationController
   caches_page :index,:intro
   
   def index  
-    @tops = Post.tops
-    @posts =  @tops + Post.recent_without_top
+    @category = Category.ordered.first
+    
     respond_to do |wants|
       wants.html {  }
     end

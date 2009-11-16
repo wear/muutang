@@ -1,4 +1,7 @@
-class Admin::CommentsController < ApplicationController 
+class Admin::CommentsController < ApplicationController  
+  before_filter :login_required
+  access_control :DEFAULT => '(superuser | editor)'
+  
   def destroy
     @comment = Comment.find(params[:id]) 
     @post = @comment.commentable

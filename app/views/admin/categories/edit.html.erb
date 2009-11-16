@@ -1,0 +1,5 @@
+<h1>编辑分类</h1>
+<% form_for @category,:url => admin_category_path(@category),:mehtod => :put do |f| -%>
+  <%= render :partial => 'form',:locals => {:f => f }%>  
+  <%= submit_tag "保存" %>
+<% end -%>

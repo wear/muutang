@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20091111091217) do
   
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.integer  "position",:null => false 
+    t.string   "kind" 
   end
 
   create_table "users", :force => true do |t|
@@ -56,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20091111091217) do
     t.datetime "remember_token_expires_at"
     t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
-
+    t.integer  'posts_count'
   end            
           
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true  

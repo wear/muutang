@@ -28,11 +28,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.paginate :page => params[:page], :order => 'updated_at DESC'
+    @tops = Post.tops
+    @posts =  @tops + Post.recent_without_top
     
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @posts }
+      format.html # index.html.erb   
+      format.js { render :partial => "post", :collection => @posts }
+      format.xml  { render :xml => @tops }
       format.rss
     end
   end
@@ -43,7 +45,8 @@ class PostsController < ApplicationController
     store_location
     @post = Post.find params[:id]
     @page_title = @post.title
-    @comments = Comment.paginate :page => params[:page], :order => 'created_at ASC',:conditions => ['commentable_id =? and commentable_type =?',@post.id,'Post']
+    @comments = Comment.paginate :page => params[:page], :order => 'created_at ASC',
+                :conditions => ['commentable_id =? and commentable_type =?',@post.id,'Post'],:include => :user
     @comment = @post.comments.new
     respond_to do |format|
       format.html # show.html.erb

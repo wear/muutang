@@ -7,7 +7,7 @@
 	<%= auto_discovery_link_tag(:rss, posts_url(:format => 'rss')) %>
     <%= render :partial => 'shared/scripts_and_tags' %>
 </head>
-<body onload="ResizeImages();">
+<body>
 	<div id="container">
 	   <div id="header">
 		<%= render :partial => 'shared/header' %>
@@ -15,9 +15,9 @@
 	   <div id="body" class='ui-corner-all'> 
 		 <%= render :partial => '/shared/notice' %>
 		 <%= render :partial => '/shared/group_header' %>
-		 <div id="content"  >  
-		   <%= yield :bread %>   
-		   <%= yield %>
+		 <div id="content">  
+		   <%= yield :bread %>
+		   <%= yield %>  
 		 </div>
 	   	 <div id="sidebar" class='ui-corner-all'>      
 		   	<% if logged_in? %>      

@@ -1,7 +1,8 @@
 <% content_for :header do -%> 
 <%= include_tiny_mce_if_needed %> 
 <% end %>
-<%= f.text_field :title,:label => '标题',:class => 'title' %>
+<%= f.text_field :title,:label => '标题',:class => 'title' %>      
+<%= f.select :category_id, Category.ordered.collect{|c| [c.name,c.id]},:selected_key =>5,:label => '分类' %>
 <%= f.text_area :body,:label => '内容',:class => "mceEditor"%>
 <% restrict_to "(superuser | editor)" do %>
   <%=f.check_box :can_comment,:label =>  "可评论?" %>

@@ -1,8 +1,7 @@
 body{         
-	FONT-SIZE: 12px;
-	COLOR: #222227;
-	LINE-HEIGHT: 150%;
-	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #222227;
+	font-family: Arial, Helvetica, sans-serif;
 	background-color: #efefef;
 	background-position: top;
 	margin:0;
@@ -84,6 +83,12 @@ h1{
 }     
 
 h2{      
+	padding:5px;
+	margin:5px;
+	border-bottom:1px solid #eee;
+}  
+
+h3{      
 	padding:5px;
 	margin:5px;
 	border-bottom:1px solid #eee;
@@ -221,8 +226,6 @@ dd:hover { background-color: #eeeeee; }
 	border-bottom:1px solid #eee;
 }
 
-  
-
 .activity_user_avatar{
 	float:left;
 }       
@@ -233,8 +236,8 @@ dt{
 
 dd{          
   width:90%;
-  padding:10px;  
-  border-bottom:1px solid #ccc;
+  padding:5px;  
+  border-bottom:1px solid #eee;
 }
 
 dd img{    
@@ -260,15 +263,6 @@ dd a{
 	border:none;
 }       
 
-.soinputbot {
-	font-family: Tahoma, Arial;
-	text-align:center;
-	font-size: 18px;
-	margin:20px;
-	line-height: 30px;
-	width: 80px;
-}
-
 #form { margin-left:50px;}
 
 #form textarea{
@@ -279,11 +273,7 @@ input[type="text"],input[type="password"]{
 	width:200px;          
 } 
 
-input[type='submit']{
-	margin:10px;
-	width:80px;
-	text-align:center;
-}
+
 
 input.comment_title{
 	width:400px;
@@ -295,33 +285,33 @@ input.comment_title{
 	font:14px;
 } 
 
-#longform textarea{
-	width:600px;  
-	height:300px;
-	font:14px;	
-}    
- 
-select, input, textarea { 
-	display: inline-block;
-	font: -webkit-small-control;
-	letter-spacing: normal;
-	line-height: normal;
-	margin: 0em;
-	text-align: -webkit-auto;
-	text-indent: 0px;
-	text-shadow: none;
-	text-transform: none;
-	word-spacing: normal;
+
+input[type='submit']{
+	background:#ddd url(/images/bg-button.gif) repeat-x 0 0; 
+	font-size:12px;
+	margin:10px;
+	width:80px;
+	padding:5px;
+	text-align:center;
+} 
+
+.hover_btn{
+	cursor:pointer; /* important for any clickable/pressable element */
+  border-color:#9cf !important;
+}
+         
+TEXTAREA { width: 80%;}
+FIELDSET { border: 1px solid #ccc; padding: 1em; margin: 0; }
+LEGEND { color: #ccc; font-size: 120%; }
+INPUT, TEXTAREA { font-family: Arial, verdana; font-size: 125%;  border: 1px solid #999; }
+LABEL { display: block; margin-top: 10px; }    
+
+.search{ margin:5px 10px 5px 40px;}
+.search input{
+	margin:8px;
 }
 
-select {
-	padding: 0px;
-}
 
-input:focus, textarea:focus {
-	background-color: #ffffff;
-	border: 1px solid #666666;
-}
 
 /* admin */ 
 
@@ -346,8 +336,8 @@ input:focus, textarea:focus {
 
 #group_header{
 	clear:both;
-	padding:10px;
-	height:65px;
+	padding:5px;
+	height:60px;
 } 
 
 .g_left{ 
@@ -395,4 +385,21 @@ input:focus, textarea:focus {
 /*----- error ------*/
 .errorExplanation h2{
 	color:red;
+}     
+
+/* ---table---*/ 
+#categories li{
+	padding:10px;
+	border-bottom:1px solid #eee;
+}        
+
+#categories span.name{
+	font-size:16px;
+	font-weight:bold;
+}
+
+li .handle {
+  font-size: 12px;
+  cursor: move;
+  color: #777;
 }

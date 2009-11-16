@@ -1,11 +1,18 @@
-<h1>管理分类</h1>
-<p>
-<% @categories.each do |cate| %>
-	<h3><%=cate.name%></h3>
-<% end %>
-</p>
+<h1>管理分类</h1> 
+注: 类型qa为问答模块
+<ul id="categories">       
+	<% for category in @categories -%>
+		<% content_tag_for :li, category do %>
+    	<span class="handle">[拖动]</span>
+    	<span class='name'><%=h category.name %></span>（<%=category.kind%>） | <%=link_to '编辑',edit_admin_category_path(category)%> | <%=link_to '删除',admin_category_path(category),:method => :delete,:confirm => '你确定嘛?' %>
+  		<% end %> 
+    <% end -%>
+<li>                
+
+<%= sortable_element("categories", :url => sort_admin_categories_path, :handle => "handle") %>
+<h2>新建分类</h2>
 <% form_for @category,:url => admin_categories_path do |f| -%>    
   <%= error_messages_for :category %>
-  <%= f.text_field :name,:label => '名称' %>
+  <%= render :partial => 'form',:locals => {:f => f }%>     
   <%= f.submit "提交" %>
-<% end -%>
+<% end -%>       
