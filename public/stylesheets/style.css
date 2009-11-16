@@ -403,3 +403,10 @@ li .handle {
   cursor: move;
   color: #777;
 }
+
+/*---- load more ------*/   
+
+
+#load-more		  { color:#999; font-weight:bold; text-align:center; padding:10px; cursor:pointer; }
+#load-more:hover  { color:#666; }
+a.post-more                 { color:#900; }

@@ -1,10 +1,13 @@
 <% content_for :header do -%>
 	<script type="text/javascript" charset="utf-8">       
 	 $(document).ready(function() {
-		$("#tabs").tabs({spinner: '<img src="/images/indicator.gif"/>',ajaxOptions: {success: function() {}}});
+		$("#tabs").tabs({ ajaxOptions: { async: true } });
 	 });    
-	</script>
-<% end -%> 
+	</script>  
+<% end -%>   
+
+       
+
 <div style='text-align:right;'>
 	<%=pretty_button '发帖',new_post_path %>
 </div>
@@ -13,12 +16,22 @@
 
 <div id="tabs" >
   <ul>  
-		<li><%=link_to '全部', posts_path %></li>
+	   <li><%=link_to('全部',posts_path) %></li>  
 		<% Category.ordered.each do |cate| -%>
-      		<li><%=link_to cate.name, cate %></li>
+      		<li><%=link_to content_tag(:span,cate.name), cate %></li>
 		<% end -%>
   </ul> 
-	 <div id="tabs-content">
+	 <div id="tabs-content">  
+		<% if false %>
+		<dt id='postss'> </dt>
+		<dt>
+			<dd id='load-more'>
+				<%=link_to '查看更多','/',:class => 'post-more'%>
+			</dd>
+		</dt>       
+		<% end %>
 	</div>
-</div>
+</div>             
+
+
 

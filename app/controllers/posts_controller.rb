@@ -29,10 +29,10 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @tops = Post.tops
-    @posts =  @tops + Post.recent_without_top
+    @posts = Post.recent.paginate(:page => params[:page], :order => 'top DESC')
     
     respond_to do |format|
-      format.html # index.html.erb   
+      format.html { redirect_to '/' }
       format.js { render :partial => "post", :collection => @posts }
       format.xml  { render :xml => @tops }
       format.rss

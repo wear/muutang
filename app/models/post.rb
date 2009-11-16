@@ -6,6 +6,9 @@ class Post < ActiveRecord::Base
   
   named_scope :recent_without_top,:limit => 10,:order => 'updated_at DESC',
               :conditions => ['top = ? and visible = ?',false,true],:include => :user
+  named_scope :recent,:limit => 10,:order => 'updated_at DESC',
+              :conditions => ['visible = ?',true],:include => :user
+ 
   named_scope :tops,:conditions => ['top = ?',true] 
   
   acts_as_commentable  

@@ -402,4 +402,9 @@
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs .ui-tabs-panel { padding: 1em 1.4em; display: block; border-width: 0; background: #fff; }
 .ui-tabs .ui-tabs-hide { display: none !important; }
-.ui-tabs .ui-tabs-nav li.ui-tabs-selected a{ font-size:13px;}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a{ font-size:13px;}      
+.tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(/images/indicator.gif) no-repeat 0 50%;
+}
+
