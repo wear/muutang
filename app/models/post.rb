@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
   acts_as_commentable  
   
   cattr_reader :per_page
-  @@per_page = 3 
+  @@per_page = 10 
   
   
   def editable?
