@@ -24,7 +24,7 @@ class Comment < ActiveRecord::Base
  # named_scope :aaa,:joins => "LEFT JOIN 'posts' ON posts.id = comments.commentable_id AND comments.commentable_type = 'Post'"                                                                            
   
   cattr_reader :per_page
-  @@per_page = 4
+  @@per_page = 10
   
 
 end
