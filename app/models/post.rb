@@ -6,13 +6,14 @@ class Post < ActiveRecord::Base
   
   named_scope :recent_without_top,:limit => 10,:order => 'updated_at DESC',
               :conditions => ['top = ? and visible = ?',false,true],:include => :user
- 
+
+  named_scope :ordered,:conditions => ['visible = ?',true],:order => 'updated_at DESC',:include => :user  
   named_scope :tops,:conditions => ['top = ?',true] 
   
   acts_as_commentable  
   
   cattr_reader :per_page
-  @@per_page = 2
+  @@per_page = 5
   
   
   def editable?

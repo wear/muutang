@@ -55,6 +55,8 @@ ActionMailer::Base.smtp_settings = {
    :authentication => :plain,
    :user_name => "support@muutang.com",
    :password => "tellmewhy" }
+   
+Time::DATE_FORMATS[:due_time] = "%B %d %I:%M %p"
 
 #ActionMailer::Base.delivery_method = :sendmail
 

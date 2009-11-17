@@ -13,7 +13,11 @@
  
 <div id="tabs" >
   <ul> 
-	 	<li><%=link_to(logged_in? ? '我的' : '全部',posts_path) %></li>  
+	 	<li><%=link_to content_tag(:span,'全部'),posts_path %></li>
+	  	<% if logged_in? -%>
+		<li><%=link_to content_tag(:span,'我发的'),user_posts_categories_path %></li>
+		<li><%=link_to content_tag(:span,'我评论过的'),user_comments_categories_path %></li>
+		<% end -%>
 		<% Category.ordered.each do |cate| -%>
       		<li><%=link_to content_tag(:span,cate.name), cate %></li>
 		<% end -%>

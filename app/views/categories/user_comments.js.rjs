@@ -1,0 +1,2 @@
+page.insert_html :bottom,"posts_#{current_category(@category) }",:partial => @comments
+page.replace "flow_pagination_#{current_category(@category) }", will_paginate(@comments,:class => current_category(@category) , :renderer => FlowPagination::LinkRenderer)

@@ -1,0 +1,8 @@
+
+<ul id="posts_<%= current_category(@category) %>" class='posts'>
+	<%=render @comments %>
+</ul>
+<div id="load-more"> 
+	<div class='activate'>loading...</div>
+   <%= will_paginate @comments,:class => current_category(@category), :renderer => FlowPagination::LinkRenderer%> 
+</div>

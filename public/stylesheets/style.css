@@ -276,7 +276,25 @@ span.time{
 	margin-right:10px;
 }
 
+.comments{
+	background:#eee; 
+	width:80%;
+	margin-left:40px;
+	padding:10px 0px;
+}
 
+.comments  li img{    
+	float:left;
+	margin:0px 5px;
+}    
+
+.comments li{         
+  width:100%;
+
+  clear:both;
+  min-height:80px;
+  border-bottom:1px solid #fff;
+}
 
 /* --- form --- */    
 .submit{
@@ -427,6 +445,6 @@ li .handle {
 
 /*---- load more ------*/    
 p.post-content              { font-size:10px; line-height:17px; padding-bottom:0; }  
-#load-more                  { border-bottom:1px solid #eee;color:#999;width:90%;font-weight:bold; text-align:right; padding:3px; cursor:pointer; }  
+#load-more                  { color:#999;width:90%;font-weight:bold; text-align:right; padding:3px; cursor:pointer; }  
 #load-more:hover            { color:#666; }    
 .activate					{ text-align:right;width:100%;background:url(/images/indicator.gif) no-repeat;display:none; }

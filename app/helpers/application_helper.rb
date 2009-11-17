@@ -33,7 +33,16 @@ module ApplicationHelper
   end  
   
   def current_category(cate)
-    cate.nil? ? 0 : cate.id
-  end
+    cate.nil? ? 0 : cate
+  end  
+  
+  def comment_status(comment)
+    post = comment.commentable
+    if post.comments.last == comment
+        "暂无新评论" 
+        else
+        '有新的评论了' + link_to('去看看',post,:class => 'a2')
+    end
+  end              
 
 end

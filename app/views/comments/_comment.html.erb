@@ -1,11 +1,6 @@
-
-	<tr>
-	<td valign="top" style='text-align:center'><%=link_to image_tag(comment.user.avatar.url(:medium)),comment.user %><br /><b><%=link_to h(comment.user.login),comment.user %></b></td>
-	<td> 
-	 <span style='color:#999999'><%= time_ago_in_words_or_date(comment.created_at) %> </span>    
-	<p><%= comment.comment %> </p>   
-	<% restrict_to "(editor | superuser)" do %> 
-		<%=pretty_button '删除',admin_comment_path(comment),:method => :delete %>
-	<% end %>
-	</td>
-	</tr>                                                               
+<li> 
+<%=link_to image_tag(comment.user.avatar.url(:thumb)),comment.user %>
+<%=link_to h(comment.commentable.user.login),comment.user %> <%=link_to h(comment.commentable.title),comment.commentable,:class => 'post-title' %>
+<p class='post-content'><%=truncate(strip_tags(comment.commentable.body),:length => 75)%></p>  
+<p><span class='time'><%= time_ago_in_words_or_date(comment.commentable.created_at) %></span> 你在 <%= comment.created_at.to_s(:short) %> 评论过,<%= comment_status(comment) %> </p>
+</li>

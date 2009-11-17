@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :posts,:has_many => :comments
-  map.resources :categories
+  map.resources :categories,:collection => {:user_posts => :get,:user_comments => :get}  
   
   map.admin '/admin', :controller => 'admin', :action => 'index'  
    

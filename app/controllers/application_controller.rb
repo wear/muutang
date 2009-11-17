@@ -10,5 +10,11 @@ class ApplicationController < ActionController::Base
   include AuthenticatedSystem     
   include ExceptionNotifiable
   
+  protected
+  
+  def ajax?
+    redirect_to(root_path)  unless request.xhr? 
+  end
+  
   
 end

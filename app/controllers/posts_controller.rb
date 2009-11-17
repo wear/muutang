@@ -1,5 +1,6 @@
 class PostsController < ApplicationController      
-  before_filter :login_required,:except => [:index,:show,:load_more]  
+  before_filter :login_required,:except => [:index,:show]   
+  before_filter :ajax?,:only => :sindex
 
   uses_tiny_mce :only => [:new, :create, :edit, :update,:show],
   :options => { :theme => 'advanced',:plugins => %w{ syntaxhl },:content_css => "/stylesheets/editor_content.css",
@@ -29,11 +30,7 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     @tops = Post.tops                                                          
-    if logged_in?
-      @posts = current_user.posts.paginate(:page => params[:page],:order => 'updated_at DESC') 
-    else
-      @posts = Post.recent_without_top.paginate(:page => params[:page])
-    end
+    @posts = Post.recent_without_top.paginate(:page => params[:page])
     
     respond_to do |format|
       format.html { redirect_to '/' }      
@@ -45,7 +42,7 @@ class PostsController < ApplicationController
       format.xml  { render :xml => @tops }
       format.rss
     end
-  end 
+  end  
 
   # GET /posts/1
   # GET /posts/1.xml

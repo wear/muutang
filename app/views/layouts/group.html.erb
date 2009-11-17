@@ -20,13 +20,6 @@
 		   <%= yield %>  
 		 </div>
 	   	 <div id="sidebar" class='ui-corner-all'>      
-		   	<% if logged_in? %>      
-		     <div class='box menu'>
-		     	<%=link_to '我的帖子',posts_user_path(current_user) %>
-		     	<%=link_to '我的评论',comments_user_path(current_user) %> 
-				<div style="font: 0px/0px sans-serif;clear: both;display: block"> </div>
-		     </div>           
-		   	<% end %>
 		     <div class='box'>
 		     	<%= Post.count %>个帖子,<%= Comment.count %>篇回复<br />
 		     	<%= User.count %>名用户
