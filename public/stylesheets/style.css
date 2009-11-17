@@ -1,7 +1,12 @@
+* {
+ padding: 0;
+ margin: 0; 
+ font-size:12px;
+ line-height: 120%;
+}
+
 body{         
-	font-size: 13px;
-	color: #222227;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family:Arial,Helvetica,sans-serif;
 	background-color: #efefef;
 	background-position: top;
 	margin:0;
@@ -14,7 +19,6 @@ img{
 
 a {
 	color: #6F1600;
-	font-size: 12px;
 }  
 
 a.small{
@@ -78,20 +82,21 @@ p{
 } 
 
 h1{  
+	font-size:1.5em;
 	padding-bottom:10px;
-	border-bottom:1px solid #eee;  
+	border-bottom:2px solid #DDDDDD;  
 }     
 
 h2{      
 	padding:5px;
 	margin:5px;
-	border-bottom:1px solid #eee;
+	border-bottom:2px solid #DDDDDD;
 }  
 
 h3{      
 	padding:5px;
 	margin:5px;
-	border-bottom:1px solid #eee;
+	border-bottom:2px solid #DDDDDD;
 }
 
 ul li{list-style:none;}                 
@@ -230,32 +235,32 @@ span.title{
 	float:left;
 }  
 
-ul.posts{
-	margin:0px;
-}     
-
-.posts li{          
+.posts li{         
   width:90%;
   padding:5px;  
-  border-bottom:1px solid #eee;
+  border-bottom:1px solid #DDDDDD;
 }
 
 .posts li img{    
 	float:left;
 	margin:0px 5px;
-}                  
+} 
 
-.posts li p{
+.posts li a{
+	text-decoration: none; 
+}                 
+
+.posts li p{   
+	font-size:12px;  
 	padding-left:20px;
 }
 
-
-.posts li a{
-   text-decoration: underline;    
-}  
+a.post-title,.post-content{
+	color:#777777;
+}
 
 span.time{
-	color:#999999;
+	color:#777777;
 	margin-right:10px;
 }
 
