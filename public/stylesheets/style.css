@@ -83,20 +83,20 @@ p{
 
 h1{  
 	font-size:1.5em;
-	padding-bottom:10px;
-	border-bottom:2px solid #DDDDDD;  
+	padding:10px;
+	border-bottom:1px solid #DDDDDD;  
 }     
 
 h2{      
-	padding:5px;
+	padding:10px;
 	margin:5px;
-	border-bottom:2px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
 }  
 
 h3{      
-	padding:5px;
+	padding:10px;
 	margin:5px;
-	border-bottom:2px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
 }
 
 ul li{list-style:none;}                 
