@@ -6,6 +6,8 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  map.faq '/faq', :controller => 'landing', :action => 'faq'
+  map.about '/about', :controller => 'landing', :action => 'about'
   
   map.resource :session
   map.resources :users, :collection => {:forgot_password => :get,:reset_password => :put ,:auto_complete_for_user_email => :get } ,

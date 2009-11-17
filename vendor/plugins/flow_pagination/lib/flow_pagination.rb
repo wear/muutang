@@ -8,8 +8,8 @@ module FlowPagination
       flow_pagination = ''
 
       if self.current_page < self.last_page
-        flow_pagination = @template.button_to_remote(
-            @template.t('flow_pagination.button', :default => '更多'),  
+        flow_pagination = @template.link_to_remote(
+            @template.t('flow_pagination.button', :default => '载入更多'),  
             :url => { :controller => @template.controller_name,
             :action => @template.action_name,
             :params => @template.params.merge!(:page => self.next_page)}, 

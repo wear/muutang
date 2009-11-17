@@ -1,5 +1,12 @@
 <div id="footer" class='ui-corner-all'>
-	© 2009 亩塘 沙路科技
+	<div class='copyright'>
+	   © 2009 亩塘 <%=link_to '沙路科技','http://www.sandsroad.com/cn',:target =>'_blank'%>
+	</div> 
+	<ul>    
+   		<li><%=link_to '帮助',faq_path %></li>  
+		<li><%=link_to '关于',about_path %></li>
+
+	</ul>	
 </div>                         
 <% if  ENV['RAILS_ENV'] == 'production' -%>     
 <script type="text/javascript">

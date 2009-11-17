@@ -2,7 +2,7 @@
  padding: 0;
  margin: 0; 
  font-size:12px;
- line-height: 120%;
+ line-height: 150%;
 }
 
 body{         
@@ -87,13 +87,15 @@ h1{
 	border-bottom:1px solid #DDDDDD;  
 }     
 
-h2{      
+h2{  
+	font-size:1.4em;    
 	padding:10px;
 	margin:5px;
 	border-bottom:1px solid #DDDDDD;
 }  
 
-h3{      
+h3{  
+	font-size:1.2em;     
 	padding:10px;
 	margin:5px;
 	border-bottom:1px solid #DDDDDD;
@@ -191,9 +193,19 @@ ul li{list-style:none;}
 #footer{
    	margin:10px 0px;
 	background:#FFFFFF;
+	height:15px;
 	padding:10px;   
-	text-align:center;
-}             
+	text-align:left;
+}  
+
+.copyright{
+	float:left;
+}
+
+#footer ul li{  
+	margin:0px 5px;
+	float:right;
+}           
 
 /* posts */       
 span.title{
@@ -295,7 +307,6 @@ input.comment_title{
 	font:14px;
 } 
 
-
 input[type='submit']{
 	background:#ddd url(/images/bg-button.gif) repeat-x 0 0; 
 	font-size:12px;
@@ -303,7 +314,7 @@ input[type='submit']{
 	width:80px;
 	padding:5px;
 	text-align:center;
-} 
+}
 
 .hover_btn{
 	cursor:pointer; /* important for any clickable/pressable element */
@@ -414,10 +425,8 @@ li .handle {
   color: #777;
 }
 
-/*---- load more ------*/   
-
-a.post-more                 { color:#900; }  
+/*---- load more ------*/    
 p.post-content              { font-size:10px; line-height:17px; padding-bottom:0; }  
-#load-more                  { width:90%;  color:#999; font-weight:bold; text-align:right; margin-left:40px;padding:10px; cursor:pointer; }  
+#load-more                  { border-bottom:1px solid #eee;color:#999;width:90%;font-weight:bold; text-align:right; padding:3px; cursor:pointer; }  
 #load-more:hover            { color:#666; }    
 .activate					{ text-align:right;width:100%;background:url(/images/indicator.gif) no-repeat;display:none; }
