@@ -36,9 +36,9 @@
 <% unless @comments.blank? %>                   
 <h2>评论</h2>        
 <%= will_paginate @comments,:previous_label => '< 前页',:next_label => '后页 >'  %>  
-<ul class='comments'>      
+<table class='comments'>      
 <%= render :partial => 'comments/post_comment', :collection => @comments,:as => :comment %>
-</ul>
+</table>
 <%= will_paginate @comments,:previous_label => '< 前页',:next_label => '后页 >' %>   
 <% end %>
                 

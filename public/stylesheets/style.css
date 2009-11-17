@@ -280,21 +280,13 @@ span.time{
 	background:#eee; 
 	width:80%;
 	margin-left:40px;
-	padding:10px 0px;
 }
 
-.comments  li img{    
-	float:left;
-	margin:0px 5px;
-}    
+.comments td{  
+	padding:5px;
+	border-bottom:1px solid #fff;
+	}  
 
-.comments li{         
-  width:100%;
-
-  clear:both;
-  min-height:80px;
-  border-bottom:1px solid #fff;
-}
 
 /* --- form --- */    
 .submit{
