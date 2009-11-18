@@ -38,7 +38,7 @@ module ApplicationHelper
   
   def comment_status(comment)
     post = comment.commentable
-    if post.comments.last == comment
+    if post.comments.last.user == comment.user
         "暂无新评论" 
         else
         '有新的评论了' + link_to('去看看',post,:class => 'a2')

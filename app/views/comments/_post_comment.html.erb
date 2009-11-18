@@ -1,7 +1,7 @@
 <tr> 
 <td valign="top" width='80px' style='text-align:center'><%=link_to image_tag(comment.user.avatar.url(:medium)),comment.user %></td>
 <td>
-<p><%=link_to h(comment.user.login),comment.user %> 写于 <span class='time'><%= time_ago_in_words_or_date(comment.commentable.created_at) %></span></p>
+<p><%=link_to h(comment.user.login),comment.user %> 写于 <span class='time'><%= time_ago_in_words_or_date(comment.created_at) %></span></p>
 <p><%=comment.comment%></p>  
 </td>
 </tr>

@@ -34,7 +34,7 @@ class CategoriesController < ApplicationController
   
   def user_comments
     @category = 1000
-    @comments = Comment.for_others(current_user.id).grouped.paginate(:page => params[:page])
+    @comments = current_user.comments.group_by_post.paginate(:page => params[:page])
        
     respond_to do |wants|
       wants.html {  } 
