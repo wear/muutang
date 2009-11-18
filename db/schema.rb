@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20091111091217) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
-    t.text     "body"
+    t.text     "body"  
     t.integer  "user_id"
     t.integer  "category_id",:default => 0
     t.boolean  "visible",:default => true

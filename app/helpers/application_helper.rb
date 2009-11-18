@@ -34,6 +34,10 @@ module ApplicationHelper
   
   def current_category(cate)
     cate.nil? ? 0 : cate
+  end
+  
+  def user_title(user)
+      content_tag(:span," #{user.profile.title} ",:class => 'time') if user.profile.title
   end  
   
   def comment_status(comment)
@@ -43,6 +47,13 @@ module ApplicationHelper
         else
         '有新的评论了' + link_to('去看看',post,:class => 'a2')
     end
-  end              
+  end    
+  
+  def topnav_tab(name, options)
+    classes = [options.delete(:class)]
+    classes << 'current' if options[:section] && (options.delete(:section).to_a.include?(@section))
+    
+    "<li class='#{classes.join(' ')}'>" + link_to( "<span>"+name+"</span>", options.delete(:url), options) + "</li>"
+  end          
 
 end

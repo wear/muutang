@@ -27,7 +27,7 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :comments
       admin.resources :categories, :collection => { :sort => :post }
       admin.resources :roles
-      admin.resources :users,:member => {:setting_role => :get,:update_role => :put,:destroy_role => :delete }
+      admin.resources :users,:member => {:setting_role => :get,:update_role => :put,:destroy_role => :delete },:collection => {:search => :get}
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

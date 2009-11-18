@@ -1,6 +1,7 @@
 class PostsController < ApplicationController      
   before_filter :login_required,:except => [:index,:show]   
-  before_filter :ajax?,:only => :sindex
+  before_filter :ajax?,:only => :index     
+  before_filter { |c| c.set_section('bbs') }
 
   uses_tiny_mce :only => [:new, :create, :edit, :update,:show],
   :options => { :theme => 'advanced',:plugins => %w{ syntaxhl },:content_css => "/stylesheets/editor_content.css",
@@ -28,8 +29,7 @@ class PostsController < ApplicationController
   layout 'group'
   # GET /posts
   # GET /posts.xml
-  def index
-    @tops = Post.tops                                                          
+  def index                                                   
     @posts = Post.recent_without_top.paginate(:page => params[:page])
     
     respond_to do |format|

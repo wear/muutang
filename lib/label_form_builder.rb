@@ -8,7 +8,7 @@ class LabelFormBuilder < ActionView::Helpers::FormBuilder
     define_method(name) do |field, *args|
       options = args.last.is_a?(Hash) ? args.pop : {}
       label = label(field, options[:label], :class => options[:label_clas])
-      @template.content_tag(:p, label +'<br/>' + super)  #wrap with a paragraph 
+      @template.content_tag(:p, label  + super)  #wrap with a paragraph 
     end
   end
 end

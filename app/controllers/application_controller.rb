@@ -8,13 +8,16 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password    
   include AuthenticatedSystem     
-  include ExceptionNotifiable
+  include ExceptionNotifiable  
   
-  protected
+  
+  def set_section(section)
+    @section = section
+  end
   
   def ajax?
     redirect_to(root_path)  unless request.xhr? 
-  end
-  
+  end 
+
   
 end

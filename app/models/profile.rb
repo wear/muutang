@@ -1,7 +1,7 @@
 class Profile < ActiveRecord::Base 
   belongs_to :user   
   
-  has_attached_file :avatar, :styles => { :medium => "75x75>", :thumb => "16x16>" } 
+  has_attached_file :avatar, :styles => { :medium => "50x50>", :thumb => "16x16>" } 
     
   COMPANY_CATEGORIES = ['foreign_company', 'private_company', 'state_owned_company']
   COMPANY_SIZES      = ['< 10', '10 - 50', '50 - 100', '100 - 500', '> 500']

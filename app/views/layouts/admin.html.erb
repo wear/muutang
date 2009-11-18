@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title><%= '亩塘 | ' + h(@page_title) %></title>   
+	<%= javascript_include_tag :defaults %> 
+	<%= stylesheet_link_tag 'pretty-buttons','ui-theme','admin' %>   
+	<%= yield :header %>            
+</head>
+<body>
+	<div id="container">
+	   <div id="header">
+		<%= render :partial => 'shared/header' %>
+	   </div>                    
+	   <div id="body" class='ui-corner-all'> 
+		 <%= render :partial => '/shared/notice' %> 
+		<div id='content'>
+		   <%= yield :bread %>   
+		   <%= yield %>  
+		</div>
+	   	 <div id="sidebar">   
+	   	 	<div class='box menu'>
+			  <%=link_to '管理帖子',admin_posts_path %>
+			  <%=link_to '管理分类',admin_categories_path %>
+			  <%=link_to '管理用户',admin_users_path %>
+			  <%=link_to '管理权限',admin_roles_path %>  
+			 <div style="clear:both"></div>  
+	   	 	</div>     
+	   	 </div>   
+		  <div style="clear:both"></div>    
+	   </div> 
+ 	<%=render :partial => '/shared/footer' %>  
+	</div>
+</body> 
+</html>

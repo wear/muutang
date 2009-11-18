@@ -28,9 +28,11 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email,:password, :password_confirmation 
   
   # Virtual attribute for the unencrypted password
-  attr_accessor :current_password  
+  attr_accessor :current_password
   
   delegate :avatar, :to => :profile
+  
+  named_scope :prestiged, :conditions => ['profiles.prestige = 1'],:limit => 3,:joins => :profile
   
   # Activates the user in the database.
   def activate!

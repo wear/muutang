@@ -2,7 +2,8 @@ class LandingController < ApplicationController
   
   caches_page :index,:intro,:faq,:about
   
-  def index  
+  def index
+    @section = 'bbs'  
     @category = Category.ordered.first
     
     respond_to do |wants|

@@ -14,20 +14,44 @@
 	   </div>                    
 	   <div id="body" class='ui-corner-all'> 
 		 <%= render :partial => '/shared/notice' %>
-		 <%= render :partial => '/shared/group_header' %>
-		 <div id="content">  
-		   <%= yield :bread %>
+		 <%= render :partial => '/shared/group_header' %>  
+		 <div id="navs" class='ui-corner-all'> 
+			<h4>导航栏</h4>
+		 	<div class='nav_box'>
+				<ul>
+					<%=topnav_tab "讨论区(#{Post.count}/#{Comment.count})",:url => root_path,:section => 'bbs' %>
+					<div style="clear: both;display: block"> </div> 
+				 </ul>      
+		 	</div>        
+			<h4>置顶帖子</h4>
+            <div class="box">
+				<ul>
+            	<% Post.tops.each do |post| -%>
+				   <li><%=link_to h(post.title),post %></li>
+				<% end -%>
+				</ul> 
+            </div>
+			<% if false %>      
+						<h4>优秀会员</h4>   
+			<div class='nice_member' >
+				<ul> 
+					<% User.prestiged.each do |user| -%>
+					<li><%=link_to image_tag(user.avatar.url(:medium)),user%><br /><%=link_to h(user.login),user%></li>
+					<% end %>
+					<div style="clear: both;display: block"> </div> 
+				 </ul>      
+		 	</div> 
+		<% end %>  
+		 </div>
+		 <div id="content">   
+		   <%= yield :bread %>   
 		   <%= yield %>  
 		 </div>
 	   	 <div id="sidebar" class='ui-corner-all'>      
-		     <div class='box'>
-		     	<%= Post.count %>个帖子,<%= Comment.count %>篇回复<br />
-		     	<%= User.count %>名用户
-	   	     </div> 
 			 	<%=link_to image_tag('group/rcc_logo.png', :size => "150x90"),'http://www.rubyconfchina.org',:target => '_blank'%> <br />
 				<%=link_to image_tag('group/kungfu_rails_logo_big.png', :size => "160x80"),'http://kungfurails.com',:target => '_blank'%>
 	   	 </div>   
-		  <div style="font: 0px/0px sans-serif;clear: both;display: block"> </div>   
+		  <div style="clear: both;display: block"> </div>   
 	   </div> 
 	   <%=render :partial => '/shared/footer' %>
 	</div>  

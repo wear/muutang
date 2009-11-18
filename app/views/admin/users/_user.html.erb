@@ -1,12 +1,8 @@
 
-<dd>   
-<%= image_tag user.avatar.url(:thumb) %>  
-<%=link_to h(user.login),user %> <%=h user.profile.name %>  <%= user.posts.count %>篇帖子 
-<%= user.comments.count %>次回复
-<p>
-<%=truncate(h(user.profile.desc),120) %>
-</p> 
-<p>
-<%=pretty_button '设定角色',setting_role_admin_user_path(user),:class => "btn" %> <%=pretty_button '删除',admin_user_path(user),:method => :delete,:confirm => "你确定嘛?",:class => "btn" %>
-</p>
-</dd>
+	<tr class="<%= cycle("even", "odd") -%>">
+		<td width='15%'><%=link_to h(user.login),user%></td>
+		<td width='15%'><%= user.posts.count %>篇帖子 
+		<%= user.comments.count %>次回复</td>
+		<td width='50%'><%=truncate(h(user.profile.desc),:length => 120) %> </td>
+		<td width='20%'><%=pretty_button '编辑',edit_admin_user_path(user),:class => "btn" %><%=pretty_button '设定角色',setting_role_admin_user_path(user) %> <%=pretty_button '删除',admin_user_path(user),:method => :delete,:confirm => "你确定嘛?" %>  </td></tr> 
+

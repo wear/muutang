@@ -1,3 +1,23 @@
-<h1>管理用户</h1>
-<%= will_paginate @users,:previous_label => '<前页',:next_label => '后页>' %>     
+<h1>管理用户</h1>       
+<h3>查找用户</h3>
+<% form_tag(search_admin_users_path, {:method => :get,:id => "form"}) do %> 
+	字段:
+	<%=select_tag :column,"<option value='login'>login</option><option value='email'>email</option>"%>
+     like <%= text_field_tag :query,params[:query] %>  
+	<%=submit_tag '提交'%>
+<% end -%>       
+<h2>所有用户</h2>     
+<ul class='menu'>
+<% User.columns.each do |col| -%>
+
+<li class="<%='current' if params[:order] == col.name%>">
+
+<%=link_to col.name,search_admin_users_path(:query => @query,:order => col.name) %></li>                           
+<% end -%>  
+</ul>  
+<div style='clear:both'></div>
+<table border="0" cellspacing="1" cellpadding="0" style='text-align:center'>  
 <%=render @users %>
+</table>
+
+<%= will_paginate @users,:previous_label => '<前页',:next_label => '后页>',:params => {:login => @login } %>   

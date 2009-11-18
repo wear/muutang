@@ -1,0 +1,6 @@
+<h1>编辑用户</h1>
+<h3><%=h @user.login%></h3>
+<% form_for :profile,@user.profile,:url => admin_user_path(@user),:html => {:method => :put} do |f| -%>  
+	<%= f.text_field :prestige,:label => '等级' %> 
+	<%= f.submit "提交" %>
+<% end -%>

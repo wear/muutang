@@ -85,7 +85,7 @@ hr{
 
 p{
 	margin:5px;
-}    
+} 
 
 h1{  
 	font-size:1.5em;
@@ -156,13 +156,12 @@ ul li{list-style:none;}
 
 /* body structure*/
 #body{
-	margin:5px 0px;
+	margin:10px 0px;
 	background:#FFFFFF;
 	padding:10px;
 }     
 
-#navs{  
-	padding-bottom:10px;  
+#navs{    
 	margin-top:5px;      
 	float:left;
 	width:200px;
@@ -194,18 +193,8 @@ ul li{list-style:none;}
 	text-decoration: none;       
 	display:block; 
 	padding:5px;  
-} 
+}      
 
-#navs .box li{
-	padding-left:20px;
-	padding-right:10px;
-}     
-  
-.nice_member li{  
-	float:left;
-	text-align:center;
-	padding:5px 8px;
-}
 #navs .current a, #nav .current a:hover, #nav .current a:visited{
 	background:#ccc;
 	font-size:12px;  
@@ -215,7 +204,7 @@ ul li{list-style:none;}
 #content{  
 	margin-left:10px; 
 	float:left;
-	width:500px;
+	width:700px;
 }      
 
 #bread{
@@ -355,12 +344,16 @@ span.time{
 
 
 /* --- form --- */    
-
+.submit{
+	width:113px;
+	height:28px;
+	border:none;
+}       
+    
 #form { margin-left:50px;}
 
 #form textarea{
-	width:300px;
-   	height:100px;   
+   	height:20px;   
 }  
           
 input[type="text"],input[type="password"]{
@@ -394,9 +387,11 @@ input[type='submit']{
 #longform textarea{height:300px;}   
 TEXTAREA { width: 80%;}
 FIELDSET { border: 1px solid #ccc; padding: 1em; margin: 0; }
-LEGEND { color: #ccc; font-size: 100%; }
-INPUT, TEXTAREA { font-family: Arial, verdana; font-size: 100%;  border: 1px solid #999; } 
+LEGEND { color: #ccc; font-size: 120%; }
+INPUT, TEXTAREA { font-family: Arial, verdana; font-size: 125%;  border: 1px solid #999; }
 LABEL { display: block; margin-top: 5px; }    
+
+
 .search{ margin:5px 10px 5px 40px;}
 .search input{
 	margin:8px;
@@ -493,10 +488,33 @@ li .handle {
   font-size: 12px;
   cursor: move;
   color: #777;
+}  
+
+
+.even td{
+	background:#efefef;
 }
 
-/*---- load more ------*/    
-p.post-content              { font-size:10px; line-height:17px; padding-bottom:0; }  
-#load-more                  { color:#999;width:90%;font-weight:bold; text-align:right; padding:3px; cursor:pointer; }  
-#load-more:hover            { color:#666; }    
-.activate					{ text-align:right;width:100%;background:url(/images/indicator.gif) no-repeat;display:none; }
+.menu{
+	clear:both;
+}               
+
+.menu li{    
+	padding:0px;
+	margin:0px;
+	float:left; 
+} 
+
+.menu li a{  
+	padding:5px;
+	margin:0px;
+	display:block; 
+}
+
+.menu li a:hover{ 
+	background:#cccccc; 
+} 
+
+.current{
+  background:#cccccc;  
+}

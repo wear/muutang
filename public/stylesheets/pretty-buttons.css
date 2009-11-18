@@ -31,8 +31,17 @@ html:not([lang*=""]) button.btn {
   }
 * html .btn span {
   padding-top:0;
-  }
+  }      
+
 .btn span span {
+  position:relative;
+  padding:5px .2em;
+  border-width:0;
+  border-top:1px solid #bbb;
+  border-bottom:1px solid #aaa;
+  }    
+
+#big-btn span span {
   position:relative;
   padding:5px 1.8em;
   border-width:0;
