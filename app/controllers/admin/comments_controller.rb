@@ -11,7 +11,6 @@ class Admin::CommentsController < ApplicationController
       flash[:notice] = "评论已删除"
       wants.html { redirect_to @post }
     end
-    
   end
   
 end

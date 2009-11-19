@@ -3,25 +3,23 @@ class PostsController < ApplicationController
   before_filter :ajax?,:only => :index     
   before_filter { |c| c.set_section('bbs') }
 
-  uses_tiny_mce :only => [:new, :create, :edit, :update,:show],
-  :options => { :theme => 'advanced',:plugins => %w{ syntaxhl },:content_css => "/stylesheets/editor_content.css",
+  uses_tiny_mce :only => [:new, :create, :edit, :update,:show], 
+  :options => { :theme => 'advanced',
   :browsers => %w{msie gecko safari},
-  :theme_advanced_layout_manager => "SimpleLayout",
-  :theme_advanced_statusbar_location => "bottom",
-  :theme_advanced_toolbar_location => "top",
-  :theme_advanced_toolbar_align => "left",
-  :theme_advanced_resizing => true,
-  :relative_urls => false,
-  :convert_urls => false,
-  :cleanup => true,
-  :cleanup_on_startup => true,  
+  :cleanup_on_startup => true,
   :convert_fonts_to_spans => true,
-  :theme_advanced_resize_horizontal => false,
-  :theme_advanced_buttons1 => %w{bold italic underline separator justifyleft justifycenter justifyright indent outdent separator bullist numlist separator link unlink image media separator  undo redo syntaxhl},
+  :theme_advanced_resizing => true, 
+  :theme_advanced_toolbar_location => "top",  
+  :theme_advanced_statusbar_location => "bottom", 
+  :editor_deselector => "mceNoEditor",
+  :theme_advanced_resize_horizontal => false,  
+  :theme_advanced_buttons1 => %w{bold italic underline separator bullist numlist separator link unlink image},
   :theme_advanced_buttons2 => [],
-  :theme_advanced_buttons3 => [],
-  :editor_deselector => "mceNoEditor"
-  } 
+  :theme_advanced_buttons3 => []
+  }                                        
+  
+  
+
     
   caches_page :index,:show
   cache_sweeper :post_sweeper,:only => [:create,:update,:destroy]
@@ -42,7 +40,15 @@ class PostsController < ApplicationController
       format.xml  { render :xml => @tops }
       format.rss
     end
-  end  
+  end   
+  
+  def recommand   
+    @post = Post.new
+    
+    respond_to do |wants|
+      wants.html { render :layout => 'application' }
+    end
+  end
 
   # GET /posts/1
   # GET /posts/1.xml

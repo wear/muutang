@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
   named_scope :ordered,:conditions => ['visible = ?',true],:order => 'updated_at DESC',:include => :user  
   named_scope :tops,:conditions => ['top = ?',true],:limit => 5 
   
-  before_save :create_body_pre
+ # before_save :create_body_pre
   
   acts_as_commentable  
   

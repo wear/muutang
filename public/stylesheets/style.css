@@ -342,13 +342,14 @@ span.time{
 	margin-right:10px;
 }
 
-.comments{
+.comments{       
 	background:#EFEFEF; 
-	width:80%;
-	margin-left:40px;
+	width:90%;
+	margin-left:20px;
+	margin-right:10px;
 }
 
-.comments td{  
+.comments td{ 
 	padding:5px;
 	border-bottom:1px solid #fff;
 	}  
@@ -368,7 +369,7 @@ input[type="text"],input[type="password"]{
 } 
 
 input.comment_title{
-	width:400px;
+	width:300px;
 }        
 
 #longform .title{

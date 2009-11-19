@@ -1,0 +1,5 @@
+<h3><%=params[:title]%></h3>
+<%=link_to params[:url],params[:url],:target => '_blank'%>
+<% form_for @post do |f| -%>
+    <%= f.hidden_field :title,:value => params[:title] %> 
+<% end -%>

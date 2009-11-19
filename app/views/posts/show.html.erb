@@ -19,18 +19,20 @@
 <table width="490" style='table-layout:fixed'>
 	<tr>
 	<td valign="top" width='80px' style='text-align:center'><%=image_tag @post.user.avatar.url(:medium) %><br /></td>
-		<td><span class='title'><%=h @post.title %></span><br /><%=link_to h(@post.user.login),@post.user%>写于<span class='time'><%= time_ago_in_words_or_date(@post.created_at) %> </span></td>
+		<td><span class='title'><%=h @post.title %></span><br /><%=link_to h(@post.user.login),@post.user%>写于<span class='time'><%= time_ago_in_words_or_date(@post.created_at) %> </span><br />
+			<% if @post.user == current_user && @post.editable? %>
+				<%=pretty_button '编辑',edit_post_path(@post) %>
+			<% end %>  
+			<% restrict_to "(editor | superuser)" do %>
+		    	<%=mark_top_button(@post)%>
+				<%=pretty_button '删除',admin_post_path(@post),:method => :delete,:confirm => "你确定嘛?" %>
+			<% end %>
+			</td>
 	</tr>
 	<tr> 
 	   <td colspan='2'> 
 		<p>
-		<% if @post.user == current_user && @post.editable? %>
-			<%=pretty_button '编辑',edit_post_path(@post) %>
-		<% end %>  
-		<% restrict_to "(editor | superuser)" do %>
-	    	<%=mark_top_button(@post)%>
-			<%=pretty_button '删除',admin_post_path(@post),:method => :delete,:confirm => "你确定嘛?" %>
-		<% end %>
+
 		</p>
 		<div class='content-width'><%= @post.body %></div> 
 		</td>
@@ -40,7 +42,7 @@
 <% unless @comments.blank? %>                   
 <h2>评论</h2>        
 <%= will_paginate @comments,:previous_label => '< 前页',:next_label => '后页 >'  %>  
-<table class='comments'>      
+<table class='comments' >      
 <%= render :partial => 'comments/post_comment', :collection => @comments,:as => :comment %>
 </table>
 <%= will_paginate @comments,:previous_label => '< 前页',:next_label => '后页 >' %>   
