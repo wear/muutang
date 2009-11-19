@@ -501,3 +501,10 @@ p.post-content              { font-size:10px; line-height:17px; padding-bottom:0
 #load-more                  { color:#999;width:90%;font-weight:bold; text-align:right; padding:3px; cursor:pointer; }  
 #load-more:hover            { color:#666; }    
 .activate					{ text-align:right;width:100%;background:url(/images/indicator.gif) no-repeat;display:none; }
+
+/* ---  entry ----*/ 
+.entry {   
+	min-height:100px;
+	border-top:1px solid #eee;
+	border-bottom:1px solid #eee;
+}

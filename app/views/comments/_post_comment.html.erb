@@ -1,7 +1,7 @@
 <tr> 
 <td valign="top" width='80px' style='text-align:center'><%=link_to image_tag(comment.user.avatar.url(:medium)),comment.user %></td>
 <td>
-<p><%=link_to h(comment.user.login),comment.user %><%= user_title(comment.user) %> 写于 <span class='time'><%= time_ago_in_words_or_date(comment.created_at) %></span><br />
+<p><%=link_to h(comment.user.login),comment.user %> 写于 <span class='time'><%= time_ago_in_words_or_date(comment.created_at) %></span><br />
 	<% restrict_to "(editor | superuser)" do %>
 		<%=pretty_button '删除',admin_comment_path(comment),:method => :delete,:confirm => "你确定嘛?" %>
 	<% end %>

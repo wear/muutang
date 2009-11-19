@@ -1,4 +1,5 @@
-<h1>注册</h1>
+<h1>注册</h1>                                             
+<% if false -%>
 <% @user.password = @user.password_confirmation = nil %>
 
 <%= error_messages_for :user %>
@@ -10,3 +11,7 @@
 <%= f.password_field :password_confirmation,:label => '确认密码' %>
 <%= submit_tag '注册' %>
 <% end -%>
+<% end -%> 
+<p><b>本站目前只对<%=link_to 'shanghaonrails','http://groups.google.com/group/shanghaionrails?hl=en'%>讨论组成员开放。<br />
+	请加入此邮件组以申请帐号.
+	</p>
