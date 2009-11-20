@@ -1,0 +1,2 @@
+page.insert_html :bottom,"recommands_#{@kind}",:partial => 'recommandation',:collection => @recommandation
+page.replace "flow_pagination_#{@kind}", will_paginate(@recommandation,:class => @kind ,:renderer => FlowPagination::LinkRenderer)

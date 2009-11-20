@@ -20,6 +20,7 @@
 		 	<div class='nav_box'>
 				<ul>
 					<%=topnav_tab "讨论区(#{Post.count}/#{Comment.count})",:url => root_path,:section => 'bbs' %>
+					<%=topnav_tab "阅读推荐(#{Recommand.count})",:url => recommands_path,:section => 'recommands' %>
 					<div style="clear: both;display: block"> </div> 
 				 </ul>      
 		 	</div>        

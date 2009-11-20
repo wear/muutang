@@ -1,0 +1,12 @@
+<h1>Editing recommand</h1>
+
+<% form_for(@recommand) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @recommand %> |
+<%= link_to 'Back', recommands_path %>

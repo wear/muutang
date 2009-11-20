@@ -1,0 +1,6 @@
+<li>    
+<%=image_tag recommandation.user.avatar.url(:thumb) %>
+<%=link_to h(recommandation.user.login),recommandation.user %> 推荐了 <%=link_to h(recommandation.recommand.title),recommandation.recommand.url,:class => 'post-title',:target => '_blank' %> <%= recommandation.recommand.recommandations_count %>人推荐
+<p class='post-content'><%=strip_tags(recommandation.desc)%></p>  
+<p><span class='time'><%= time_ago_in_words_or_date(recommandation.recommand.created_at) %></span></p>
+</li>

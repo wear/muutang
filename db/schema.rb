@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091111091217) do
+ActiveRecord::Schema.define(:version => 20091120083952) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -104,23 +104,29 @@ ActiveRecord::Schema.define(:version => 20091111091217) do
   create_table "roles_users", :id => false, :force => true do |t|
      t.integer "role_id"
      t.integer "user_id"
-   end 
-
-   create_table "members", :force => false do |t|  
-       t.string "email_address"
-       t.string "nickname"  
-       t.string "group_status"  
-       t.string "email_status"  
-       t.string "email_preference"  
-       t.string "posting_permissions"  
-       t.string "join_year"  
-       t.string "join_month"
-       t.string "join day"
-       t.string 'join_hour'
-       t.string 'join_minute'
-       t.string 'join_second' 
-       t.string 'initial_pwd' 
-   end
-
-
+   end   
+   
+   create_table "recommands", :force => true do |t|
+     t.string   "title"
+     t.string   "url"  
+     t.integer  "comments_count", :default => 0
+     t.integer  "recommandations_count",:default => 0
+     t.datetime "created_at"
+     t.datetime "updated_at"
+   end       
+   
+   add_index "recommands", ["title"], :name => "index_recommands_on_title"
+      
+   create_table "recommandations", :force => true do |t|
+     t.integer   "user_id"
+     t.integer   "recommand_id" 
+     t.text      "desc" 
+     t.datetime  "created_at"
+     t.datetime  "updated_at"
+   end                                                                       
+        
+   add_index "recommandations", ["user_id"], :name => "index_recommandations_on_user_id"
+   add_index "recommandations", ["user_id"], :name => "index_recommandations_on_recommand_id"
+   
+ 
 end

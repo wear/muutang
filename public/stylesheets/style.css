@@ -223,7 +223,15 @@ ul li{list-style:none;}
 	padding:5px 10px;
 	margin:5px 0px;
 	background:#eee;
-}                 
+}    
+
+.center_box{
+	width:300px;margin:0 auto;
+} 
+
+.center_box h1{
+   text-align:center;
+}            
 
 /* sidebar */
 #sidebar{      
@@ -314,7 +322,6 @@ span.title{
 }  
 
 .posts li{         
-  width:90%;
   padding:5px;  
   border-bottom:1px solid #DDDDDD;
 }
@@ -359,24 +366,20 @@ span.time{
 
 #form { margin-left:50px;}
 
-#form textarea{
+  
+
+textarea{
 	width:300px;
    	height:100px;   
 }  
-          
-input[type="text"],input[type="password"]{
+
+input[type="password"]{
 	width:200px;          
-} 
+}   
 
-input.comment_title{
-	width:300px;
-}        
-
-#longform .title{
-	width:400px;  
-	height:20px;
-	font:14px;
-} 
+input[type="text"]{
+	width:200px;          
+}
 
 input[type='submit']{
 	background:#ddd url(/images/bg-button.gif) repeat-x 0 0; 
@@ -388,41 +391,22 @@ input[type='submit']{
 }
 
 .hover_btn{
-	cursor:pointer; /* important for any clickable/pressable element */
+  cursor:pointer; /* important for any clickable/pressable element */
   border-color:#9cf !important;
 }
         
-#longform textarea{height:300px;}   
-TEXTAREA { width: 80%;}
+
 FIELDSET { border: 1px solid #ccc; padding: 1em; margin: 0; }
 LEGEND { color: #ccc; font-size: 100%; }
 INPUT, TEXTAREA { font-family: Arial, verdana; font-size: 100%;  border: 1px solid #999; } 
 LABEL { display: block; margin-top: 5px; }    
+
 .search{ margin:5px 10px 5px 40px;}
 .search input{
 	margin:8px;
 }
-
-
-
-/* admin */ 
-
-.role{
-	margin:20px; 
-
-}  
-
-.role span{
-	font-size:18px;
-	font-weight:bold;
-}
-
-.role ul{height:40px;}
-.role ul li{
-	float:left;
-	padding:10px;
-	font-size:14px;
-} 
+#longform textarea{height:300px;width:400px;} 
+#longform input[type="text"]{width:300px;}  
 
 /*---- group -------*/  
 
@@ -507,4 +491,8 @@ p.post-content              { font-size:10px; line-height:17px; padding-bottom:0
 	min-height:100px;
 	border-top:1px solid #eee;
 	border-bottom:1px solid #eee;
+}
+
+.warning{
+	color:red;font-size:18px;
 }

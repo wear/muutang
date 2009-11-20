@@ -1,0 +1,20 @@
+<h1 style='text-align:center;'>给组员推荐阅读</h1>
+<div class='center_box'>   
+  
+	<%= error_messages_for :recommand %>    
+	<b>标题</b>
+	<p><%= params[:title] %></p>
+  	<b>链接</b> 
+	<p><%=link_to truncate(params[:url],:length => 50),params[:url]%></p> 
+	
+	<% form_for :recommandation,@recommandation,:url => recommandation_recommands_path do |f| %>                                 
+	<label>你的描述</label>
+	  <%=hidden_field_tag :title,params[:title]%>
+	  <%= f.text_area :desc %>
+	  <p>
+	    <%= f.submit '提交' %>
+	  </p>
+	<% end %>
+
+</div>
+

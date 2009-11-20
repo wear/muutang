@@ -138,13 +138,18 @@ zh:
       last_word_connector: ", 和 "
   
   activerecord:
-    models:
+    models: 
+      recommand: 阅读推荐
       post: 帖子
       category: 帖子分类
       role: 角色
       user: 用户 
       skill: 技能
-    attributes:
+    attributes: 
+      recommand:
+          url: 网址
+          title: 标题
+          desc: 描述
       skill:
           experience_by_year: 经验
           name: 名称

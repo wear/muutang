@@ -1,0 +1,7 @@
+<ul id="recommands_<%= @kind %>" class='posts'>
+	<%=render @recommands %>
+</ul>
+<div id="load-more"> 
+	<div class='activate'>loading...</div>
+   <%= will_paginate @recommands,:class => @kind, :renderer => FlowPagination::LinkRenderer %> 
+</div>

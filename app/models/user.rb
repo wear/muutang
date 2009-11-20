@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   has_many :comments
   has_and_belongs_to_many :roles
   has_one :profile
-  has_many :skills 
+  has_many :skills    
+  has_many :recommandations
+  has_many :recommands, :through => :recommandations     
   
   validates_presence_of     :login
   validates_length_of       :login,    :within => 2..40

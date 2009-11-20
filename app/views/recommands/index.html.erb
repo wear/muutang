@@ -1,0 +1,22 @@
+<% content_for :header do -%>  
+	<script type="text/javascript" charset="utf-8">       
+	 $(document).ready(function() {
+		$('#tabs').tabs({spinner:'载入中...'});
+	 });      
+	
+	</script>               
+<% end -%>
+
+ 
+<div id="tabs" >
+  <ul> 
+	 	<li><%=link_to content_tag(:span,'全部'),'#tabs-content' %></li> 
+		<li><%=link_to content_tag(:span,'最热门的'),hot_recommands_path %></li>
+	  	<% if logged_in? -%>
+		<li><%=link_to content_tag(:span,'我发的'),own_recommands_path %></li>
+		<% end -%>
+  </ul> 
+	 <div id="tabs-content">  
+		<%=render :partial => 'recommandations' %>
+	</div>
+</div>
