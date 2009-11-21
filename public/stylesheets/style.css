@@ -31,7 +31,7 @@ a:link {
 }
 a:hover {
 	text-decoration: underline;
-	color: #333333;
+	color: #008000;
 }
 a:active {
 	text-decoration: none;
@@ -139,6 +139,10 @@ ul li{list-style:none;}
 	float:left;
 }
 
+.logo span{
+	position: absolute; top: 30px; left: 80px; font-size:12px;
+}
+
 .system_menu{
 	background:url(/images/line_1.gif) no-repeat 0px 8px  ;
 	float:left;
@@ -215,7 +219,7 @@ ul li{list-style:none;}
 #content{  
 	margin-left:10px; 
 	float:left;
-	width:500px;
+	width:550px;
 }      
 
 #bread{
@@ -237,7 +241,7 @@ ul li{list-style:none;}
 #sidebar{      
 	text-align:center;
 	float:right;
-	width:230px; 
+	width:180px; 
 	padding:0px 10px;
 }      
 
@@ -282,12 +286,10 @@ ul li{list-style:none;}
 }           
 
 /* posts */       
-span.title{
+span.title{      
 	font-size:18px; 
 	font-weight:bold;
 }
-
-
 
 .opt{     
 	width:100%;
@@ -342,6 +344,11 @@ span.title{
 
 a.post-title,.post-content{
 	color:#A0A0A0;
+}         
+
+a.post-title:hover{ 
+	background:#00CC00;
+	color:#fff;
 }
 
 span.time{
@@ -365,12 +372,14 @@ span.time{
 /* --- form --- */    
 
 #form { margin-left:50px;}
+#form textarea{ width:400px;height:200px;}
 
-  
+#longform textarea{height:300px;width:500px;} 
+#longform input[type="text"]{width:400px;}   
 
 textarea{
 	width:300px;
-   	height:100px;   
+   	height:100px; 
 }  
 
 input[type="password"]{
@@ -378,7 +387,7 @@ input[type="password"]{
 }   
 
 input[type="text"]{
-	width:200px;          
+	width:200px;    
 }
 
 input[type='submit']{
@@ -405,8 +414,7 @@ LABEL { display: block; margin-top: 5px; }
 .search input{
 	margin:8px;
 }
-#longform textarea{height:300px;width:400px;} 
-#longform input[type="text"]{width:300px;}  
+
 
 /*---- group -------*/  
 

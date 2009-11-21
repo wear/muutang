@@ -5,7 +5,7 @@ xml.rss :version => "2.0" do
     xml.body "Lots of posts of shanghaionrails"
     xml.link posts_url(:rss)
     
-    for post in @posts
+    for post in @tops
       xml.item do
         xml.title post.title
         xml.description simple_format(post.body)
