@@ -1,5 +1,20 @@
+<% content_for :header do -%>
+	<style type="text/css" media="screen">
+		.requirement li{
+			margin-left:20px;
+		   list-style:square;
+		}
+	</style>
+<% end -%>
 <h1>发布职位</h1>
-
+我们欢迎任何人发布招聘信息，但请注意以下几个事项：
+<ul class='requirement'>
+   <li>请详细说明职位要求</li>
+   <li>请留下可以让应聘人找得到你的联系方式</li>
+   <li>请大致介绍贵公司</li>
+   <li>请大致说明待遇</li>
+   <li>招聘信息有效期默认三个月</li>
+</ul>
 <% form_for(@job,:html => {:id => 'longform'}) do |f| %>
   <%= f.error_messages %> 
   <%= render :partial => 'form',:locals => {:f => f}%>
