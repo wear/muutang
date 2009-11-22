@@ -3,7 +3,8 @@ class Admin::UsersController < ApplicationController
   access_control :DEFAULT => '(superuser)' 
   before_filter :find_user,:except => [:index,:search]
   before_filter :find_role,:only => [:update_role,:destroy_role]    
-    layout 'admin'  
+  layout 'admin'              
+  before_filter { |c| c.set_section('manage_user') }      
   
   def index
      @users = User.paginate :page => params[:page], :order => 'posts_count ASC'   
@@ -13,7 +14,7 @@ class Admin::UsersController < ApplicationController
     @column = params[:column]
     @query = params[:query].nil? ? '%' : "#{params[:query]}%" 
     @order = params[:order] || 'created_at'
-    @users = User.paginate(:page => params[:page],:conditions => ["#{@column} like ?",@query],:order => "#{@order} DESC" )  
+    @users = User.paginate(:page => params[:page],:conditions => ["#{@column} like ?",@query],:order => "created_at DESC" )  
     respond_to do |wants|
       wants.html { render :action => "index" }
     end                                    

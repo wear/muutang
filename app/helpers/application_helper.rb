@@ -55,5 +55,17 @@ module ApplicationHelper
     
     "<li class='#{classes.join(' ')}'>" + link_to( "<span>"+name+"</span>", options.delete(:url), options) + "</li>"
   end          
-
+  
+  def cate_lable(post)
+    return nil if post.category.nil? 
+    case post.category.name
+    when '话题'
+      '说'
+    when '问答'
+      '问'
+    when '资源共享'
+      '发布了'
+    end
+  end
+  
 end

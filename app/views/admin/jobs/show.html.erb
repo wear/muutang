@@ -1,0 +1,30 @@
+<% content_for :bread do -%> 
+	<div id="bread" class='ui-corner-all'>
+		<%=link_to '管理区',admin_path %> >> <%=link_to '工作机会',jobs_path %> >> <%=h @job.position %>
+	</div>
+<% end %>
+
+<h2><%=h @job.position %></h2>  
+<p>  
+薪水范围: <%=h @job.salary %><br />
+工作地点: <%=h @job.job_address %><br /> 
+招聘公司: <%=h @job.company %><br />  
+公司网址: <%=h @job.company_url %>  
+</p>          
+<h3>联系方式</h3>
+<p>
+联系人:<%=h @job.contact_name %> <br />
+联系Email:<%=h @job.contact_email %>  <br />  
+联系电话:<%=h @job.contact_phone %> 
+</p>     
+<h3>描述</h3>     
+<%=simple_format(@job.desc)%>         
+<p>  
+	<% if @job.visible -%>
+	    <%=pretty_button '重新隐藏',set_visible_admin_job_path(:visible => false),:id => 'big-btn',:method => :put %>                        
+	<% else -%>
+  		<%=pretty_button '批准发布',set_visible_admin_job_path(:visible => true),:id => 'big-btn',:method => :put %>     
+	<% end -%>   
+	<%=pretty_button '编辑',edit_admin_job_path,:id => 'big-btn' %> 
+	<%=pretty_button '删除',admin_job_path,:id => 'big-btn',:method => :delete %>
+</p>

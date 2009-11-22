@@ -1,4 +1,4 @@
-class UsersController < ApplicationController 
+class UsersController < ApplicationController  
   
   caches_page :show
   before_filter :login_required,:only => [:change_password,:update_password,:edit,:update]  
@@ -6,13 +6,18 @@ class UsersController < ApplicationController
   auto_complete_for :user,:email    
     
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) 
+    
+    respond_to do |wants|
+      wants.html { render :layout => 'group' }
+    end
   end    
   
-  def change_password
+  def change_password 
+    @section = 'change_password'
     @user =  current_user
     respond_to do |wants|
-      wants.html {  }
+      wants.html { render :layout => 'setting' }
     end
   end 
 

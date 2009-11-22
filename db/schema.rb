@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091120083952) do
+ActiveRecord::Schema.define(:version => 20091122095706) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -128,5 +128,20 @@ ActiveRecord::Schema.define(:version => 20091120083952) do
    add_index "recommandations", ["user_id"], :name => "index_recommandations_on_user_id"
    add_index "recommandations", ["user_id"], :name => "index_recommandations_on_recommand_id"
    
+
+    create_table :jobs,:force => true do |t|
+     t.string 'company'
+     t.string 'company_url' 
+     t.string 'position'    
+     t.string 'salary' 
+     t.string 'job_address'
+     t.text   'desc'
+     t.string  "job_type" 
+     t.boolean 'visible',:default => false
+     t.string 'contact_email'       
+     t.string  'contact_name'
+     t.string  'contact_phone'
+     t.timestamps
+   end
  
 end

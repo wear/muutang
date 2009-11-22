@@ -19,8 +19,9 @@
 			<h4>导航栏</h4>
 		 	<div class='nav_box'>
 				<ul>
-					<%=topnav_tab "讨论区(#{Post.count}/#{Comment.count})",:url => root_path,:section => 'bbs' %>
+					<%=topnav_tab "讨论区(#{Post.count}/#{Comment.count})",:url => posts_path,:section => 'bbs' %>
 					<%=topnav_tab "阅读推荐(#{Recommand.count})",:url => recommands_path,:section => 'recommands' %>
+					<%=topnav_tab "工作机会(#{Job.count})",:url => jobs_path,:section => 'jobs' %>
 					<div style="clear: both;display: block"> </div> 
 				 </ul>      
 		 	</div>        

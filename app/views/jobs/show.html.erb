@@ -1,0 +1,28 @@
+<% content_for :bread do -%> 
+	<div id="bread" class='ui-corner-all'>
+		<%=link_to '首页',root_path %> >> <%=link_to '工作机会',jobs_path %> >> <%=h @job.position %>
+	</div>
+<% end %>          
+
+<% if @job.visible -%>
+
+<h2><%=h @job.position %></h2>  
+<p>  
+薪水范围: <%=h @job.salary %><br />
+工作地点: <%=h @job.job_address %><br /> 
+招聘公司: <%=h @job.company %><br />  
+公司网址: <%=h @job.company_url %>  
+</p>          
+<h3>联系方式</h3>
+<p>
+联系人:<%=h @job.contact_name %> <br />
+联系Email:<%=h @job.contact_email %>  <br />  
+联系电话:<%=h @job.contact_phone %> 
+</p>     
+<h3>描述</h3>     
+<%=simple_format(@job.desc)%>
+<% else -%>
+<h1>注意</h1>
+<p>我们已收到你的招聘信息,本着对会员负责的态度,我们将对信息做一定审核.</p><p>在通过后我们会邮件通知您.</p> 
+<p>联系我们support#muutang.com</p>
+<% end -%>

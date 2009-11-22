@@ -1,6 +1,8 @@
-class Admin::RolesController < ApplicationController    
+class Admin::RolesController < ApplicationController 
+  layout 'admin'       
   before_filter :login_required
-  access_control :DEFAULT => '(superuser)'
+  access_control :DEFAULT => '(superuser)'    
+  before_filter { |c| c.set_section('manage_role') }      
   
   def index
     @roles = Role.find(:all) 

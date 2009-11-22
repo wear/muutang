@@ -1,6 +1,8 @@
-class Admin::CategoriesController < ApplicationController   
+class Admin::CategoriesController < ApplicationController         
+  layout 'admin'    
   before_filter :login_required
-  access_control :DEFAULT => '(superuser | editor)'
+  access_control :DEFAULT => '(superuser | editor)' 
+  before_filter { |c| c.set_section('manage_cate') }      
   
   def index
     @categories = Category.ordered

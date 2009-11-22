@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @posts = Post.recent_without_top.paginate(:page => params[:page])
     
     respond_to do |format|
-      format.html { redirect_to '/' }      
+      format.html {  }      
       if params[:page].nil?
         format.js { render :partial => "posts" }
       else

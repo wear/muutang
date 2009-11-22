@@ -518,3 +518,8 @@ li .handle {
 .current{
   background:#cccccc;  
 }
+
+.tablesorter{
+	width:100%;
+	text-align:center;
+}

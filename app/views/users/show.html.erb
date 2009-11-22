@@ -18,17 +18,17 @@
 		目前公司:<%=h @user.profile.company %><br /> 
 		职位:<%=h @user.profile.title %><br />
 		类别:<%=h @user.profile.company_category %> <br />规模: <%=h @user.profile.company_size %> <br />
-		行业:<%=h @user.profile.industry %>  
+		行业:<%=h @user.profile.industry %>       
+		<% if false -%>
 		<h3>职业技能</h3>
 		<%@user.skills.each do |skill| -%>
 		<%=link_to "#{h(skill.experience_by_year)}年#{h(skill.name)}经验",user_skill_path(@user,skill)%> 
+		<% end -%>  
 		<% end -%>
 		<h3>个人介绍</h3>
 		<p>
 		<%=simple_format(@user.profile.desc) %>
 		</p>
-
-
 		</td>
 	</tr>
 </table>

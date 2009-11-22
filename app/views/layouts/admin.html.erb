@@ -15,19 +15,24 @@
 	   </div>                    
 	   <div id="body" class='ui-corner-all'> 
 		 <%= render :partial => '/shared/notice' %> 
-		<div id='content'>
-		   <%= yield :bread %>   
-		   <%= yield %>  
-		</div>
-	   	 <div id="sidebar">   
-	   	 	<div class='box menu'>
-			  <%=link_to '管理帖子',admin_posts_path %>
-			  <%=link_to '管理分类',admin_categories_path %>
-			  <%=link_to '管理用户',admin_users_path %>
-			  <%=link_to '管理权限',admin_roles_path %>  
-			 <div style="clear:both"></div>  
+		                
+		 <div id="navs"  class='ui-corner-all'>        
+		<h4>管理工具</h4>
+	   	   <div class='nav_box'>
+			<ul>
+			  <%=topnav_tab "管理帖子(#{Post.count},#{Comment.count})",:url => admin_posts_path,:section => 'manage_post'  %>
+			  <%=topnav_tab '管理分类',:url =>admin_categories_path,:section => 'manage_cate' %>
+			  <%=topnav_tab "管理用户(#{User.count})",:url =>admin_users_path,:section => 'manage_user'  %>
+			  <%=topnav_tab '管理权限',:url =>admin_roles_path,:section => 'manage_role'  %> 
+			  <%=topnav_tab "管理工作机会(#{Job.visible.count},#{Job.unvisible.count})",:url =>admin_jobs_path,:section => 'manage_job'  %> 
+			 <div style="clear:both"></div>          
+			</ul>
 	   	 	</div>     
-	   	 </div>   
+	   	 </div>
+	 <div id="content">  
+		 <%= yield :bread %>       
+		   <%= yield %> 
+		</div> 
 		  <div style="clear:both"></div>    
 	   </div> 
  	<%=render :partial => '/shared/footer' %>  

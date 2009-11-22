@@ -1,0 +1,31 @@
+<% content_for :header do -%>
+	<%= javascript_include_tag 'tablesorter.min'%>    
+
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function() 
+		    { 
+		        $("#job_list").tablesorter(); 
+		    } 
+		); 
+	</script> 
+		<%= stylesheet_link_tag 'tablesorter' %>   
+
+<% end -%>
+<div style='text-align:right;' id='btn'>
+	<%=pretty_button '发布职位',new_job_path,:id => 'big-btn' %>
+</div>
+ 
+<table id='job_list' class='tablesorter' cellpadding='0' cellspacing='0'> 
+	<thead> 
+  <tr>
+    <th>发布时间</th>
+	<th>职位</th>
+	<th>公司</th>
+	<th>工作地点</th>
+  </tr>
+</thead> 
+<tbody>
+	<%= render @jobs %>
+</tbody>
+</table>
+

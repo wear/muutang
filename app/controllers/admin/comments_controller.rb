@@ -1,6 +1,7 @@
 class Admin::CommentsController < ApplicationController  
   before_filter :login_required
-  access_control :DEFAULT => '(superuser | editor)'
+  access_control :DEFAULT => '(superuser | editor)'  
+  before_filter { |c| c.set_section('comment') }      
   
   def destroy
     @comment = Comment.find(params[:id]) 

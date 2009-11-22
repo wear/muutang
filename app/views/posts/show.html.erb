@@ -20,7 +20,7 @@
 
 <% content_for :bread do -%> 
 	<div id="bread" class='ui-corner-all'>
-		<%=link_to '首页',root_path %> >> <%=h @post.title %>
+		<%=link_to '首页',root_path %> >> <%=link_to '讨论区',posts_path %> >> <%=h @post.title %>
 	</div>
 <% end %>
 <table width="540" style="table-layout:fixed;" class='content-width'>

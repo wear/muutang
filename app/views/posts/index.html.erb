@@ -1,12 +1,31 @@
-<div class='opt'>
- <span style='float:right'><%=pretty_button('发帖', new_post_path)%></span>
-</div>   
- <%= will_paginate @posts,:previous_label => '<前页',:next_label => '后页>' %>    
-<dl>
-	<%= render @posts %>
-</dl>   
- <%= will_paginate @posts,:previous_label => '<前页',:next_label => '后页>' %>               
-<div class='opt'>
-<span style='float:right'><%=pretty_button('发帖', new_post_path)%></span>
+<% content_for :header do -%>  
+	<script type="text/javascript" charset="utf-8">       
+	 $(document).ready(function() {
+		$('#tabs').tabs({spinner:'载入中...'});
+	 });      
+	
+	</script>               
+<% end -%>   
+
+<div style='text-align:right;' id='btn'>
+	<%=pretty_button '发帖',new_post_path,:id => 'big-btn' %>
 </div>
+ 
+<div id="tabs" >
+  <ul> 
+	 	<li><%=link_to content_tag(:span,'全部'),'#tabs-content' %></li>
+	  	<% if logged_in? -%>
+		<li><%=link_to content_tag(:span,'我发的'),user_posts_categories_path %></li>
+		<li><%=link_to content_tag(:span,'我评论过的'),user_comments_categories_path %></li>
+		<% end -%>
+		<% Category.ordered.each do |cate| -%>
+      		<li><%=link_to content_tag(:span,cate.name), cate %></li>
+		<% end -%>
+  </ul> 
+	 <div id="tabs-content">  
+        <%=render :partial => "posts" %>
+	</div>
+</div>   
+
+
 

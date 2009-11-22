@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :jobs
+
   map.resources :recommands,:collection => { :hot => :get, :own => :get,:new_recommandation => :get,:recommandation => :post }
 
   map.resources :skills
@@ -28,7 +30,8 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :posts,:member => {:marktop => :put,:set_visibility => :put } 
       admin.resources :comments
       admin.resources :categories, :collection => { :sort => :post }
-      admin.resources :roles
+      admin.resources :roles        
+      admin.resources :jobs,:member => {:set_visible => :put}
       admin.resources :users,:member => {:setting_role => :get,:update_role => :put,:destroy_role => :delete },:collection => {:search => :get}
   end
 

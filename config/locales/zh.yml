@@ -144,8 +144,16 @@ zh:
       category: 帖子分类
       role: 角色
       user: 用户 
-      skill: 技能
-    attributes: 
+      skill: 技能  
+      job: 工作机会
+    attributes:
+      job:
+          company: 公司名称
+          title: 职位
+          desc: 描述
+          address: 工作地点
+          email: 联系email
+          contact_name: 联系人
       recommand:
           url: 网址
           title: 标题

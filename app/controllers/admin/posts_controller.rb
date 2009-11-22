@@ -1,6 +1,8 @@
-class Admin::PostsController < ApplicationController
+class Admin::PostsController < ApplicationController   
+  layout 'admin'
   before_filter :login_required
-  access_control :DEFAULT => '(superuser | editor)'  
+  access_control :DEFAULT => '(superuser | editor)'   
+  before_filter { |c| c.set_section('manage_post') }      
   
   uses_tiny_mce :only => [:new, :create, :edit, :update,:show],
   :options => { :theme => 'advanced',:plugins => %w{ syntaxhl },:content_css => "/stylesheets/editor_content.css",

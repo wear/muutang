@@ -12,4 +12,13 @@ TINYIMC = { :theme => 'advanced',
 :theme_advanced_buttons2 => [],
 :theme_advanced_buttons3 => [],
 :plugins => %w{syntaxhl}  
-}
+}             
+
+SSALARY = [ 
+  ['?'],
+  ['3k以内'],
+  ['3k-5k'],
+  ['5k-8k'],
+  ['8k-1.2w'],
+  ['上不封顶']
+  ]

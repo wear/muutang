@@ -1,0 +1,19 @@
+<fieldset>
+	<legend>职位信息:</legend>
+  <%= f.text_field :position,:label => '职位' %>   
+<label>薪水范围</label>
+<%= select :job,:salary,SSALARY,:selected_key =>5,:label => '请选择合适的分类' %>  
+<%= f.text_field :job_address,:label => '工作地点' %>
+</fieldset>
+<fieldset>
+	<legend>公司信息:</legend>   
+  <%= f.text_field :company,:label => '公司' %>
+  <%= f.text_field :company_url,:label => '公司网址(可选)' %> 
+</fieldset>  
+<fieldset>
+	<legend>联系人信息:</legend>  
+	<%= f.text_field :contact_name,:label => '联系人' %>  
+	<%= f.text_field :contact_email,:label => '联系email' %> 
+	<%= f.text_field :contact_phone,:label => '联系电话(可选)' %> 
+</fieldset> 
+<%= f.text_area :desc,:label => '描述(公司介绍/职位要求/工作职责),最少50字符' %>

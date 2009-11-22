@@ -1,3 +1,17 @@
+<% content_for :header do -%>
+	<%= javascript_include_tag 'tablesorter.min'%>    
+
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function() 
+		    { 
+		        $("#user_list").tablesorter(); 
+		    } 
+		); 
+	</script> 
+		<%= stylesheet_link_tag 'tablesorter' %>   
+
+<% end -%>
+
 <h1>管理用户</h1>       
 <h3>查找用户</h3>
 <% form_tag(search_admin_users_path, {:method => :get,:id => "form"}) do %> 
@@ -7,17 +21,16 @@
 	<%=submit_tag '提交'%>
 <% end -%>       
 <h2>所有用户</h2>     
-<ul class='menu'>
-<% User.columns.each do |col| -%>
-
-<li class="<%='current' if params[:order] == col.name%>">
-
-<%=link_to col.name,search_admin_users_path(:query => @query,:order => col.name) %></li>                           
-<% end -%>  
-</ul>  
-<div style='clear:both'></div>
-<table border="0" cellspacing="1" cellpadding="0" style='text-align:center'>  
+<table border="0" cellspacing="1" cellpadding="0" style='text-align:center' id='user_list' class='tablesorter'> 
+	<thead>
+		<th>login</th> 
+		 <th>count</th> 
+		 <th>desc</th> 
+		 <th>sdf</th> 
+	</thead>
+	<tbody> 
 <%=render @users %>
+</tbody>
 </table>
 
 <%= will_paginate @users,:previous_label => '<前页',:next_label => '后页>',:params => {:login => @login } %>   

@@ -3,9 +3,9 @@ class LandingController < ApplicationController
   caches_page :index,:intro,:faq,:about
   
   def index
-    @section = 'bbs'  
-    @category = Category.ordered.first
-    
+    @posts = Post.recent_without_top.find(:all,:limit => 5)
+    @recommandation = Recommandation.find(:all,:limit => 10,:order => 'created_at DESC')
+    @jobs = Job.visible.find(:all,:limit => 5,:order => 'created_at DESC' ) 
     respond_to do |wants|
       wants.html { render :layout => 'group' }
     end

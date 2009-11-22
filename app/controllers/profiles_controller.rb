@@ -1,9 +1,11 @@
 class ProfilesController < ApplicationController 
   
+  layout 'setting'
   before_filter :find_user 
   before_filter :login_required
   
-  def edit
+  def edit  
+    @section = 'profile'
     @profile = @user.profile 
     respond_to do |wants|
       wants.html {  }

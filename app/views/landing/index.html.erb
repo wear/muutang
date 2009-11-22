@@ -1,31 +1,22 @@
-<% content_for :header do -%>  
-	<script type="text/javascript" charset="utf-8">       
-	 $(document).ready(function() {
-		$('#tabs').tabs({spinner:'载入中...'});
-	 });      
-	
-	</script>               
-<% end -%>   
-
-<div style='text-align:right;' id='btn'>
-	<%=pretty_button '发帖',new_post_path,:id => 'big-btn' %>
+<h1>最新讨论</h1>
+<ul class='posts'>
+	<%=render :partial => 'posts/post',:collection => @posts %>
+</ul>         
+<div id="load-more"> 
+	<%=link_to '更多讨论条目',posts_path %>
 </div>
- 
-<div id="tabs" >
-  <ul> 
-	 	<li><%=link_to content_tag(:span,'全部'),posts_path %></li>
-	  	<% if logged_in? -%>
-		<li><%=link_to content_tag(:span,'我发的'),user_posts_categories_path %></li>
-		<li><%=link_to content_tag(:span,'我评论过的'),user_comments_categories_path %></li>
-		<% end -%>
-		<% Category.ordered.each do |cate| -%>
-      		<li><%=link_to content_tag(:span,cate.name), cate %></li>
-		<% end -%>
-  </ul> 
-	 <div id="tabs-content">  
-        
-	</div>
-</div>   
-
-
-
+<h1>最新推荐条目</h1>  
+<ul class='posts'>
+	<%=render :partial => 'recommands/recommandation', :collection => @recommandation %>
+</ul>  
+<div id="load-more"> 
+	<%=link_to '更多推荐条目',recommands_path %>
+</div>  
+<h1>最新工作机会</h1>  
+<table border="0" cellspacing="5" cellpadding="5" style='width:100%;text-align:center;'>
+<%=render @jobs %>  
+</table>
+	
+<div id="load-more"> 
+	<%=link_to '更多工作机会',jobs_path %>
+</div>
