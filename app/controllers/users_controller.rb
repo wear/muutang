@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   caches_page :show
   before_filter :login_required,:only => [:change_password,:update_password,:edit,:update]  
   
-  auto_complete_for :user,:email    
     
   def show
     @user = User.find(params[:id]) 

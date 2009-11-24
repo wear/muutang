@@ -1,12 +1,4 @@
-<% content_for :header do -%>
-	<%= stylesheet_link_tag 'jquery.autocomplete.css' %>
-	<%= javascript_include_tag 'autocomplete/jquery.ajaxQueue', 'jquery.autocomplete.min', :cache => 'autocomplete' %>    
-	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function() {
-	    	$("input#email").autocomplete("/users/auto_complete_for_user_email")
-	  	});
-	</script>
-<% end -%>      
+
 
 <div class='center_box'>
 	<h1>登录</h1>

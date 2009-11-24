@@ -9,13 +9,6 @@
 	<style type="text/css" media="screen">
 		.content-width img{MAX-WIDTH: 100%!important;HEIGHT: auto!important;width:expression(this.width > 600 ? "600px" : this.width)!important;}
 	</style>   
-	<%= stylesheet_link_tag 'jquery.autocomplete.css' %>
-	<%= javascript_include_tag 'autocomplete/jquery.ajaxQueue', 'jquery.autocomplete.min', :cache => 'autocomplete' %>    
-	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function() {
-	    	$("input#email").autocomplete("/users/auto_complete_for_user_email")
-	  	});
-	</script>  
 <% end -%>                   
 
 <% content_for :bread do -%> 
