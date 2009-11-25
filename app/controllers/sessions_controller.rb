@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-
+    logout_keeping_session!
     if using_open_id?
       open_id_authentication(params[:openid_url])
     else                
-      logout_keeping_session!     
+           
       user = User.authenticate(params[:email], params[:password])
       if user
         # Protects against session fixation attacks, causes request forgery
