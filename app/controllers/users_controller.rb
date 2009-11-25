@@ -68,14 +68,7 @@ class UsersController < ApplicationController
       wants.html { render :action => "forgot_password" }
     end
     end  
-  end
-  
-  def edit
-    @user = User.find(params[:id])
-    respond_to do |wants|
-      wants.html {  }
-    end
-  end    
+  end  
   
   def update
     @user = User.find(params[:id]) 
@@ -83,7 +76,7 @@ class UsersController < ApplicationController
       if @user.update_attributes(params[:user]) 
         wants.html { redirect_to @user }
       else
-       wants.html { render :action => "edit" }
+       wants.html { render :action => "edit",:layout => 'setting' }
       end
     end
   end    
@@ -107,7 +100,8 @@ class UsersController < ApplicationController
     logout_keeping_session!
     @user = User.new(params[:user])
     success = @user && @user.save
-    if success && @user.errors.empty?
+    if success && @user.errors.empty? 
+      UserMailer.deliver_signup_notification(@user) 
       redirect_back_or_default('/')
       flash[:notice] = "注册成功!我们已向您的注册邮箱发送了一封激活邮件,请检查您的邮件,多谢!"
     else

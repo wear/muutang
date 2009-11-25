@@ -9,28 +9,9 @@ var providers_large = {
     google: {
         name: 'Google',
         url: 'https://www.google.com/accounts/o8/id'
-    },
-    yahoo: {
-        name: 'Yahoo',      
-        url: 'http://yahoo.com/'
     }
 };
 var providers_small = {
-    flickr: {
-        name: 'Flickr',        
-        label: 'Enter your Flickr username.',
-        url: 'http://flickr.com/{username}/'
-    },
-    wordpress: {
-        name: 'Wordpress',
-        label: 'Enter your Wordpress.com username.',
-        url: 'http://{username}.wordpress.com/'
-    },
-    blogger: {
-        name: 'Blogger',
-        label: 'Your Blogger account',
-        url: 'http://{username}.blogspot.com/'
-    }
 };
 var providers = $.extend({}, providers_large, providers_small);
 

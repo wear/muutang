@@ -1,9 +1,9 @@
 <% content_for :bread do -%> 
 	<div id="bread">
-		<%=link_to '首页',root_path %> >> <%=link_to h(@user.login),@user%>
+		<%=link_to '首页',root_path %> >> <%=link_to nickname_of(@user),@user%>
 	</div>
 <% end %>
-<h1><%=h @user.login %></h1>
+<h1><%=nickname_of(@user) %></h1>
 <table border="0" cellspacing="5" cellpadding="5">
 	<tr><td valign="top" width='80px' style='text-align:center'><%= image_tag @user.avatar.url(:medium) %> <br /><b><%=h @user.profile.name %></b><br /><%= @user.posts.count %>篇帖子<br />
 	<%= @user.comments.count %>次回复</td>

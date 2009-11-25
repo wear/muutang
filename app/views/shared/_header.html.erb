@@ -7,7 +7,7 @@
 
 <div class='user_menu'> 
 	<% if logged_in? -%>
-	<%=link_to current_user.login,current_user,:class => 'a14' %> 
+	<%=link_to nickname_of(current_user),current_user,:class => 'a14' %> 
 	<% restrict_to "superuser" do %>
 		<%=link_to '控制面板',admin_path,:class => 'a14' %>
 	<% end -%>   

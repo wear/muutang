@@ -1,5 +1,7 @@
 class Profile < ActiveRecord::Base 
-  belongs_to :user   
+  belongs_to :user                          
+  
+  validates_length_of :name, :within => 3..20, :on => :create, :allow_nil => true
   
   has_attached_file :avatar, :styles => { :medium => "50x50>", :thumb => "16x16>" } 
     

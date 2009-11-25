@@ -1,6 +1,6 @@
   	<%=image_tag @user.avatar.url(:medium) %>
 	<%= f.file_field :avatar,:label => '头像' %>
-	<%= f.text_field :name,:label => '全名' %>
+	<%= f.text_field :name,:label => '姓名/昵称' %>
 	<%= f.text_field :phone_number,:label => '手机' %>
 	<%= f.select :work_experience, Profile::WORK_EXPERIENCES, {:include_blank => t(:choose_work_experience)},:label => '工作经验' %>          
 	<%= f.text_field :company,:label => '公司' %>

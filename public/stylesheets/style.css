@@ -371,7 +371,7 @@ span.time{
 
 /* --- form --- */    
 
-#form { margin-left:50px;padding:0px;}
+#form { margin-left:20px;padding:0px;}
 #form textarea{ width:400px;height:200px;}
 
 #longform textarea{height:300px;width:500px;} 

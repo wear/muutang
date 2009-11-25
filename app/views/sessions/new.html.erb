@@ -5,7 +5,7 @@
 	$(document).ready(function() {
 	    openid.init('openid_identifier');
 	});
-	</script>
+	</script>    
 	
 <% end -%>
 <div class='center_box'> 
@@ -21,19 +21,14 @@
 
 	<p><%= label_tag 'remember_me', '记住我' %>
 	<%= check_box_tag 'remember_me', '1', @remember_me %></p>
-	<p><%= submit_tag '提交', :disable_with => "Signing in&hellip;" %></p>                        
-	<br />
-	   
-
+	<%= submit_tag '提交', :disable_with => "Signing in&hellip;" %>                       
 	<% end -%>
 	<form action="/session" method="get" id="openid_form">
 		<input type="hidden" name="action" value="verify" />
 
 		<fieldset>
-	    		<legend>或者使用</legend>
-
 	    		<div id="openid_choice">
-		    		<p>Please click your account provider:</p>
+		    		或用你的google帐号登录:<br />
 		    		<div id="openid_btns"></div>
 
 				</div>

@@ -64,8 +64,8 @@ class User < ActiveRecord::Base
     return nil if email.blank? || password.blank?
     u = find :first, :conditions => ['email = ? and activated_at IS NOT NULL', email] # need to get the salt
     u && u.authenticated?(password) ? u : nil
-  end
-
+  end 
+  
   def login=(value)
     write_attribute :login, (value ? value.downcase : nil)
   end

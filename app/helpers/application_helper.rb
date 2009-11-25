@@ -1,5 +1,9 @@
 # Methods added to this helper will be available to all templates in the application.
-module ApplicationHelper      
+module ApplicationHelper 
+  
+  def nickname_of(user)
+    user.profile.name.blank? ? h(user.login) : h(user.profile.name)
+  end
   
   def pretty_button(text,link,options = {})  
     deftault_options = options.reverse_merge!(:class=>'btn')

@@ -19,7 +19,7 @@
 <table width="540" style="table-layout:fixed;" class='content-width'>
 	<tr>
 	<td valign="top" width='80px' style='text-align:center'><%=image_tag @post.user.avatar.url(:medium) %><br /></td>
-		<td><span class='title'><%=h @post.title %></span><br /><%=link_to h(@post.user.login),@post.user%>写于<span class='time'><%= time_ago_in_words_or_date(@post.created_at) %> </span><br />
+		<td><span class='title'><%=h @post.title %></span><br /><%=link_to nickname_of(@post.user),@post.user%>写于<span class='time'><%= time_ago_in_words_or_date(@post.created_at) %> </span><br />
 			<% if @post.user == current_user && @post.editable? %>
 				<%=pretty_button '编辑',edit_post_path(@post) %>
 			<% end %>  
