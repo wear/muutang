@@ -1,6 +1,15 @@
+<% content_for :header do -%>  
+	<%= javascript_include_tag 'openid-jquery' %>
+	<%= stylesheet_link_tag 'openid' %>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    openid.init('openid_identifier');
+	});
+	</script>
+	
+<% end -%>
+<div class='center_box'> 
 
-
-<div class='center_box'>
 	<h1>登录</h1>
 
 	<% form_tag session_path,:id => 'form' do -%>
@@ -8,14 +17,37 @@
 	<%= text_field_tag 'email', @email %></p>
 
 	<p><%= label_tag '密码' %>
-	<%= password_field_tag 'password', nil %></p>
+	<%= password_field_tag 'password', nil %> <%=link_to '忘记密码?',forgot_password_users_path %>  </p> 
 
 	<p><%= label_tag 'remember_me', '记住我' %>
 	<%= check_box_tag 'remember_me', '1', @remember_me %></p>
-
-	<p><%= submit_tag '提交' %></p>                        
+	<p><%= submit_tag '提交', :disable_with => "Signing in&hellip;" %></p>                        
 	<br />
-	<%=link_to '忘记密码?',forgot_password_users_path %>     
+	   
+
 	<% end -%>
+	<form action="/session" method="get" id="openid_form">
+		<input type="hidden" name="action" value="verify" />
+
+		<fieldset>
+	    		<legend>或者使用</legend>
+
+	    		<div id="openid_choice">
+		    		<p>Please click your account provider:</p>
+		    		<div id="openid_btns"></div>
+
+				</div>
+
+				<div id="openid_input_area">
+					<input id="openid_identifier" name="openid_identifier" type="text" value="http://" />
+					<input id="openid_submit" type="submit" value="Sign-In"/>
+				</div>
+				<noscript>
+				<p>OpenID is service that allows you to log-on to many different websites using a single indentity.
+				Find out <a href="http://openid.net/what/">more about OpenID</a> and <a href="http://openid.net/get/">how to get an OpenID enabled account</a>.</p>
+				</noscript>
+		</fieldset>
+	</form>
+	
 </div>
 

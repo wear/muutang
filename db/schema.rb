@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091122095706) do
+ActiveRecord::Schema.define(:version => 20091125054944) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20091122095706) do
     t.string   "activation_code",           :limit => 40
     t.datetime "activated_at"
     t.integer  'posts_count'
+    t.string   "identity_url"
   end            
           
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true  
@@ -142,6 +143,18 @@ ActiveRecord::Schema.define(:version => 20091122095706) do
      t.string  'contact_name'
      t.string  'contact_phone'
      t.timestamps
+   end
+   
+   create_table :open_id_authentication_associations, :force => true do |t|
+     t.integer :issued, :lifetime
+     t.string :handle, :assoc_type
+     t.binary :server_url, :secret
+   end
+
+   create_table :open_id_authentication_nonces, :force => true do |t|
+     t.integer :timestamp, :null => false
+     t.string :server_url, :null => true
+     t.string :salt, :null => false
    end
  
 end

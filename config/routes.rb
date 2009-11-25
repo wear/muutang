@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
   map.faq '/faq', :controller => 'landing', :action => 'faq'
   map.about '/about', :controller => 'landing', :action => 'about'
+  map.open_id_complete 'session', :controller => "sessions", :action => "create", :requirements => { :method => :get }
   
   map.resource :session
   map.resources :users, :collection => {:forgot_password => :get,:reset_password => :put ,:auto_complete_for_user_email => :get } ,
