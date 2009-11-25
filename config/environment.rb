@@ -47,20 +47,21 @@ end
 
 ExceptionNotifier.exception_recipients = %w(skung@sandsroad.com)
 
-ActionMailer::Base.smtp_settings = {
-   :tls => true,
-   :address => "smtp.gmail.com",
-   :port => "587",
-   :domain => "muutang.com",
-   :authentication => :plain,
-   :user_name => "support@muutang.com",
-   :password => "tellmewhy" }
+#ActionMailer::Base.smtp_settings = {
+#   :tls => true,
+#   :address => "smtp.gmail.com",
+#   :port => "587",
+#   :domain => "muutang.com",
+#   :authentication => :plain,
+#   :user_name => "support@muutang.com",
+#   :password => "tellmewhy" }
+#
    
 Time::DATE_FORMATS[:due_time] = "%B %d %I:%M %p"
 
-#ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.delivery_method = :sendmail
 
-#ActionMailer::Base.sendmail_settings = {
-#                      :location       => '/usr/sbin/sendmail',
-#                     :arguments      => '-i -t'
-#                      }
+ActionMailer::Base.sendmail_settings = {
+                      :location       => '/usr/sbin/sendmail',
+                     :arguments      => '-i -t'
+                      }
