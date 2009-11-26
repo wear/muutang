@@ -21,18 +21,26 @@
 				<ul>
 					<%=topnav_tab "讨论区(#{Post.count}/#{Comment.count})",:url => posts_path,:section => 'bbs' %>
 					<%=topnav_tab "阅读推荐(#{Recommand.count})",:url => recommands_path,:section => 'recommands' %>
-					<%=topnav_tab "工作机会(#{Job.count})",:url => jobs_path,:section => 'jobs' %>
+					<%=topnav_tab "工作机会(#{Job.visible.count})",:url => jobs_path,:section => 'jobs' %>
 					<div style="clear: both;display: block"> </div> 
 				 </ul>      
 		 	</div>        
 			<h4>置顶帖子</h4>
             <div class="box">
 				<ul>
-            	<% Post.tops.each do |post| -%>
+            	<% Post.top_five.each do |post| -%>
 				   <li><%=link_to h(post.title),post %></li>
 				<% end -%>
 				</ul> 
-            </div>
+            </div> 
+	   		<h4>最新工作机会</h4>
+	            <div class="box">
+					<ul>
+	            	<% Job.top_five.each do |job| -%>
+					   <li><%=link_to h(job.position),job %></li>
+					<% end -%>
+					</ul> 
+	            </div>
 			<% if false %>      
 						<h4>优秀会员</h4>   
 			<div class='nice_member' >

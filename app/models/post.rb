@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
               :conditions => ['top = ? and visible = ?',false,true],:include => :user
 
   named_scope :ordered,:conditions => ['visible = ?',true],:order => 'updated_at DESC',:include => :user  
-  named_scope :tops,:conditions => ['top = ?',true],:limit => 5 
+  named_scope :top_five,:conditions => ['top = ?',true],:limit => 5 
   
  # before_save :create_body_pre
   

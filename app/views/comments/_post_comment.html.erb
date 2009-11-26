@@ -6,6 +6,6 @@
 		<%=pretty_button '删除',admin_comment_path(comment),:method => :delete,:confirm => "你确定嘛?" %>
 	<% end %>
 	</p>
-<div><%=comment.comment%></div>  
+<div><%=simple_format(comment.comment) %></div>  
 </td>
 </tr>

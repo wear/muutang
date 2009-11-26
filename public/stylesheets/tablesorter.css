@@ -6,8 +6,8 @@ table.tablesorter {
 table.tablesorter th {
 	text-align: left;
 	padding: 5px;  
-	border-top:1px solid #CCCCCC;    
-	border-bottom:1px solid #CCCCCC;  
+	border-top:1px solid #DDDDDD;    
+	border-bottom:1px solid #DDDDDD;   
 }                
 
 table.tablesorter td {
@@ -23,7 +23,7 @@ table.tablesorter .odd {
 	background-color: #6E6E6E;
 }
 table.tablesorter .header {
-	background:#E7E7E7;
+	background:#EFEFEF;
 	background-image: url(/images/bg.png);
 	background-repeat: no-repeat;
 	padding-left: 30px;

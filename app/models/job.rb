@@ -8,5 +8,7 @@ class Job < ActiveRecord::Base
     validates_presence_of :contact_email
     
     named_scope :visible,:conditions => ['visible =?',true]
-    named_scope :unvisible,:conditions => ['visible =?',false]
+    named_scope :unvisible,:conditions => ['visible =?',false]    
+    
+    named_scope :top_five,:conditions => ['visible =?',true],:limit => 5
 end

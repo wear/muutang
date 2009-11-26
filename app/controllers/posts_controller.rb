@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :login_required,:except => [:index,:show]       
   before_filter { |c| c.set_section('bbs') }
 
-  uses_tiny_mce :only => [:new, :create, :edit, :update,:show], 
+  uses_tiny_mce :only => [:new, :create, :edit, :update], 
   :options => TINYIMC                                        
   
   caches_page :index,:show
@@ -11,8 +11,7 @@ class PostsController < ApplicationController
   layout 'group'
   # GET /posts
   # GET /posts.xml
-  def index            
-    @tops = Post.tops                                    
+  def index                               
     @posts = Post.recent_without_top.paginate(:page => params[:page])
     
     respond_to do |format|

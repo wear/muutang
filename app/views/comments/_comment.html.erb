@@ -1,6 +1,6 @@
 <li> 
 <%=link_to image_tag(comment.commentable.user.avatar.url(:thumb)),comment.commentable.user %>
-<%=link_to nickname_of(comment.commentable.user),comment.commentable.user %><%= user_title(comment.commentable.user) %> <%=link_to h(comment.commentable.title),comment.commentable,:class => 'post-title' %>
+<%=link_to nickname_of(comment.commentable.user),comment.commentable.user,:class => 'a6' %><%=link_to h(comment.commentable.title),comment.commentable,:class => 'a4' %>
 <p class='post-content'><%=truncate(strip_tags(comment.commentable.body),:length => 75)%></p>  
-<p><span class='time'><%= time_ago_in_words_or_date(comment.commentable.created_at) %></span> 你在 <%= comment.created_at.to_s(:short) %> 评论过,<%= comment_status(comment) %> </p>
+<p><span class='time'>你在 <%= time_ago_in_words_or_date(comment.created_at)%> 评论过,<%= comment_status(comment) %></span> </p>
 </li>

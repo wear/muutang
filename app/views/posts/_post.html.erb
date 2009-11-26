@@ -1,7 +1,6 @@
 <li>     
-
 <%=image_tag post.user.avatar.url(:thumb) %>
-<%=link_to nickname_of(post.user),post.user %> <%= cate_lable(post) %> <%=link_to h(post.title),post,:class => 'post-title' %>
+<%=link_to nickname_of(post.user),post.user,:class => 'a6' %> <%= cate_lable(post) %> <%=link_to h(post.title),post,:class => 'a4' %>
 <p class='post-content'><%=truncate(strip_tags(post.body),:length => 75)%></p>  
-<p><span class='time'><%= time_ago_in_words_or_date(post.updated_at) %></span><%=post.comments_count%>评论 </p>
+<p><span class='time'><%= time_ago_in_words_or_date(post.updated_at) %>  <%=post.comments_count%>评论</span> </p> 
 </li>
