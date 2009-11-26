@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   layout 'group'
   # GET /posts
   # GET /posts.xml
-  def index                               
+  def index                    
+    @tops = Post.top_five           
     @posts = Post.recent_without_top.paginate(:page => params[:page])
     
     respond_to do |format|

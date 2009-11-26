@@ -8,7 +8,7 @@ TINYIMC = { :theme => 'advanced',
 :theme_advanced_statusbar_location => "bottom", 
 :editor_deselector => "mceNoEditor",
 :theme_advanced_resize_horizontal => false,  
-:theme_advanced_buttons1 => %w{bold italic underline separator bullist numlist separator link unlink image syntaxhl},
+:theme_advanced_buttons1 => %w{bold italic underline separator bullist numlist separator link unlink image},
 :theme_advanced_buttons2 => [],
 :theme_advanced_buttons3 => [],
 :plugins => %w{syntaxhl}  
