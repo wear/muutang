@@ -1,4 +1,5 @@
-<tr>
+<tr class="<%= cycle("even", "odd") -%>">         
+<td><%=job_state(job)%></td>
 <td><%=time_ago_in_words_or_date(job.created_at) %></td>                      
 <td><%=link_to h(job.position),admin_job_path(job) %></td> 
 <td><%=h job.company %></td> 

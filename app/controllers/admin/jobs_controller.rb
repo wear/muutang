@@ -3,11 +3,11 @@ class Admin::JobsController < ApplicationController
   before_filter :login_required
   before_filter :find_job, :except => [:index]
   access_control :DEFAULT => '(superuser | editor)'  
-  before_filter { |c| c.set_section('manage_job') }
+  before_filter { |c| c.set_section('manage_job') }  
+  before_filter :set_sort_params,:only => [:index]  
   
   def index
-    @pending_jobs = Job.unvisible 
-    @jobs = Job.visible
+    @jobs = Job.paginate(:page => params[:page],:order => params[:sort])
   end     
   
   def show
@@ -34,7 +34,6 @@ class Admin::JobsController < ApplicationController
   
   def set_visible
 
-   
    respond_to do |wants|
      if @job.update_attribute(:visible,params[:visible])
        flash[:notice] = '修改成功'   
@@ -59,4 +58,9 @@ class Admin::JobsController < ApplicationController
   def find_job
     @job = Job.find(params[:id])
   end
+  
+  def set_sort_params
+    params[:sort] = params[:sitem].nil? ? "created_at desc" : "#{params[:sitem].gsub('-',' ')}"
+  end
+  
 end

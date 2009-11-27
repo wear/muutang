@@ -1,13 +1,15 @@
-<h1>管理系统权限</h1>      
-<b>superuser=系统管理员,editor=编辑</b>
+<h2>管理系统权限</h2>      
+<strong>说明:superuser=系统管理员,editor=编辑</strong>
 <ul>
 <% @roles.each do |role| -%>
 	<li style='margin:10px;'><span style='font-size:16px;margin-right:10px;'><%= role.title %></span><%=pretty_button'删除角色',admin_role_path(role),:method => :delete,:confrim => '你确定嘛?',:class => 'btn'%></li>
 <% end -%>                   
-</ul>
-<h2>新建角色</h2>
+</ul>    
+<% content_for :sidebar do -%>
+<h3>新建角色</h3>
 <% form_for :role,@role,:url => admin_roles_path do |f| -%>
   <%= error_messages_for :role %>
   <%= f.text_field :title,:label => '名称' %>
   <%= f.submit "添加" %>
+<% end -%>
 <% end -%>

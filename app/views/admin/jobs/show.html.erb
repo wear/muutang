@@ -4,7 +4,7 @@
 	</div>
 <% end %>
 
-<h2><%=h @job.position %></h2>  
+<h2><%=job_state(@job)%>   <%=h @job.position %></h2>
 <p>  
 薪水范围: <%=h @job.salary %><br />
 工作地点: <%=h @job.job_address %><br /> 
@@ -21,10 +21,10 @@
 <%=simple_format(@job.desc)%>         
 <p>  
 	<% if @job.visible -%>
-	    <%=pretty_button '重新隐藏',set_visible_admin_job_path(:visible => false),:id => 'big-btn',:method => :put %>                        
+	    <%=long_pretty_button '重新隐藏',set_visible_admin_job_path(:visible => false),:method => :put %>                        
 	<% else -%>
-  		<%=pretty_button '批准发布',set_visible_admin_job_path(:visible => true),:id => 'big-btn',:method => :put %>     
+  		<%=long_pretty_button '批准发布',set_visible_admin_job_path(:visible => true),:method => :put %>     
 	<% end -%>   
-	<%=pretty_button '编辑',edit_admin_job_path,:id => 'big-btn' %> 
-	<%=pretty_button '删除',admin_job_path,:id => 'big-btn',:method => :delete %>
+	<%=long_pretty_button '编辑',edit_admin_job_path %> 
+	<%=long_pretty_button '删除',admin_job_path,:method => :delete %>
 </p>

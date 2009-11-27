@@ -1,7 +1,8 @@
-<h2>待批准招聘</h2>    
+<h2>管理职位</h2>    
 <table  class='tablesorter' cellpadding='0' cellspacing='0'> 
 	<thead> 
-  <tr>
+  <tr>       
+	<th><%=sortable_link('状态',admin_jobs_path,'visible')%></th>
     <th>发布时间</th>
 	<th>职位</th>
 	<th>公司</th>
@@ -9,20 +10,6 @@
   </tr>
 </thead> 
 <tbody>
-	<%= render :partial => 'job', :collection => @pending_jobs %>
+	<%= render @jobs %>
 </tbody>
 </table>    
-<h2>已批准招聘</h2>    
-<table  class='tablesorter' cellpadding='0' cellspacing='0'> 
-	<thead> 
-  <tr>
-    <th>发布时间</th>
-	<th>职位</th>
-	<th>公司</th>
-	<th>工作地点</th>
-  </tr>
-</thead> 
-<tbody>
-	<%= render :partial => 'job', :collection => @jobs %>
-</tbody>
-</table>

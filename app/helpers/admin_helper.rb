@@ -19,9 +19,17 @@ module AdminHelper
     end
   end    
   
-  def sortable_link(name,url,column)         
-    link_to(name,(url + "?sitem=#{set_sort(column,params[:sitem])}"),
+  def sortable_link(name,url,column)    
+    link_to(name,params.merge(:url => url,:sitem => set_sort(column,params[:sitem])),
     :class =>sort_type(column,params[:sitem]))
+  end 
+  
+  def job_state(job)
+    if job.visible
+      image_tag('ok.png')
+    else
+      image_tag('pending.png')
+    end
   end
   
 end

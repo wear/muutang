@@ -4,7 +4,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.xml
   def index
-    @jobs = Job.visible
+    @jobs = Job.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
