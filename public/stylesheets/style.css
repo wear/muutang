@@ -141,6 +141,7 @@ ul li{list-style:none;}
 }
 
 #header a{  
+	font-size:14px;
 	padding:5px;
 	color:#fff;
 	text-decoration:none;

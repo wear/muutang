@@ -1,8 +1,8 @@
-
-	<tr >
-		<td width='10%'><%=link_to h(user.login),user%></td>
+<tr class="<%= cycle("even", "odd") -%>">
+		<td width='20%'><%=link_to nickname_of(user),user%></td>
+		<td width='30%'><%=link_to h(user.email),user%></td>
 		<td width='20%'><%= user.posts.count %>篇帖子 
 		<%= user.comments.count %>次回复</td>
-		<td width='40%'><%=truncate(h(user.profile.desc),:length => 120) %> </td>
-		<td width='30%'><%=pretty_button '编辑',edit_admin_user_path(user),:class => "btn" %><%=pretty_button '设定角色',setting_role_admin_user_path(user) %> <%=pretty_button '删除',admin_user_path(user),:method => :delete,:confirm => "你确定嘛?" %>  </td></tr> 
+		<td width='30%'><%=long_pretty_button '编辑',edit_admin_user_path(user),:class => "btn" %><%=long_pretty_button '设定角色',setting_role_admin_user_path(user) %> <%=long_pretty_button '删除',admin_user_path(user),:method => :delete,:confirm => "你确定嘛?" %>  </td>
+</tr> 
 

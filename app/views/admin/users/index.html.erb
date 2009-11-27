@@ -1,32 +1,21 @@
-<% content_for :header do -%>
-	<%= javascript_include_tag 'tablesorter.min'%>    
-
-	<script type="text/javascript" charset="utf-8">
-		$(document).ready(function() 
-		    { 
-		        $("#user_list").tablesorter(); 
-		    } 
-		); 
-	</script> 
-		<%= stylesheet_link_tag 'tablesorter' %>   
-
+<% content_for :sidebar do -%>
+<h2>查找用户</h2>     
+<% form_tag(search_admin_users_path, {:method => :get}) do %> 
+	<p>字段: <br />
+	<%=select_tag :column,"<option value='login'>login</option><option value='email'>email</option>"%></p>
+    <p> like<br /> <%= text_field_tag :query,params[:query] %>  </p>
+	<%=submit_tag '提交'%>
+<% end -%>
 <% end -%>
 
-<h1>管理用户</h1>       
-<h3>查找用户</h3>
-<% form_tag(search_admin_users_path, {:method => :get,:id => "form"}) do %> 
-	字段:
-	<%=select_tag :column,"<option value='login'>login</option><option value='email'>email</option>"%>
-     like <%= text_field_tag :query,params[:query] %>  
-	<%=submit_tag '提交'%>
-<% end -%>       
+   
 <h2>所有用户</h2>     
 <table border="0" cellspacing="1" cellpadding="0" style='text-align:center' id='user_list' class='tablesorter'> 
 	<thead>
-		<th>login</th> 
+		<th><%=sortable_link('login',admin_users_path,'login')%></th> 
+		<th><%=sortable_link('email',admin_users_path,'email')%></th> 
 		 <th>count</th> 
-		 <th>desc</th> 
-		 <th>sdf</th> 
+		 <th>Option</th> 
 	</thead>
 	<tbody> 
 <%=render @users %>

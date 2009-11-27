@@ -1,3 +1,20 @@
-<h1>管理帖子</h1>   
-<%= will_paginate @posts,:previous_label => '<前页',:next_label => '后页>' %> 
-<%= render @posts %>
+<h2>管理帖子</h2>   
+<table border="0" cellspacing="0" cellpadding="0" class='list'>  
+	<thead> 
+	<tr>
+		<th><%=sortable_link('标题',admin_posts_path,'title')%></th>
+		<th><%=sortable_link('类别',admin_posts_path,'category_id')%></th>
+		<th><%=sortable_link('作者',admin_posts_path,'user_id')%></th>
+	    <th><%=sortable_link('时间',admin_posts_path,'created_at')%></th>
+		<th><%=sortable_link('评论数',admin_posts_path,'comments_count')%></th>
+		<th></th>
+	</tr> 
+	</thead>
+	<tbody>
+	<tr>
+	   <%= render @posts %>   
+	</tr>
+	</tbody> 
+</table>
+ 
+<%= will_paginate @posts,:previous_label => '<前页',:next_label => '后页>' %>  

@@ -128,7 +128,8 @@ ul li{list-style:none;}
 	background:url(/images/header-application.png);
 }
 
-#header a{  
+#header a{
+	font-size:14px;  
 	padding:5px;
 	color:#fff;
 	text-decoration:none;
@@ -143,7 +144,7 @@ ul li{list-style:none;}
 	background:url(/images/line_1.gif) no-repeat 0px 8px  ;
 	float:left;
 	padding:12px 20px; 
-	width:200px;
+	width:600px;
 }  
 
 .user_menu{
@@ -164,22 +165,17 @@ ul li{list-style:none;}
 #navs{    
 	margin-top:5px;      
 	float:left;
-	width:200px;
-	border:1px solid #DDDDDD;   
-	background:#EFEFEF;            
+	width:240px;        
 }     
 
 .nav_box{   
 	padding:0px 10px;  
 	clear:both;
-	border-bottom:1px solid #DADADA;  
 }
 
-#navs h4{ 
+#navs h3{ 
 	clear:both; 
-    color:#9C9C9C;
-	margin:3px;
-    padding:2px 0px 5px 10px;
+
 } 
 
 .nav_box ul{
@@ -420,54 +416,25 @@ LABEL { display: block; margin-top: 5px; }
 
 /*---- group -------*/  
 
-#group_header{
-	clear:both;
-	padding:5px;
-	height:60px;
+table{
+	margin:5px;
+	border-collapse: collapse;
+	table-layout:automatic;
+	width:98%;
+}
+td, th{
+	padding: 2px 6px;
 } 
-
-.g_left{ 
-	float:left;
-	background: url(/images/bg/title_bg_m.jpg) repeat-x;
-} 
-
-.title_left{  
-	float:left; 
-	width:26px; 
-	height:56px;
-  background: url(/images/bg/title_bg_l.jpg); 
-} 
-
-.title_m{
-	float:left;  
-}  
-
-.title_m a{
-   	line-height:56px;
-	font-size:24px; 
-	font-weight:bold;
- 	text-decoration: none;     
+thead{
+	background:#d9eaed;
 }
 
-.title_m img{
-	margin:0px 10px;
-	border:2px solid #ccc;
-}   
-
-.title-right{ 
-	float:left;
-	width:26px; 
-	height:56px;
-   	background: url(/images/bg/title_bg_r.jpg);  
-}
-
-.group_description{ 
-	width:500px;
-	float:left; 
-	margin-left:30px;
-}
-
-
+th a{
+  padding-left:15px;  
+}                   
+.sorting{background:transparent url(/images/bg/sorter.gif) no-repeat -5px 2px;} 
+.asc{background:transparent url(/images/bg/222222_7x7_arrow_up.gif) no-repeat left 2px;}   
+.desc{background:transparent url(/images/bg/222222_7x7_arrow_down.gif) no-repeat left 2px;}          
 /*----- error ------*/
 .errorExplanation h2{
 	color:red;
@@ -523,3 +490,6 @@ li .handle {
 	width:100%;
 	text-align:center;
 }
+
+/*----  image -----*/
+

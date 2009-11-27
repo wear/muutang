@@ -1,6 +1,8 @@
-<dd>    
-	<%=image_tag post.user.avatar.url(:thumb) %>
-	<%=link_to h(post.user.login),post.user %> <%="[置顶]" if post.top %><%=link_to h(post.title),post,:class => 'a6' %> 分类: <%= cate(post) %> <span style='color:#999999'><%= time_ago_in_words_or_date(post.created_at) %> </span> <%=post.comments_count%>评论
-	<p><%=truncate(strip_tags(post.body),:length => 75)%></p> 
-	<%=pretty_button '编辑',edit_admin_post_path(post)%>
-</dd>
+<tr class="<%= cycle("even", "odd") -%>">  
+	<td><%=link_to h(post.title),post,:target => '_blank' %> </td>
+	<td><%= cate(post) %></td>
+	<td><%=link_to h(post.user.login),post.user %></td>
+	<td><%= time_ago_in_words_or_date(post.created_at) %></td>
+	<td><%=post.comments_count%></td>
+	<td><%=long_pretty_button '编辑',edit_admin_post_path(post)%><%= long_pretty_button "删除",admin_post_path(post),:method => :delete%></td>
+</tr>

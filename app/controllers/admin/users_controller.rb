@@ -4,10 +4,11 @@ class Admin::UsersController < ApplicationController
   before_filter :find_user,:except => [:index,:search]
   before_filter :find_role,:only => [:update_role,:destroy_role]    
   layout 'admin'              
-  before_filter { |c| c.set_section('manage_user') }      
+  before_filter { |c| c.set_section('manage_user') }     
+  before_filter :set_sort_params,:only => [:index]    
   
   def index
-     @users = User.paginate :page => params[:page], :order => 'posts_count ASC'   
+     @users = User.paginate :page => params[:page], :order => params[:sort],:include => [:posts,:comments]   
   end     
        
   def search    
@@ -80,6 +81,10 @@ class Admin::UsersController < ApplicationController
   
   def find_role 
      @role = Role.find_by_title(params[:role]) 
-  end         
+  end     
+  
+  def set_sort_params
+    params[:sort] = params[:sitem].nil? ? "created_at desc" : "#{params[:sitem].gsub('-',' ')}"
+  end    
   
 end
