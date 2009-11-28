@@ -2,7 +2,7 @@
 	<%= stylesheet_link_tag 'help' %>
 <% end -%>       
 <div id="warppr">  
-	<% if @page -%>    
+	<% unless @page -%>    
 	<div id='left'>
 	  <% @pages.children.each do |page| -%>
 		<h2><%= page.name %></h2>
