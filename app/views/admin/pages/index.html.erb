@@ -1,0 +1,21 @@
+<% content_for :sidebar do -%>   
+<ul id='pages'> 
+    <% @pages.each do |page| -%> 
+	    <% content_tag_for :li, page,:class => 'page-title' do -%>
+			 <span class="handle">[拖动]</span><%=link_to page.name,edit_admin_page_path(page) %>
+		<% end -%>  
+	   <% page.children.find(:all,:order => 'position ASC').each do |child| -%> 
+			<% content_tag_for :li, child do -%>
+	   			<span class="handle">[拖动]</span><%=link_to child.name,edit_admin_page_path(child) %>
+	   		<% end -%>
+		<% end -%>     
+	<% end -%>
+	
+<% end -%>  
+   
+</ul>  
+<div style='text-align:left;' id='btn'>
+	<%=pretty_button '新建页面',new_admin_page_path,:id => 'big-btn' %>
+</div>      
+
+<%= sortable_element("pages", :url => sort_admin_pages_path, :handle => "handle") %>  

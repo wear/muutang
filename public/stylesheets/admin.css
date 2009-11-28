@@ -197,8 +197,9 @@ ul li{list-style:none;}
 }
 
 
-#content{  
-	margin-left:10px; 
+#content{       
+	border-left: 2px solid #ddd;     
+	padding-left:10px; 
 	float:left;
 	width:700px;
 }      
@@ -493,3 +494,36 @@ li .handle {
 
 /*----  image -----*/
 
+div#content li {
+	list-style: none;
+	margin-left: 20px;
+}
+
+div#content p {
+	color: #777;
+}
+
+/* -- page -----*/  
+
+ul#pages li{     
+	padding:5px 40px;
+	font-size:14px;
+}  
+
+ul#pages li a{
+	font-size:14px; 
+	margin-left:5px;;   
+}
+
+ul#pages li.page-title{ 
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 5px;
+	padding:5px 20px;  
+}  
+
+ul#pages li.page-title a{
+	font-size:18px;
+	text-decoration: none; 
+    font-weight:bold;
+
+}

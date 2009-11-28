@@ -8,11 +8,11 @@ class RecommandsController < ApplicationController
   # GET /recommands.xml
   def index   
     @kind = 'all'
-    @recommandation = Recommandation.paginate(:page => params[:page],:order => 'created_at DESC')
+    @recommandations = Recommandation.paginate(:page => params[:page],:order => 'created_at DESC')
     
     respond_to do |format|
       format.html # index.html.erb
-      format.js { }
+      format.rss 
     end
   end  
   

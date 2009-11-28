@@ -1,18 +1,18 @@
-<h1>最新讨论</h1>
+<h1>最新讨论<%= link_to image_tag('feed-icon-14x14.png'), posts_url(:format => :rss),:alt => 'RSS Feed',:style => 'margin-left:10px'%></h1>
 <ul class='posts'>
 	<%=render :partial => 'posts/post',:collection => @posts %>
 </ul>         
 <div id="load-more"> 
 	<%=link_to '更多讨论条目',posts_path %>
 </div>
-<h1>最新推荐条目</h1>  
+<h1>最新推荐条目<%= link_to image_tag('feed-icon-14x14.png'), recommands_url(:format => :rss),:alt => 'RSS Feed',:style => 'margin-left:10px'%></h1>  
 <ul class='posts'>
-	<%=render :partial => 'recommands/recommandation', :collection => @recommandation %>
+	<%=render :partial => 'recommands/recommandation', :collection => @recommandations %>
 </ul>  
 <div id="load-more"> 
 	<%=link_to '更多推荐条目',recommands_path %>
 </div>  
-<h1>最新工作机会</h1>  
+<h1>最新工作机会<%= link_to image_tag('feed-icon-14x14.png'), jobs_url(:format => :rss),:alt => 'RSS Feed',:style => 'margin-left:10px'%></h1>  
 <table border="0" cellspacing="5" cellpadding="5" style='width:100%;text-align:center;'>
 <%=render @jobs %>  
 </table>

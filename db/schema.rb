@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091125093830) do
+ActiveRecord::Schema.define(:version => 20091128133345) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -155,6 +155,17 @@ ActiveRecord::Schema.define(:version => 20091125093830) do
      t.integer :timestamp, :null => false
      t.string :server_url, :null => true
      t.string :salt, :null => false
+   end   
+   
+   create_table :pages, :force => true do |t|
+     t.integer 'parent_id'  ,:null => false ,:default => 0
+     t.integer 'position'
+     t.string  "name"
+     t.string  "category"
+     t.text    "content"
+     t.timestamps
    end
- 
+          
+   
+
 end

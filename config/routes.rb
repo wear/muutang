@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
       # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
       admin.resources :posts,:member => {:marktop => :put,:set_visibility => :put } 
       admin.resources :comments
+      admin.resources :pages, :collection => { :sort => :post }
       admin.resources :categories, :collection => { :sort => :post }
       admin.resources :roles        
       admin.resources :jobs,:member => {:set_visible => :put}

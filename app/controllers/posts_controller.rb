@@ -11,8 +11,7 @@ class PostsController < ApplicationController
   layout 'group'
   # GET /posts
   # GET /posts.xml
-  def index                    
-    @tops = Post.top_five           
+  def index                           
     @posts = Post.recent_without_top.paginate(:page => params[:page])
     
     respond_to do |format|
@@ -22,7 +21,6 @@ class PostsController < ApplicationController
       else
         format.js { }  
       end
-      format.xml  { render :xml => @tops }
       format.rss
     end
   end   

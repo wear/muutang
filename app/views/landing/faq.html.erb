@@ -1,2 +1,20 @@
-<h1>帮助</h1>
-<p>建设中</p>
+<% content_for :header do -%>
+	<%= stylesheet_link_tag 'help' %>
+<% end -%>       
+<div id="warppr">
+	<div id='left'>
+	  <% @pages.children.each do |page| -%>
+		<h2><%= page.name %></h2>
+		<%= page.content %>
+	  <% end -%>
+	</div>  
+	<div id="right"> 
+		<h1>帮助</h1> 
+		<ul>
+	  <% @pages.children.each do |page| -%>
+		<li><%= page.name %></li>
+	  <% end -%>                 
+		</ul>
+	</div>
+</div>
+
