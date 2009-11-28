@@ -40,6 +40,15 @@ class Admin::PagesController < ApplicationController
         wants.html { render :action => "new" } 
       end
     end
+  end   
+  
+  def destroy
+    @page = Page.find(params[:id])   
+    @page.destroy
+
+    respond_to do |wants|
+      wants.html { redirect_to :action => "index" }
+    end
   end
   
   def sort

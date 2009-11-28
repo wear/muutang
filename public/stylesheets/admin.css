@@ -447,7 +447,7 @@ th a{
 	border-bottom:1px solid #eee;
 }        
 
-#categories span.name{
+#categories span.name a{
 	font-size:16px;
 	font-weight:bold;
 }

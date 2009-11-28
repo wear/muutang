@@ -3,8 +3,8 @@
 <ul id="categories">       
 	<% for category in @categories -%>
 		<% content_tag_for :li, category do %>
-    	<span class="handle">[拖动]</span>
-    	<span class='name'><%=h category.name %></span>（<%=category.kind%>） | <%=link_to '编辑',edit_admin_category_path(category)%> | <%=link_to '删除',admin_category_path(category),:method => :delete,:confirm => '你确定嘛?' %>
+    	<span class="handle"><%=image_tag('bg/hand-cursors.jpg')%></span>
+    	<span class='name'><%=link_to category.name,edit_admin_category_path(category) %></span>（<%=category.kind%>） <%=link_to image_tag('bg/delete.png'),admin_category_path(category),:method => :delete,:confirm => '你确定嘛?' %>
   		<% end %> 
     <% end -%>
 <li>                
