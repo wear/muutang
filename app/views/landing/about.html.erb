@@ -1,7 +1,8 @@
 <% content_for :header do -%>
 	<%= stylesheet_link_tag 'help' %>
 <% end -%>       
-<div id="warppr"> 
+<div id="warppr">  
+	<% if @page -%>    
 	<div id='left'>
 	  <% @pages.children.each do |page| -%>
 		<h2><%= page.name %></h2>
@@ -15,5 +16,8 @@
 		<li><%= page.name %></li>
 	  <% end -%>                 
 		</ul>
-	</div>
+	</div> 
+	<% else -%>
+	暂无页面
+	<% end -%>
 </div>

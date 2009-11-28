@@ -1,5 +1,5 @@
 <%= form.input :name %>
 <%= form.input :content, :input_html => { :class => "mceEditor" } %>
 <%= form.input :category,:as => :select,:collection => ["页面", "分类"],:selected => '页面' %>
-<%= form.input :parent, :collection => Page.cates %>
+<%= form.input :parent,:collection => Page.cates,:include_blank => false %>
 <%= form.buttons %>

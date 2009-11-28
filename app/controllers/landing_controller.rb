@@ -19,8 +19,13 @@ class LandingController < ApplicationController
   
   def faq    
     @pages = Page.find(:first,:conditions => ['name = ?','帮助'])
-    respond_to do |wants|
-      wants.html {  }
+  
+    respond_to do |wants| 
+      if @pages
+        wants.html {  }
+      else
+        wants.html { render :partial => '/shared/error', :status => 500 }  
+      end
     end
     
   end
@@ -28,7 +33,11 @@ class LandingController < ApplicationController
   def about 
     @pages = Page.find(:first,:conditions => ['name = ?','关于'])
     respond_to do |wants|
-      wants.html {  }
+      if @pages
+        wants.html {  }
+      else
+        wants.html { render :partial => '/shared/error', :status => 500 }  
+      end
     end
     
   end

@@ -165,7 +165,5 @@ ActiveRecord::Schema.define(:version => 20091128133345) do
      t.text    "content"
      t.timestamps
    end
-          
-   
 
 end
