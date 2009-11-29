@@ -8,7 +8,11 @@ class EventsController < ApplicationController
     @events = Event.find(:all)
   end
 
-  def show
+  def show    
+    @event = Event.find(params[:id])
+    respond_to do |wants|
+      wants.html { render :layout => 'event' }
+    end
   end
 
   def new 

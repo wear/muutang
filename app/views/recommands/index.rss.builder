@@ -5,7 +5,7 @@ xml.rss :version => "2.0" do
     xml.body "Recent recommandation items from shanghaionrails"
     xml.link jobs_url(:rss)
     
-    for recommandation in @recommandations
+    for recommandation in @recommands
       xml.item do    
         xml.user nickname_of(recommandation.user)
         xml.title recommandation.recommand.title
