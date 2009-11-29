@@ -1,0 +1,7 @@
+
+<h1>Events#new</h1>       
+<% semantic_form_for @event,:html => {:id => 'longform'} do |form| -%>     
+   <%=render :partial => 'form',:locals => {:form => form}%>
+	<br />
+	<%= form.buttons %>   
+<% end -%>

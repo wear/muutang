@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  user_id: 1
+  desc: MyText
+  start_at: 2009-11-29 15:58:22
+  stop_at: 2009-11-29 15:58:22
+  attendees_count: 1
+  state: MyString
+  address: MyString
+
+two:
+  name: MyString
+  user_id: 1
+  desc: MyText
+  start_at: 2009-11-29 15:58:22
+  stop_at: 2009-11-29 15:58:22
+  attendees_count: 1
+  state: MyString
+  address: MyString

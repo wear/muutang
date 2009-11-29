@@ -1,0 +1,27 @@
+<div style='text-align:right;' id='btn'>
+	<%=pretty_button '新建活动',new_event_path,:id => 'big-btn' %>
+</div>
+
+<h1>Events#index</h1>
+<table border="0" cellspacing="0" cellpadding="0" style='width:100%;' >
+	<thead>
+		<tr>
+		 <th>名称</th>
+		 <th>地址</th>
+		 <th>描述</th>
+		 <th>开始时间</th>
+		 <th>结束时间</th>
+	   </tr>
+	</thead>
+    <tbody>
+	<% @events.each do |event| -%>
+		<tr>
+			<td><%= event.name %></td> 
+			<td><%= event.address %></td> 
+			<td><%= event.desc %></td> 
+			<td><%= event.open_at %></td> 
+			<td><%= event.close_at %></td> 
+		</tr>
+	<% end %>
+	</tbody>
+</table>
