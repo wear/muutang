@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :recommands,:collection => { :hot => :get, :own => :get,:new_recommandation => :get,:recommandation => :post }
 
   map.resources :skills
+  map.resources :events
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
@@ -32,7 +33,8 @@ ActionController::Routing::Routes.draw do |map|
       admin.resources :comments
       admin.resources :pages, :collection => { :sort => :post }
       admin.resources :categories, :collection => { :sort => :post }
-      admin.resources :roles        
+      admin.resources :roles    
+      admin.resources :events    
       admin.resources :jobs,:member => {:set_visible => :put}
       admin.resources :users,:member => {:setting_role => :get,:update_role => :put,:destroy_role => :delete },:collection => {:search => :get}
   end

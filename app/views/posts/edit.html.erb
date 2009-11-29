@@ -6,7 +6,7 @@
 
 <h1>编辑帖子</h1>
 
-<% form_for(@post,:html => {:id => 'longform'}) do |f| %>
+<% semantic_form_for(@post,:html => {:id => 'longform'}) do |f| %>
   <%= f.error_messages %>
 
   <%=render :partial => 'form',:locals => {:f => f} %>

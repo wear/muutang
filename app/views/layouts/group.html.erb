@@ -22,6 +22,7 @@
 					<%=topnav_tab "讨论区(#{Post.count}/#{Comment.count})",:url => posts_path,:section => 'bbs' %>
 					<%=topnav_tab "阅读推荐(#{Recommand.count})",:url => recommands_path,:section => 'recommands' %>
 					<%=topnav_tab "工作机会(#{Job.visible.count})",:url => jobs_path,:section => 'jobs' %>
+					<%#=topnav_tab "活动(#{Event.opened.count})",:url => events_path,:section => 'events' %>
 					<div style="clear: both;display: block"> </div> 
 				 </ul>      
 		 	</div>        

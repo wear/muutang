@@ -140,6 +140,7 @@ zh:
   activerecord:
     models: 
       recommand: 阅读推荐
+      event: 活动
       post: 帖子
       category: 帖子分类
       role: 角色
@@ -147,6 +148,8 @@ zh:
       skill: 技能  
       job: 工作机会
     attributes:
+      event:
+          close_at: 结束于
       job:
           company: 公司名称
           title: 职位

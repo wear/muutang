@@ -6,8 +6,7 @@
 
 <h1>发新贴</h1>
 
-<% form_for(@post,:html => {:id => 'longform'}) do |f| %>
-  <%= f.error_messages %>
-  <%=render :partial => 'form',:locals => {:f => f} %>
+<% semantic_form_for(@post,:html => {:id => 'longform'}) do |f| %>
+  <%= render :partial => 'form',:locals => {:f => f} %>
   <%= f.submit '提交',:id => 'submit' %>
 <% end %>

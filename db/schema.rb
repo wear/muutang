@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091128133345) do
+ActiveRecord::Schema.define(:version => 20091129120153) do
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -163,6 +163,20 @@ ActiveRecord::Schema.define(:version => 20091128133345) do
      t.string  "name"
      t.string  "category"
      t.text    "content"
+     t.timestamps
+   end          
+           
+   
+   create_table :events, :force => true do |t|
+     t.string :name
+     t.integer :user_id
+     t.text :desc
+     t.date :open_at
+     t.date :close_at
+     t.integer :attendees_count
+     t.string :state
+     t.string :address
+
      t.timestamps
    end
 

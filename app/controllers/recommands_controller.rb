@@ -8,7 +8,7 @@ class RecommandsController < ApplicationController
   # GET /recommands.xml
   def index   
     @kind = 'all'
-    @recommandations = Recommandation.paginate(:page => params[:page],:order => 'created_at DESC')
+    @recommands = Recommandation.paginate(:page => params[:page],:order => 'created_at DESC')
     
     respond_to do |format|
       format.html # index.html.erb
@@ -31,7 +31,7 @@ class RecommandsController < ApplicationController
   
   def own
     @kind = 'own'
-    @recommandation = Recommandation.paginate(:page => params[:page],:order => 'created_at DESC',:conditions => ['user_id = ?',current_user.id])
+    @recommands = Recommandation.paginate(:page => params[:page],:order => 'created_at DESC',:conditions => ['user_id = ?',current_user.id])
     
     respond_to do |wants|
       if params[:page].nil?
