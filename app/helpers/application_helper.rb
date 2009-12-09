@@ -73,4 +73,22 @@ module ApplicationHelper
     end
   end
   
+  def html_title(*args)
+    if args.empty?
+      title = []
+      title << @group.name if @group
+      title += @html_title if @html_title
+      title << AppConfig.community_name
+      title.compact.join(' - ')
+    else
+      @html_title ||= []
+      @html_title += args
+    end
+  end
+  
+  def breadcrumb(*args)
+    elements = args.flatten
+    elements.any? ? content_tag('p', args.join(' &#187; ') + ' &#187; ', :class => 'breadcrumb') : nil
+  end
+  
 end

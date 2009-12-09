@@ -3,7 +3,8 @@ class AdminController < ApplicationController
   access_control :DEFAULT => '(superuser)'  
 
   
-  def index
+  def index    
+    
   end
   
   protected

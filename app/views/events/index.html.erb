@@ -8,9 +8,8 @@
 		<tr>
 		 <th>名称</th>
 		 <th>地址</th>
-		 <th>描述</th>
-		 <th>开始时间</th>
-		 <th>结束时间</th>
+		 <th>时间</th>
+			<th></th>
 	   </tr>
 	</thead>
     <tbody>
@@ -18,9 +17,17 @@
 		<tr>
 			<td><%=link_to event.name,event %></td> 
 			<td><%= event.address %></td> 
-			<td><%= event.desc %></td> 
-			<td><%= event.open_at %></td> 
-			<td><%= event.close_at %></td> 
+			<td><%= event.start_date %></td> 
+			<td> 
+			<%=long_pretty_button '编辑', edit_event_path(event)%>  
+			
+			<% if event.state == 'public' -%>
+			<%=long_pretty_button '关闭',close_event_path(event),:method => :put %>
+			<% end -%>     
+			<% if event.state == 'pending' %>
+			<%=long_pretty_button '删除',event,:method => :delete, :confirm => '你确定嘛?' %>
+			<% end %>
+			</td> 
 		</tr>
 	<% end %>
 	</tbody>

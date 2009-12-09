@@ -11,7 +11,7 @@
 		<h2><%=h @user.profile.name%></h2>
 		<h3>个人资料</h3>
 		网站:<%= @user.profile.website %><br />
-		所在地: <%= I18n.t @user.profile.country, :scope => 'countries' %> <%=h @user.profile.state %> <%=h @user.profile.city %>  <br />
+		所在地: <%=h @user.profile.state %> <%=h @user.profile.city %>  <br />
 		兴趣爱好:<%=@user.profile.interesting%>
 		<h3>工作信息</h3> 
 		工作经验:<%=h @user.profile.work_experience %><br />  

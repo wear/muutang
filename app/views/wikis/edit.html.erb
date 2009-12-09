@@ -1,0 +1,29 @@
+<% content_for :head do -%>
+	<%= javascript_include_tag 'prototype','effects','dragdrop','controls' %>
+<% end -%>  
+
+<% content_for :tabs do -%>
+  <a href='#'>sf</a>    
+<% end -%>
+
+<h2><%= @page.pretty_title %></h2>
+<% semantic_form_for :content, @content, :url => wiki_path(@page.pretty_title ), :html => {:id => 'longform',:method => :put} do |f| %>   
+<%= render :partial => 'wiki_form',:locals => { :f => f } %> 
+<%= f.input  :comments,:label => '备注',:input_html => {:value => nil, :size => 40} %>
+<br /> 
+<%= f.buttons  %>
+<%#= link_to_remote :label_preview.l,{:url => preview_group_wiki_path(@group,:page => @page.pretty_title), 
+                         :method => 'post',
+                         :update => 'preview',
+                         :with => "Form.serialize('wiki_form')",
+                         :complete => "Element.scrollTo('preview')"},
+                         :accesskey => accesskey(:preview) %></p>
+<% end %>
+<% if false %>
+<div id="preview" class="wiki"></div>
+<% end %>
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'scm' %>
+<% end %>
+
+<%# html_title @page.pretty_title %>

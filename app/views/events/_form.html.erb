@@ -1,18 +1,31 @@
-<% content_for :header do -%>                
-  <%= include_tiny_mce_if_needed %>    
-  <%= stylesheet_link_tag 'jquery-ui.custom' %>    
-  <script type="text/javascript">    
-	$(function() {
-		$("#open_at").datepicker({minDate: "0d", 
-        showOn: "both",buttonImage: '/images/icons/calendar.png',buttonImageOnly: true });
-		$("#close_at").datepicker({minDate: "0d", 
-        showOn: "both",buttonImage: '/images/icons/calendar.png',buttonImageOnly: true });
-	});
-  </script> 
+<% content_for :header do -%>  
+<%= include_tiny_mce_if_needed %>  
+<%= stylesheet_link_tag 'jquery-ui.custom' %>
+
+<script type="text/javascript" charset="utf-8"> 
+	$(document).ready(function(){
+	   $("#start_date,#stop_date").datepicker({ 
+		beforeShow: customRange,
+	    showStatus: true, 
+	    showOn: "both", 
+	    buttonImage: "/images/icons/calendar.png", 
+	    buttonImageOnly: true 
+	}); 
+
+}); 
+</script>
+
+<style type="text/css" media="screen">
+	#time label{width:100px;} 
+	#time ol{width:300px;}
+</style>
 <% end -%>
 
 <%= form.input :name , :label => "名称"%>
 <%= form.input :address, :label => "活动地点" %>
-<%= form.input :desc, :label => "描述",:input_html => { :class => "mceEditor" },:hint => "活動基本資訊概述，例如：費用、場地、議程等" %>
-<%= form.input :open_at,:as => :string,:input_html => {:id => 'open_at',:style => 'width:150px;'} %>
-<%= form.input :close_at,:as => :string,:input_html => {:id => 'close_at',:style => 'width:150px;'} %>      
+<%= form.input :desc, :label => "描述",:input_html => { :class => "mceEditor" },:hint => "活動基本資訊概述，例如：費用、場地、議程等" %> 
+<% form.inputs :name => "时间",:id => 'time' do -%>    
+<%=form.input :stop_at ,:label => '结束时间'%>    
+<%=form.input :start_at,:label => '开始时间' %>    
+<% end %>       
+<br />

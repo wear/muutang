@@ -1,10 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :groups
+
   map.resources :jobs
 
   map.resources :recommands,:collection => { :hot => :get, :own => :get,:new_recommandation => :get,:recommandation => :post }
 
   map.resources :skills
-  map.resources :events
+#  map.resource :wiki,:member => {:page => :get,:preview => :put, :annotate => :get,:new_page => :get,
+#    :create_page => :post, :protect => :post, :rename => [:get,:post], :history => :get, :diff => :get, :special => :get, :page_list => :get }
+#  map.resources :events,:member => {:open => :put,:close => :put,:preview => :get } ,:has_one => :form
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'

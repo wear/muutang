@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091129123810) do
+ActiveRecord::Schema.define(:version => 20091201083419) do    
+  
+  create_table "groups", :force => true do |t|
+    t.string   "title"
+    t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "domain"
+    t.text     "description"
+    t.integer  "member_count", :default => 0
+    t.string   "logo"
+    t.integer  "appearance"
+    t.boolean  "member_auth",  :default => false
+    t.boolean  "content_auth", :default => false
+  end
 
   create_table "comments", :force => true do |t|
     t.string   "title",            :limit => 50, :default => ""
@@ -171,13 +185,87 @@ ActiveRecord::Schema.define(:version => 20091129123810) do
      t.string :name
      t.integer :user_id
      t.text :desc
-     t.date :open_at
-     t.date :close_at
-     t.integer :attendees_count
-     t.string :state
-     t.string :address
+     t.datetime :start_at
+     t.datetime :stop_at
+     t.integer  :attendees_count
+     t.string   :state,:default => 'pending'    
+     t.string   :address
 
      t.timestamps
+   end     
+   
+   add_index "events", ["user_id"], :name => "index_events_on_user_id"     
+   
+   create_table :forms do |t|
+     t.string   "name",                      :limit => 100, :default => ""
+     t.string   "email"  
+     t.string  'phone_number'
+     t.string  'website'
+     t.string  'city' 
+     t.string  'state'
+     t.string  'company'
+     t.string  'company_category'
+     t.string  'company_size'
+     t.string  'industry'
+     t.string  'title'
+     t.string  'work_experience'
+     t.string  'interesting' 
+     t.text     "desc" 
+     t.integer  "event_id"
+     t.timestamps
+   end    
+   
+   add_index "forms", ["event_id"], :name => "index_forms_on_event_id"   
+   
+   create_table "wiki_content_versions", :force => true do |t|
+     t.integer  "wiki_content_id",                              :null => false
+     t.integer  "page_id",                                      :null => false
+     t.integer  "author_id"
+     t.binary   "data"
+     t.string   "compression",     :limit => 6, :default => ""
+     t.string   "comments",                     :default => ""
+     t.datetime "updated_on",                                   :null => false
+     t.integer  "version",                                      :null => false
    end
+
+   add_index "wiki_content_versions", ["wiki_content_id"], :name => "wiki_content_versions_wcid"
+
+   create_table "wiki_contents", :force => true do |t|
+     t.integer  "page_id",                    :null => false
+     t.integer  "author_id"
+     t.text     "text"
+     t.string   "comments",   :default => ""
+     t.datetime "updated_on",                 :null => false
+     t.integer  "version",                    :null => false
+   end
+
+   add_index "wiki_contents", ["page_id"], :name => "wiki_contents_page_id"
+
+   create_table "wiki_pages", :force => true do |t|
+     t.integer  "wiki_id",                       :null => false
+     t.string   "title",                         :null => false
+     t.datetime "created_on",                    :null => false
+     t.boolean  "protected",  :default => false, :null => false
+     t.integer  "parent_id"
+   end
+
+   add_index "wiki_pages", ["wiki_id", "title"], :name => "wiki_pages_wiki_id_title"
+
+   create_table "wiki_redirects", :force => true do |t|
+     t.integer  "wiki_id",      :null => false
+     t.string   "title"
+     t.string   "redirects_to"
+     t.datetime "created_on",   :null => false
+   end
+
+   add_index "wiki_redirects", ["wiki_id", "title"], :name => "wiki_redirects_wiki_id_title"
+
+   create_table "wikis", :force => true do |t|
+     t.integer "group_id",                  :null => false
+     t.string  "start_page",                :null => false
+     t.integer "status",     :default => 1, :null => false
+   end
+
+   add_index "wikis", ["group_id"], :name => "wikis_group_id"
 
 end

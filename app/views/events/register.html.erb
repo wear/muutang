@@ -1,0 +1,8 @@
+<% semantic_form_for @form,:url => event_form_path(@event) do |form| -%>     
+   	<%= form.input :name,:label => '姓名' %>  
+	<%= form.input :email,:label => 'Email' %>  
+	<%= form.input :phone_number,:label => '手机' %> 
+	<%= form.input :desc,:label => '个人介绍',:required => false %>
+	<br />
+	<%= form.buttons %>   
+<% end -%>

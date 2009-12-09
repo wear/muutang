@@ -1,6 +1,7 @@
 <% content_for :header do -%> 
 <%= include_tiny_mce_if_needed %> 
-<% end %>        
+<% end %>
+        
 <%= f.input :title,:label => '标题',:input_html => { :class => 'title'} %>      
 <%= f.input :body,:label => '内容',:input_html =>{:class => "mceEditor"} %> 
 <%= f.input :category_id,:collection => Category.ordered,:label => '请选择合适的分类' %>   

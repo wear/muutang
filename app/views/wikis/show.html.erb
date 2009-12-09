@@ -1,0 +1,32 @@
+<% content_for :header do -%>  
+	<script type="text/javascript" charset="utf-8">       
+	 $(document).ready(function() {
+		$('#tabs').tabs({spinner:'载入中...',selected:1});
+	 });      
+	
+	</script>               
+<% end -%> 
+
+<div style='text-align:right;' id='btn'>
+	<%=pretty_button '新建页面',new_page_wiki_path,:id => 'big-btn' %>
+</div> 
+
+<div id="tabs" >
+  <ul> 
+	  <li><a href='#tabs-content'>目录</a></li>
+	  <li><%=link_to @page.pretty_title,page_wiki_path(:page => @page.title) %></li>
+		<% (@group.wiki.pages - @page.to_a).each do |page| -%>
+			<li><%=link_to page.title,page_wiki_path(:page => page.title) %></li>
+		<% end -%>
+  </ul> 
+	 <div id="tabs-content">  
+        <h3>目录</h3>
+		<ul>
+		<% @group.wiki.pages.each do |page| -%>
+			<li><%=link_to page.title,page_wiki_path(:page => page.title) %></li>
+		<% end -%>
+		</ul>
+	</div>
+</div>
+
+

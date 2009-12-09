@@ -5,7 +5,7 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title><%= '亩塘 | ' + 'Shanghaionrails' %></title>
 	<%= auto_discovery_link_tag(:rss, posts_url(:format => 'rss')) %>
-    <%= render :partial => 'shared/scripts_and_tags' %> 
+    <%= render :partial => 'shared/scripts_and_tags' %>
 </head>
 <body>
 	<div id="container">
@@ -22,7 +22,8 @@
 					<%=topnav_tab "讨论区(#{Post.count}/#{Comment.count})",:url => posts_path,:section => 'bbs' %>
 					<%=topnav_tab "阅读推荐(#{Recommand.count})",:url => recommands_path,:section => 'recommands' %>
 					<%=topnav_tab "工作机会(#{Job.visible.count})",:url => jobs_path,:section => 'jobs' %>
-					<%#=topnav_tab "活动(#{Event.opened.count})",:url => events_path,:section => 'events' %>
+					<%#=topnav_tab "活动(#{Event.opened.count})",:url => events_path,:section => 'events' %> 
+					<%#=topnav_tab "页面",:url =>  page_wiki_path(:page => 'wiki'),:section => 'wikis' %> 
 					<div style="clear: both;display: block"> </div> 
 				 </ul>      
 		 	</div>        

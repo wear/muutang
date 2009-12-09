@@ -1,2 +1,33 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<h1><%=h @event.name %></h1>
+<p>
+<%=h @event.address %><br />
+<%=@event.start_at%> - <%=@event.stop_at%>
+</p>
+<p><%=truncate_html(@event.desc, :length => 80, :omission => '...(continued)')    %> </p> 
+<% if @event.state == 'pending'%>                 
+<div class='center-btn'>
+  <%=pretty_button '预览',preview_event_path(@event),:target => '_blank',:id => 'big-btn'%> <%=pretty_button '发布',open_event_path(@event),:method => :put,:id => 'big-btn'%>       
+</div>      
+<% end -%>                      
+              
+<table border="0" cellspacing="5" cellpadding="5">
+<thead>
+	<tr>
+		<th>姓名</th>
+		<th>Email</th>
+		<th>手机</th>
+		<th>个人介绍</th>
+	</tr>
+</thead>
+<tbody>      
+	<% @event.forms.each do |a| %>
+		<tr>
+			<td><%=h a.name %></td>
+			<td><%=h a.email %></td>
+			<td><%=h a.phone_number %></td>
+			<td><%=h a.desc %></td>
+		</tr>      
+	<% end %>
+</tbody>
+</table>
+

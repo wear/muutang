@@ -1,0 +1,8 @@
+<% content_for :header do -%> 
+<%= include_tiny_mce_if_needed %> 
+<% end %>
+
+<%= f.input :version,:as => :hidden %>
+
+<%= f.input :text,:label => '内容',:as => :text,:input_html => { :class => 'mceEditor' }%>
+

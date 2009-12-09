@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   
   def ajax?
     redirect_to(root_path)  unless request.xhr? 
-  end 
+  end        
 
   
 end

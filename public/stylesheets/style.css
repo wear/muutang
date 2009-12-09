@@ -111,7 +111,7 @@ h2{
 	padding:10px;
 	margin:5px;
 	border-bottom:1px solid #DDDDDD;
-}
+} 
 
 h2 a{  
 	font-size:1.4em;    
@@ -128,7 +128,12 @@ h3{
 	border-bottom:1px solid #DDDDDD;
 }
 
-ul li{list-style:none;}                 
+ul li{list-style:none;}    
+
+#flash-message{
+	position: absolute; 
+	top:-3px; left:40%;
+}             
 
 #container{
 	width:986px;
@@ -511,3 +516,147 @@ p.post-content              { font-size:10px; line-height:17px; padding-bottom:0
 	color:red;font-size:18px;
 }
 
+
+.center-btn{
+	text-align:center;border-top: 2px solid #ddd;padding:10px
+}
+
+/* --- table ----*/
+
+/*---- group -------*/  
+
+table{
+	margin:5px;
+	border-collapse: collapse;
+	table-layout:automatic;
+	width:98%;
+}
+td, th{
+	padding: 2px 6px;
+} 
+thead{
+	background:#d9eaed;
+}
+
+th a{
+  padding-left:15px;  
+}                   
+.sorting{background:transparent url(/images/bg/sorter.gif) no-repeat -5px 2px;} 
+.asc{background:transparent url(/images/bg/222222_7x7_arrow_up.gif) no-repeat left 2px;}   
+.desc{background:transparent url(/images/bg/222222_7x7_arrow_down.gif) no-repeat left 2px;}
+
+/* --- wiki ---*/
+/*-----icon------*/  
+.icon {
+background-position: 0% 40%;
+background-repeat: no-repeat;
+padding-left: 20px;
+padding-top: 2px;
+padding-bottom: 3px;
+}
+
+
+.icon-add { background-image: url(/images/icons/add.png); }
+.icon-edit { background-image: url(/images/icons/edit.png); }
+.icon-copy { background-image: url(/images/icons/copy.png); }
+.icon-del { background-image: url(/images/icons/delete.png); }
+.icon-move { background-image: url(/images/icons/move.png); }
+.icon-save { background-image: url(/images/icons/save.png); }
+.icon-cancel { background-image: url(/images/icons/cancel.png); }
+.icon-file { background-image: url(/images/icons/file.png); }
+.icon-folder { background-image: url(/images/icons/folder.png); }
+.open .icon-folder { background-image: url(/images/icons/folder_open.png); }
+.icon-package { background-image: url(/images/icons/package.png); }
+.icon-home { background-image: url(/images/icons/home.png); }
+.icon-user { background-image: url(/images/icons/user.png); }
+.icon-mypage { background-image: url(/images/icons/user_page.png); }
+.icon-admin { background-image: url(/images/icons/admin.png); }
+.icon-projects { background-image: url(/images/icons/projects.png); }
+.icon-help { background-image: url(/images/icons/help.png); }
+.icon-attachment  { background-image: url(/images/icons/attachment.png); }
+.icon-index  { background-image: url(/images/icons/index.png); }
+.icon-history  { background-image: url(/images/icons/history.png); }
+.icon-time  { background-image: url(/images/icons/time.png); }
+.icon-time-add  { background-image: url(/images/icons/time_add.png); }
+.icon-stats  { background-image: url(/images/icons/stats.png); }
+.icon-warning  { background-image: url(/images/icons/warning.png); }
+.icon-fav  { background-image: url(/images/icons/fav.png); }
+.icon-fav-off  { background-image: url(/images/icons/fav_off.png); }
+.icon-reload  { background-image: url(/images/icons/reload.png); }
+.icon-lock  { background-image: url(/images/icons/locked.png); }
+.icon-unlock  { background-image: url(/images/icons/unlock.png); }
+.icon-checked  { background-image: url(/images/icons/true.png); }
+.icon-details  { background-image: url(/images/icons/zoom_in.png); }
+.icon-report  { background-image: url(/images/icons/report.png); }
+.icon-comment  { background-image: url(/images/icons/comment.png); }
+
+/***** Diff *****/
+.diff_out { background: #fcc; }
+.diff_in { background: #cfc; }
+
+/***** Wiki *****/ 
+div.wiki table {
+    border: 1px solid #505050;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+div.wiki table, div.wiki td, div.wiki th {
+    border: 1px solid #bbb;
+    padding: 4px;
+}
+
+div.wiki .external {
+    background-position: 0% 60%;
+    background-repeat: no-repeat;
+    padding-left: 12px;
+    background-image: url(/images/external.png);
+}
+
+div.wiki a.new {
+    color: #b73535;
+}
+
+div.wiki pre {
+    margin: 1em 1em 1em 1.6em;
+    padding: 2px;
+    background-color: #fafafa;
+    border: 1px solid #dadada;
+    width:95%;
+    overflow-x: auto;
+}
+
+div.wiki ul.toc {
+    background-color: #ffffdd;
+    border: 1px solid #e4e4e4;
+    padding: 4px;
+    line-height: 1.2em;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    margin-left: 0;
+    display: table
+}
+* html div.wiki ul.toc { width: 50%; } /* IE6 doesn't autosize div */
+
+div.wiki ul.toc.right { float: right; margin-left: 12px; margin-right: 0; width: auto; }
+div.wiki ul.toc.left  { float: left; margin-right: 12px; margin-left: 0; width: auto; }
+div.wiki ul.toc li { list-style-type:none;}
+div.wiki ul.toc li.heading2 { margin-left: 6px; }
+div.wiki ul.toc li.heading3 { margin-left: 12px; font-size: 0.8em; }
+
+div.wiki ul.toc a {
+    font-size: 0.9em;
+    font-weight: normal;
+    text-decoration: none;
+    color: #606060;
+}
+div.wiki ul.toc a:hover { color: #c61a1a; text-decoration: underline;}
+
+a.wiki-anchor { display: none; margin-left: 6px; text-decoration: none; }
+a.wiki-anchor:hover { color: #aaa !important; text-decoration: none; }
+h1:hover a.wiki-anchor, h2:hover a.wiki-anchor, h3:hover a.wiki-anchor { display: inline; color: #ddd; }
+ 
+#preview fieldset {margin-top: 1em; background: url(/images/draft.png)}  
+
+
+html>body #ajax-indicator { position: fixed; }

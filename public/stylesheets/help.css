@@ -1,0 +1,179 @@
+* {
+	padding: 0;
+	margin: 0;
+	line-height: 2em;
+}
+a {
+	font-weight: bold;
+	color: #ff8b8b;
+}
+
+a:hover {
+	text-decoration: none;
+}
+a#register {
+	padding: 4px 8px;
+	text-decoration: none;
+	background-color: #ff8b8b;
+	color: #fff;
+}
+
+a#register:hover {
+	border: 1px solid #ff8b8b;
+	background-color: #fff;
+	color: #ff8b8b;
+}
+
+a#twitter {
+	background: url(images/twitter.png) no-repeat 0;
+	width: 149px;
+	height: 173px;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-indent: -9999px;
+}
+.hidden {
+	display: none;
+} 
+
+
+h2 {
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 5px;
+}
+
+body {
+	font: 14px "HelveticaNeue-Light", "HelveticaNeue", Helvetica, Arial, sans-serif;
+}
+
+div#head {
+	width: 950px;
+	height: 150px;
+	margin: 30px auto 40px;
+	position: relative;
+}
+
+div#wrapper {
+	width: 950px;
+	margin: 30px auto 40px;
+	position: relative;
+}
+
+div#index img {
+	margin: 2px;
+	border: 2px solid #111;
+}
+
+div#index img:hover {
+	border: 2px solid #ddd;
+}	
+	
+div#left {
+	width: 600px;
+	padding: 0 30px 0 0;
+	border-right: 2px solid #ddd;
+	float:left;
+}
+div#left div.section {
+	margin-bottom: 10px;
+}
+div#left li {
+	list-style: none;
+	margin-left: 20px;
+}
+
+div#left p {
+	color: #777;
+}
+
+ul#menu {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 90%;
+	list-style-type: none;
+	font-size: 1.3em;
+}
+
+ul#menu li {
+	display: inline;
+	padding: 10px 0px 5px;
+}
+
+ul#menu, #menu li a {
+	padding: 8px 0 4px;
+	margin: 0 5px;
+	text-decoration: none;	
+}
+
+ul#menu li a:hover {
+	border-bottom: 3px solid #ccc;
+}
+
+ul#menu li a.current, ul#menu li a.current:hover {
+	border-bottom: 3px solid #ff8b8b;
+	color: #000;
+}
+
+div#banner {
+	padding: 10px;
+	margin: 10px 0 10px;
+	background-color: #fff4c1;
+	float: left;
+}
+
+div#banner p {
+	color: #000;
+}
+
+div#banner img {
+	margin: 10px 10px 10px 0;
+	float: left;
+}
+
+div#footer {
+	width: 950px;
+	margin: 30px auto 10px;
+	color: #888;
+}
+
+div#right {
+	width: 318px;
+	float:right;
+}
+
+div#right div.attendant {
+	margin-bottom: 20px;
+	clear: both;
+}
+
+div#right div.attendant span.introduction {
+	color: #777;
+}
+
+div#right div.attendant img {
+	width: 100px;
+	height: 100px;
+	margin: 0 10px 10px 0;
+	float: left;
+}
+
+div#right div.attendant span {
+	display: block;
+}
+
+table#schedule {
+	border-collapse: collapse;
+	width: 100%;
+}
+table#schedule th, table#schedule td {
+	border: 1px solid #ccc;
+	padding: 2px;
+}
+
+table#schedule th {
+	font-weight: bold;
+	background-color: #eee;
+}
